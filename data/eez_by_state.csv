@@ -1,0 +1,151 @@
+group (Marine Regions adjective),zones,area_km2_on_grid,mean_depth_m,deepest_cell_m,deepest_zone,deepest_lon,deepest_lat
+Albanian,1,12039,286,1263,Albanian Exclusive Economic Zone,19.204,40.078
+Algerian,1,130095,2329,3110,Algerian Exclusive Economic Zone,5.933,38.307
+Angolan,1,502411,2661,5128,Angolan Exclusive Economic Zone,8.394,-16.172
+Antiguan and Barbudan,1,113115,4825,7116,Antiguan and Barbudan Exclusive Economic Zone,-61.392,19.021
+Argentinian,1,1071571,764,4687,Argentinian Exclusive Economic Zone,-67.192,-57.445
+Australian,6,9036775,2609,7134,Australian Exclusive Economic Zone (Christmas Island),106.216,-9.232
+Bahamian,1,624440,2804,5750,Bahamian Exclusive Economic Zone,-72.642,24.087
+Bahraini,1,7825,15,69,Bahraini Exclusive Economic Zone,51.108,27.02
+Bangladeshi,1,111008,654,2164,Bangladeshi Exclusive Economic Zone,90.22,17.853
+Barbadian,1,187164,3637,5673,Barbadian Exclusive Economic Zone,-58.14,15.665
+Belgian,1,3355,19,32,Belgian Exclusive Economic Zone,2.417,51.7
+Belizean,1,32632,1684,4068,Belizean Exclusive Economic Zone,-86.792,17.853
+Beninese,1,35483,3127,4236,Beninese Exclusive Economic Zone,2.417,3.119
+Bissau-Guinean,1,108662,2010,4746,Bissau-Guinean Exclusive Economic Zone,-19.819,10.531
+Bosnian and Herzegovinian,1,13,0,0,,,
+Brazilian,2,3720067,2905,6108,Brazilian Exclusive Economic Zone (Trindade),-25.796,-20.509
+British,14,4124435,3274,8071,British Exclusive Economic Zone (Cayman Islands),-79.849,19.187
+Bruneian,1,43153,1400,2742,Bruneian Exclusive Economic Zone,113.862,6.097
+Bulgarian,1,34566,1050,2158,Bulgarian Exclusive Economic Zone,30.454,42.779
+Cambodian,1,48512,43,88,Cambodian Exclusive Economic Zone,102.173,8.972
+Cameroonian,1,14630,161,1439,Cameroonian Exclusive Economic Zone,9.185,2.68
+Canadian,1,5709173,874,5162,Canadian Exclusive Economic Zone,-57.612,41.013
+Cape Verdean,1,812960,4111,5576,Cape Verdean Exclusive Economic Zone,-27.817,13.283
+Chilean,3,3699556,3442,7802,Chilean Exclusive Economic Zone,-71.235,-22.309
+Chinese,1,969082,201,3616,Chinese Exclusive Economic Zone,113.774,17.518
+Colombian,5,731769,2714,4628,Colombian Exclusive Economic Zone,-79.937,3.119
+Comorian,1,164863,3204,3965,Comorian Exclusive Economic Zone,43.198,-8.19
+Congolese (Democratic Republic of),1,13581,1974,3988,Congolese (Democratic Republic of) Exclusive Economic Zone,9.185,-7.057
+Congolese (Republic of),1,34530,1828,3929,Congolese (Republic of) Exclusive Economic Zone,9.097,-6.708
+Costa Rican,1,586737,2512,4904,Costa Rican Exclusive Economic Zone,-87.056,10.704
+Croatian,1,55956,196,1134,Croatian Exclusive Economic Zone,17.798,41.739
+Cuban,1,353249,2456,6969,Cuban Exclusive Economic Zone,-76.421,19.601
+Cypriote,1,98653,1813,2973,Cypriote Exclusive Economic Zone,30.015,33.907
+Danish,3,2613178,1409,5192,Danish Exclusive Economic Zone (Greenland),-52.339,71.371
+Djiboutian,1,7220,449,1180,Djiboutian Exclusive Economic Zone,43.726,11.996
+Dominican,1,28424,3240,5776,Dominican Exclusive Economic Zone,-58.755,16.257
+Dominican (Republic),1,353831,3972,8505,Dominican (Republic) Exclusive Economic Zone,-67.808,19.601
+Dutch,7,142886,1545,5087,Dutch Exclusive Economic Zone (Curaçao),-68.774,13.625
+Ecuadorian,2,1090730,2636,4778,Ecuadorian Exclusive Economic Zone,-81.694,-3.206
+Egyptian,1,242714,1412,3323,Egyptian Exclusive Economic Zone,26.147,32.138
+Emirati,1,51163,32,1104,Emirati Exclusive Economic Zone,57.085,25.125
+Equatorial Guinean,1,308850,3606,5272,Equatorial Guinean Exclusive Economic Zone,3.472,-3.908
+Eritrean,1,79031,157,1275,Eritrean Exclusive Economic Zone,40.825,16.594
+Estonian,1,35819,46,157,Estonian Exclusive Economic Zone,20.522,58.836
+Fijian,1,1304802,2701,5595,Fijian Exclusive Economic Zone,173.628,-22.877
+Finnish,1,83144,41,177,Finnish Exclusive Economic Zone,19.116,60.174
+French,18,9603424,3442,6877,French Exclusive Economic Zone (New Caledonia),168.53,-20.427
+Gabonese,1,201117,2323,4422,Gabonese Exclusive Economic Zone,6.987,-4.609
+Gambian,1,21659,2819,4637,Gambian Exclusive Economic Zone,-20.171,13.112
+Georgian,1,23004,901,2179,Georgian Exclusive Economic Zone,39.507,42.779
+German,1,55871,25,67,German Exclusive Economic Zone,3.384,55.9
+Ghanaian,1,229512,3815,5361,Ghanaian Exclusive Economic Zone,-1.362,2.68
+Greek,1,482985,1777,4788,Greek Exclusive Economic Zone,21.138,36.492
+Grenadian,1,25312,1805,3065,Grenadian Exclusive Economic Zone,-62.974,12.769
+Guatemalan,1,111709,3259,6203,Guatemalan Exclusive Economic Zone,-92.769,13.539
+Guinean,1,103567,1611,4920,Guinean Exclusive Economic Zone,-17.622,8.711
+Guyanese,1,136274,1634,3912,Guyanese Exclusive Economic Zone,-56.997,10.617
+Haitian,1,103114,2764,5179,Haitian Exclusive Economic Zone,-73.257,17.77
+Honduran,1,209395,1935,6075,Honduran Exclusive Economic Zone,-83.101,17.602
+Icelandic,1,758786,1190,3447,Icelandic Exclusive Economic Zone,-5.669,66.0
+Indian,2,2347308,2128,4679,Indian Exclusive Economic Zone,69.565,8.798
+Indonesian,1,6059375,2070,9165,Indonesian Exclusive Economic Zone,127.397,6.097
+Iranian,1,159072,525,3461,Iranian Exclusive Economic Zone,60.952,23.926
+Iraqi,1,1404,7,18,Iraqi Exclusive Economic Zone,48.823,29.573
+Irish,1,429768,1280,4890,Irish Exclusive Economic Zone,-14.106,49.354
+Israeli,1,25925,1129,1984,Israeli Exclusive Economic Zone,33.706,33.468
+Italian,1,536905,1601,4113,Italian Exclusive Economic Zone,18.149,35.996
+Ivorian,1,172817,3684,5362,Ivorian Exclusive Economic Zone,-7.251,1.011
+Jamaican,1,258301,2335,6626,Jamaican Exclusive Economic Zone,-78.882,19.187
+Japanese,1,4089565,3684,9580,Japanese Exclusive Economic Zone,142.954,28.883
+Jordanian,1,72,161,161,Jordanian Exclusive Economic Zone,34.937,29.42
+Kenyan,1,127963,2530,4338,Kenyan Exclusive Economic Zone,44.165,-3.82
+Kiribati,3,3477111,4782,7312,Kiribati Exclusive Economic Zone (Phoenix Group),-168.442,-1.186
+Kittitian and Nevisian,1,9610,923,1674,Kittitian and Nevisian Exclusive Economic Zone,-62.798,16.594
+Kuwaiti,1,11047,17,41,Kuwaiti Exclusive Economic Zone,49.438,28.96
+Latvian,1,27777,67,240,Latvian Exclusive Economic Zone,20.083,57.303
+Lebanese,1,18685,1518,2093,Lebanese Exclusive Economic Zone,34.146,33.834
+Liberian,1,256598,3703,5527,Liberian Exclusive Economic Zone,-8.218,1.099
+Libyan,1,355354,1477,4027,Libyan Exclusive Economic Zone,18.589,35.282
+Lithuanian,1,6543,46,121,Lithuanian Exclusive Economic Zone,19.116,56.048
+Madagascan,1,1199865,3086,5574,Madagascan Exclusive Economic Zone,50.933,-23.039
+Malaysian,1,516956,440,4151,Malaysian Exclusive Economic Zone,119.751,3.382
+Maldivian,1,932366,3249,5411,Maldivian Exclusive Economic Zone,75.542,-2.943
+Maltese,1,52555,784,3792,Maltese Exclusive Economic Zone,16.831,35.353
+Marshallese,1,2022377,4655,6403,Marshallese Exclusive Economic Zone,175.386,6.184
+Mauritanian,1,173287,2072,3511,Mauritanian Exclusive Economic Zone,-19.38,16.426
+Mauritian,2,1944699,3476,5669,Mauritian Exclusive Economic Zone (Chagos Archipelago),73.521,-7.319
+Mexican,1,3203305,2725,6355,Mexican Exclusive Economic Zone,-93.735,14.051
+Micronesian,1,3033614,3952,10264,Micronesian Exclusive Economic Zone,142.251,11.308
+Montenegrin,1,6277,295,1070,Montenegrin Exclusive Economic Zone,18.062,41.607
+Monégasque,1,151,2049,2530,Monégasque Exclusive Economic Zone,7.69,43.165
+Moroccan,1,277810,2196,4698,Moroccan Exclusive Economic Zone,-11.733,34.705
+Mozambican,1,570910,1814,4806,Mozambican Exclusive Economic Zone,37.837,-26.863
+Myanma,1,501502,1045,3145,Myanma Exclusive Economic Zone,92.593,14.477
+Namibian,1,565142,1989,5254,Namibian Exclusive Economic Zone,8.394,-17.853
+Nauruan,1,314837,4177,4734,Nauruan Exclusive Economic Zone,165.103,-2.065
+New Zealand,4,6750559,3347,9604,New Zealand Exclusive Economic Zone,-177.231,-31.84
+Nicaraguan,1,215796,1323,5495,Nicaraguan Exclusive Economic Zone,-88.374,11.652
+Nigerian,1,179165,1796,4308,Nigerian Exclusive Economic Zone,2.944,2.592
+North Korean,1,114559,1611,3606,North Korean Exclusive Economic Zone,132.056,40.413
+Norwegian,3,2007620,1252,5657,Norwegian Exclusive Economic Zone (Svalbard),2.856,79.147
+Omani,1,560148,2760,4277,Omani Exclusive Economic Zone,58.931,15.411
+Overlapping claim Palestinian Exclusive Economic Zone,1,1040,114,343,Overlapping claim Palestinian Exclusive Economic Zone,34.146,31.691
+Pakistani,1,224279,1734,4264,Pakistani Exclusive Economic Zone,62.798,22.391
+Palauan,1,623026,4456,8202,Palauan Exclusive Economic Zone,134.956,7.755
+Panamanian,1,331731,2249,4273,Panamanian Exclusive Economic Zone,-79.497,5.66
+Papua New Guinean,1,2416288,2690,8605,Papua New Guinean Exclusive Economic Zone,153.94,-6.446
+Peruvian,1,863158,3529,7172,Peruvian Exclusive Economic Zone,-74.136,-17.015
+Philippine,1,1977520,3144,9499,Philippine Exclusive Economic Zone,126.87,9.666
+Polish,1,29835,53,113,Polish Exclusive Economic Zone,18.589,55.801
+Portuguese,3,1742362,3432,5904,Portuguese Exclusive Economic Zone (Azores),-24.917,34.053
+Qatari,1,31073,27,73,Qatari Exclusive Economic Zone,51.636,26.942
+Romanian,1,29958,287,1766,Romanian Exclusive Economic Zone,31.333,43.739
+Russian,1,7548002,1044,9245,Russian Exclusive Economic Zone,152.71,45.244
+Saint Lucian,1,15710,1990,2989,Saint Lucian Exclusive Economic Zone,-62.183,13.966
+Saint Vincentian,1,36430,2130,3222,Saint Vincentian Exclusive Economic Zone,-62.446,13.539
+Salvadoran,1,96130,2834,5792,Salvadoran Exclusive Economic Zone,-90.132,12.34
+Samoan,1,130466,4293,7851,Samoan Exclusive Economic Zone,-172.31,-15.411
+Saudi Arabian,1,223084,419,2135,Saudi Arabian Exclusive Economic Zone,36.167,25.364
+Senegalese,1,158457,2959,4899,Senegalese Exclusive Economic Zone,-20.171,11.91
+Seychellois,1,1359053,3710,5534,Seychellois Exclusive Economic Zone,53.13,-2.153
+Sierra Leonean,1,162490,3530,4989,Sierra Leonean Exclusive Economic Zone,-15.864,5.922
+Singaporean,1,811,2,7,Singaporean Exclusive Economic Zone,103.667,1.186
+Slovenian,1,141,8,15,Slovenian Exclusive Economic Zone,13.579,45.553
+Solomon Islands,1,1615405,3111,8273,Solomon Islands Exclusive Economic Zone,165.63,-11.652
+Somali,1,828283,3174,5424,Somali Exclusive Economic Zone,52.954,8.364
+South African,2,1559255,2831,5596,South African Exclusive Economic Zone (Prince Edward Islands),33.53,-46.83
+South Korean,1,348358,688,3275,South Korean Exclusive Economic Zone,131.089,38.788
+Spanish,2,1012216,3020,5419,Spanish Exclusive Economic Zone,-12.964,42.65
+Sri Lankan,1,539554,3494,4450,Sri Lankan Exclusive Economic Zone,80.728,2.592
+Sudanese,1,63391,655,2506,Sudanese Exclusive Economic Zone,38.716,19.601
+Surinamese,1,134944,1213,4833,Surinamese Exclusive Economic Zone,-52.866,8.798
+Swedish,1,157406,65,511,Swedish Exclusive Economic Zone,10.151,58.425
+Syrian,1,10144,955,1766,Syrian Exclusive Economic Zone,35.464,34.778
+São Toméan,1,132015,2972,4372,São Toméan Exclusive Economic Zone,3.208,0.923
+Tanzanian,1,242426,2443,4088,Tanzanian Exclusive Economic Zone,43.198,-4.784
+Thailand,1,299815,174,2533,Thailand Exclusive Economic Zone,95.669,9.579
+Timorese,2,77206,908,3738,Timorese Exclusive Economic Zone (Oecusse),124.321,-8.885
+Togolese,1,15677,3259,4362,Togolese Exclusive Economic Zone,2.153,2.943
+Tongan,1,669531,3431,10467,Tongan Exclusive Economic Zone,-174.683,-23.12
+Trinidadian and Tobagonian,1,77193,1122,3997,Trinidadian and Tobagonian Exclusive Economic Zone,-57.261,10.963
+Tunisian,1,99193,246,2733,Tunisian Exclusive Economic Zone,7.954,37.962
+Turkish,1,259553,1436,4465,Turkish Exclusive Economic Zone,28.784,35.925
+Tuvaluan,1,759380,4724,6489,Tuvaluan Exclusive Economic Zone,-178.726,-5.31
+United States,12,11798471,3321,9990,United States Exclusive Economic Zone (Guam),144.536,11.996
+Uruguayan,1,143502,1342,4362,Uruguayan Exclusive Economic Zone,-50.669,-36.633
+Vanuatuan,1,628155,2935,8253,Vanuatuan Exclusive Economic Zone,165.894,-12.426
+Venezuelan,1,471311,2373,5114,Venezuelan Exclusive Economic Zone,-67.983,14.307
+Vietnamese,1,756644,939,4361,Vietnamese Exclusive Economic Zone,111.753,12.254
+Yemeni,1,531526,2363,5537,Yemeni Exclusive Economic Zone,56.206,10.617

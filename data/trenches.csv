@@ -1,0 +1,15 @@
+trench,deepest_point,ocean,published_depth_m,published_uncertainty_m,source,point_lon,point_lat,point_is_published,deepest_grid_cell_m,grid_cell_lon,grid_cell_lat,published_minus_grid_m
+Mariana Trench,Challenger Deep,Pacific,10935,6,"Greenaway, S.F., Sullivan, K.D., Umfress, S.H., Beittel, A.B. and Wagner, K.D.",142.588,11.372,1,10264,142.251,11.308,671
+Tonga Trench,Horizon Deep,Pacific,10816,16,"Bongiovanni, C., Stewart, H.A. and Jamieson, A.J.",-174.683,-23.12,0,10467,-174.683,-23.12,349
+Philippine Trench,Emden Deep,Pacific,10540,,Wikipedia contributors,126.87,9.666,0,9499,126.87,9.666,1041
+Kermadec Trench,Scholl Deep,Pacific,10047,,Wikipedia contributors,-177.231,-31.84,0,9604,-177.231,-31.84,443
+Izu-Ogasawara (Bonin) Trench,deepest point,Pacific,9810,,Wikipedia contributors,142.954,28.883,0,9580,142.954,28.883,230
+Kuril-Kamchatka Trench,deepest point,Pacific,9604,,Wikipedia contributors,152.71,45.244,0,9245,152.71,45.244,359
+Japan Trench,deepest point,Pacific,8412,,Wikipedia contributors,142.778,36.067,0,8047,142.778,36.067,365
+Puerto Rico Trench,Brownson Deep,Atlantic,8378,,"Bongiovanni, C., Stewart, H.A. and Jamieson, A.J.",-67.311,19.712,1,8505,-67.808,19.601,-127
+South Sandwich Trench,Meteor Deep,Atlantic,8265,13,"Bongiovanni, C., Stewart, H.A. and Jamieson, A.J.",-26.323,-55.254,0,8095,-26.323,-55.254,170
+Peru-Chile (Atacama) Trench,Richards Deep,Pacific,8055,,Wikipedia contributors,-71.235,-22.309,0,7802,-71.235,-22.309,253
+Cayman Trough,deepest point,Atlantic,7686,,Wikipedia contributors,-79.849,19.187,0,8071,-79.849,19.187,-385
+"South Sandwich Trench, south of 60° S",Factorian Deep,Southern,7432,,"Bongiovanni, C., Stewart, H.A. and Jamieson, A.J.",-25.542,-60.479,1,6861,-24.653,-60.087,571
+Java (Sunda) Trench,deepest point,Indian,7187,,"Bongiovanni, C., Stewart, H.A. and Jamieson, A.J.",114.942,-11.129,1,7360,110.435,-10.272,-173
+"Molloy Hole, Fram Strait",Molloy Hole,Arctic,5551,,"Bongiovanni, C., Stewart, H.A. and Jamieson, A.J.",2.706,79.194,1,5657,2.856,79.147,-106

@@ -1,0 +1,2874 @@
+{
+ "meta": {
+  "slug": "ocean-depth",
+  "page": "https://maps.tristanhotham.com/ocean-depth/",
+  "repo": "https://github.com/Tristan-Hotham/ocean-depth",
+  "tiles": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"
+ },
+ "grid": {
+  "px": 4096,
+  "km_equator": 9.8,
+  "km_60": 4.9,
+  "n_spikes": 13,
+  "cap_km2": 938417,
+  "cap_m": 0.94
+ },
+ "ocean": {
+  "area": 362911373,
+  "area_m": 362.9,
+  "earth_share": 0.7115,
+  "mean": 3675,
+  "median": 4089,
+  "max": 10467,
+  "max_lat": -23.12,
+  "max_lon": -174.683,
+  "volume_bn": 1.33,
+  "shelf": 0.0767,
+  "slope": 0.1727,
+  "abyssal": 0.7406,
+  "hadal": 0.01,
+  "deeper": {
+   "1000": 0.8805,
+   "2000": 0.8365,
+   "3000": 0.7506,
+   "4000": 0.5265,
+   "5000": 0.2092,
+   "6000": 0.01,
+   "7000": 0.0012,
+   "8000": 0.0004,
+   "9000": 0.0001,
+   "10000": 0.0
+  },
+  "shelf_earth": 0.0546,
+  "abyssal_earth": 0.5269,
+  "hadal_earth": 0.00712,
+  "hadal_km2": 3632872,
+  "deeper3000_earth": 0.534
+ },
+ "bands": [
+  {
+   "lo": 0,
+   "hi": 200,
+   "share": 0.0767,
+   "earth": 0.0546,
+   "km2": 27825408
+  },
+  {
+   "lo": 200,
+   "hi": 1000,
+   "share": 0.0429,
+   "earth": 0.0305,
+   "km2": 15558687
+  },
+  {
+   "lo": 1000,
+   "hi": 2000,
+   "share": 0.044,
+   "earth": 0.0313,
+   "km2": 15969056
+  },
+  {
+   "lo": 2000,
+   "hi": 3000,
+   "share": 0.0859,
+   "earth": 0.0611,
+   "km2": 31161245
+  },
+  {
+   "lo": 3000,
+   "hi": 4000,
+   "share": 0.2241,
+   "earth": 0.1595,
+   "km2": 81333444
+  },
+  {
+   "lo": 4000,
+   "hi": 5000,
+   "share": 0.3173,
+   "earth": 0.2257,
+   "km2": 115142030
+  },
+  {
+   "lo": 5000,
+   "hi": 6000,
+   "share": 0.1992,
+   "earth": 0.1417,
+   "km2": 72288630
+  },
+  {
+   "lo": 6000,
+   "hi": 7000,
+   "share": 0.0088,
+   "earth": 0.0062,
+   "km2": 3180560
+  },
+  {
+   "lo": 7000,
+   "hi": null,
+   "share": 0.0012,
+   "earth": 0.0009,
+   "km2": 452313
+  }
+ ],
+ "oceans": [
+  {
+   "name": "Pacific",
+   "area_m": 170.2,
+   "share": 0.4689,
+   "mean": 3943,
+   "median": 4256,
+   "max": 10467,
+   "max_lat": -23.12,
+   "max_lon": -174.683,
+   "shelf": 0.0555,
+   "hadal": 0.0165,
+   "abyssal": 0.792,
+   "pub_name": "Challenger Deep",
+   "pub_trench": "Mariana Trench",
+   "pub": 10935,
+   "pub_src": "greenaway"
+  },
+  {
+   "name": "Atlantic",
+   "area_m": 86.3,
+   "share": 0.2377,
+   "mean": 3606,
+   "median": 4069,
+   "max": 8505,
+   "max_lat": 19.601,
+   "max_lon": -67.808,
+   "shelf": 0.0867,
+   "hadal": 0.0062,
+   "abyssal": 0.7221,
+   "pub_name": "Brownson Deep",
+   "pub_trench": "Puerto Rico Trench",
+   "pub": 8378,
+   "pub_src": "bongiovanni"
+  },
+  {
+   "name": "Indian",
+   "area_m": 69.9,
+   "share": 0.1925,
+   "mean": 3775,
+   "median": 4091,
+   "max": 7683,
+   "max_lat": -20.262,
+   "max_lon": 100.591,
+   "shelf": 0.0448,
+   "hadal": 0.0043,
+   "abyssal": 0.7819,
+   "pub_name": "deepest point",
+   "pub_trench": "Java (Sunda) Trench",
+   "pub": 7187,
+   "pub_src": "bongiovanni"
+  },
+  {
+   "name": "Southern",
+   "area_m": 21.9,
+   "share": 0.0602,
+   "mean": 3213,
+   "median": 3805,
+   "max": 6861,
+   "max_lat": -60.087,
+   "max_lon": -24.653,
+   "shelf": 0.0873,
+   "hadal": 0.0001,
+   "abyssal": 0.6604,
+   "pub_name": "Factorian Deep",
+   "pub_trench": "South Sandwich Trench, south of 60° S",
+   "pub": 7432,
+   "pub_src": "bongiovanni"
+  },
+  {
+   "name": "Arctic",
+   "area_m": 14.7,
+   "share": 0.0406,
+   "mean": 1205,
+   "median": 325,
+   "max": 5657,
+   "max_lat": 79.147,
+   "max_lon": 2.856,
+   "shelf": 0.3976,
+   "hadal": 0.0,
+   "abyssal": 0.1779,
+   "pub_name": "Molloy Hole",
+   "pub_trench": "Molloy Hole, Fram Strait",
+   "pub": 5551,
+   "pub_src": "bongiovanni"
+  }
+ ],
+ "oc": {
+  "Pacific": {
+   "name": "Pacific",
+   "area_m": 170.2,
+   "share": 0.4689,
+   "mean": 3943,
+   "median": 4256,
+   "max": 10467,
+   "max_lat": -23.12,
+   "max_lon": -174.683,
+   "shelf": 0.0555,
+   "hadal": 0.0165,
+   "abyssal": 0.792,
+   "pub_name": "Challenger Deep",
+   "pub_trench": "Mariana Trench",
+   "pub": 10935,
+   "pub_src": "greenaway"
+  },
+  "Atlantic": {
+   "name": "Atlantic",
+   "area_m": 86.3,
+   "share": 0.2377,
+   "mean": 3606,
+   "median": 4069,
+   "max": 8505,
+   "max_lat": 19.601,
+   "max_lon": -67.808,
+   "shelf": 0.0867,
+   "hadal": 0.0062,
+   "abyssal": 0.7221,
+   "pub_name": "Brownson Deep",
+   "pub_trench": "Puerto Rico Trench",
+   "pub": 8378,
+   "pub_src": "bongiovanni"
+  },
+  "Indian": {
+   "name": "Indian",
+   "area_m": 69.9,
+   "share": 0.1925,
+   "mean": 3775,
+   "median": 4091,
+   "max": 7683,
+   "max_lat": -20.262,
+   "max_lon": 100.591,
+   "shelf": 0.0448,
+   "hadal": 0.0043,
+   "abyssal": 0.7819,
+   "pub_name": "deepest point",
+   "pub_trench": "Java (Sunda) Trench",
+   "pub": 7187,
+   "pub_src": "bongiovanni"
+  },
+  "Southern": {
+   "name": "Southern",
+   "area_m": 21.9,
+   "share": 0.0602,
+   "mean": 3213,
+   "median": 3805,
+   "max": 6861,
+   "max_lat": -60.087,
+   "max_lon": -24.653,
+   "shelf": 0.0873,
+   "hadal": 0.0001,
+   "abyssal": 0.6604,
+   "pub_name": "Factorian Deep",
+   "pub_trench": "South Sandwich Trench, south of 60° S",
+   "pub": 7432,
+   "pub_src": "bongiovanni"
+  },
+  "Arctic": {
+   "name": "Arctic",
+   "area_m": 14.7,
+   "share": 0.0406,
+   "mean": 1205,
+   "median": 325,
+   "max": 5657,
+   "max_lat": 79.147,
+   "max_lon": 2.856,
+   "shelf": 0.3976,
+   "hadal": 0.0,
+   "abyssal": 0.1779,
+   "pub_name": "Molloy Hole",
+   "pub_trench": "Molloy Hole, Fram Strait",
+   "pub": 5551,
+   "pub_src": "bongiovanni"
+  }
+ },
+ "earth": {
+  "mean": -2384,
+  "land_mean": 801,
+  "hist": [
+   [
+    -11000,
+    0.0
+   ],
+   [
+    -10750,
+    0.0
+   ],
+   [
+    -10500,
+    0.0
+   ],
+   [
+    -10250,
+    0.0
+   ],
+   [
+    -10000,
+    0.0
+   ],
+   [
+    -9750,
+    0.0
+   ],
+   [
+    -9500,
+    1e-05
+   ],
+   [
+    -9250,
+    3e-05
+   ],
+   [
+    -9000,
+    4e-05
+   ],
+   [
+    -8750,
+    5e-05
+   ],
+   [
+    -8500,
+    6e-05
+   ],
+   [
+    -8250,
+    7e-05
+   ],
+   [
+    -8000,
+    9e-05
+   ],
+   [
+    -7750,
+    0.00011
+   ],
+   [
+    -7500,
+    0.00017
+   ],
+   [
+    -7250,
+    0.00023
+   ],
+   [
+    -7000,
+    0.00029
+   ],
+   [
+    -6750,
+    0.0004
+   ],
+   [
+    -6500,
+    0.00087
+   ],
+   [
+    -6250,
+    0.00465
+   ],
+   [
+    -6000,
+    0.01483
+   ],
+   [
+    -5750,
+    0.02834
+   ],
+   [
+    -5500,
+    0.04406
+   ],
+   [
+    -5250,
+    0.0543
+   ],
+   [
+    -5000,
+    0.05488
+   ],
+   [
+    -4750,
+    0.05638
+   ],
+   [
+    -4500,
+    0.05988
+   ],
+   [
+    -4250,
+    0.0546
+   ],
+   [
+    -4000,
+    0.04981
+   ],
+   [
+    -3750,
+    0.04446
+   ],
+   [
+    -3500,
+    0.0367
+   ],
+   [
+    -3250,
+    0.02865
+   ],
+   [
+    -3000,
+    0.02167
+   ],
+   [
+    -2750,
+    0.01623
+   ],
+   [
+    -2500,
+    0.01255
+   ],
+   [
+    -2250,
+    0.0107
+   ],
+   [
+    -2000,
+    0.00922
+   ],
+   [
+    -1750,
+    0.00798
+   ],
+   [
+    -1500,
+    0.00739
+   ],
+   [
+    -1250,
+    0.00674
+   ],
+   [
+    -1000,
+    0.00637
+   ],
+   [
+    -750,
+    0.00797
+   ],
+   [
+    -500,
+    0.01273
+   ],
+   [
+    -250,
+    0.05266
+   ],
+   [
+    0,
+    0.09982
+   ],
+   [
+    250,
+    0.06523
+   ],
+   [
+    500,
+    0.03298
+   ],
+   [
+    750,
+    0.02065
+   ],
+   [
+    1000,
+    0.01807
+   ],
+   [
+    1250,
+    0.01189
+   ],
+   [
+    1500,
+    0.00781
+   ],
+   [
+    1750,
+    0.00584
+   ],
+   [
+    2000,
+    0.00494
+   ],
+   [
+    2250,
+    0.00435
+   ],
+   [
+    2500,
+    0.00397
+   ],
+   [
+    2750,
+    0.00355
+   ],
+   [
+    3000,
+    0.0034
+   ],
+   [
+    3250,
+    0.00246
+   ],
+   [
+    3500,
+    0.00239
+   ],
+   [
+    3750,
+    0.0013
+   ],
+   [
+    4000,
+    0.00083
+   ],
+   [
+    4250,
+    0.00086
+   ],
+   [
+    4500,
+    0.00102
+   ],
+   [
+    4750,
+    0.00105
+   ],
+   [
+    5000,
+    0.00081
+   ],
+   [
+    5250,
+    0.00037
+   ],
+   [
+    5500,
+    0.00016
+   ],
+   [
+    5750,
+    4e-05
+   ],
+   [
+    6000,
+    1e-05
+   ],
+   [
+    6250,
+    0.0
+   ],
+   [
+    6500,
+    0.0
+   ],
+   [
+    6750,
+    0.0
+   ],
+   [
+    7000,
+    0.0
+   ],
+   [
+    7250,
+    0.0
+   ],
+   [
+    7500,
+    0.0
+   ],
+   [
+    7750,
+    0.0
+   ],
+   [
+    8000,
+    0.0
+   ],
+   [
+    8250,
+    0.0
+   ],
+   [
+    8500,
+    0.0
+   ],
+   [
+    8750,
+    0.0
+   ]
+  ],
+  "km2_m": 510.1,
+  "land_share": 0.2885,
+  "peak_deep": [
+   -4500,
+   -4250,
+   0.0599
+  ],
+  "peak_high": [
+   0,
+   250,
+   0.0998
+  ]
+ },
+ "curve": [
+  [
+   0,
+   1.0
+  ],
+  [
+   100,
+   0.94109
+  ],
+  [
+   200,
+   0.92333
+  ],
+  [
+   300,
+   0.91374
+  ],
+  [
+   400,
+   0.90645
+  ],
+  [
+   500,
+   0.90045
+  ],
+  [
+   600,
+   0.89537
+  ],
+  [
+   700,
+   0.89121
+  ],
+  [
+   800,
+   0.88753
+  ],
+  [
+   900,
+   0.88397
+  ],
+  [
+   1000,
+   0.88046
+  ],
+  [
+   1100,
+   0.87682
+  ],
+  [
+   1200,
+   0.87295
+  ],
+  [
+   1300,
+   0.86898
+  ],
+  [
+   1400,
+   0.8648
+  ],
+  [
+   1500,
+   0.86061
+  ],
+  [
+   1600,
+   0.85632
+  ],
+  [
+   1700,
+   0.85177
+  ],
+  [
+   1800,
+   0.84693
+  ],
+  [
+   1900,
+   0.84181
+  ],
+  [
+   2000,
+   0.83645
+  ],
+  [
+   2100,
+   0.83079
+  ],
+  [
+   2200,
+   0.82467
+  ],
+  [
+   2300,
+   0.8182
+  ],
+  [
+   2400,
+   0.81132
+  ],
+  [
+   2500,
+   0.8038
+  ],
+  [
+   2600,
+   0.79558
+  ],
+  [
+   2700,
+   0.78624
+  ],
+  [
+   2800,
+   0.77539
+  ],
+  [
+   2900,
+   0.76344
+  ],
+  [
+   3000,
+   0.75059
+  ],
+  [
+   3100,
+   0.73616
+  ],
+  [
+   3200,
+   0.71957
+  ],
+  [
+   3300,
+   0.70094
+  ],
+  [
+   3400,
+   0.68071
+  ],
+  [
+   3500,
+   0.65885
+  ],
+  [
+   3600,
+   0.635
+  ],
+  [
+   3700,
+   0.6096
+  ],
+  [
+   3800,
+   0.58276
+  ],
+  [
+   3900,
+   0.55506
+  ],
+  [
+   4000,
+   0.52647
+  ],
+  [
+   4100,
+   0.49686
+  ],
+  [
+   4200,
+   0.46589
+  ],
+  [
+   4300,
+   0.43306
+  ],
+  [
+   4400,
+   0.39913
+  ],
+  [
+   4500,
+   0.36557
+  ],
+  [
+   4600,
+   0.33308
+  ],
+  [
+   4700,
+   0.30155
+  ],
+  [
+   4800,
+   0.27118
+  ],
+  [
+   4900,
+   0.2406
+  ],
+  [
+   5000,
+   0.2092
+  ],
+  [
+   5100,
+   0.17782
+  ],
+  [
+   5200,
+   0.14719
+  ],
+  [
+   5300,
+   0.11929
+  ],
+  [
+   5400,
+   0.0936
+  ],
+  [
+   5500,
+   0.07087
+  ],
+  [
+   5600,
+   0.05222
+  ],
+  [
+   5700,
+   0.03711
+  ],
+  [
+   5800,
+   0.02553
+  ],
+  [
+   5900,
+   0.01641
+  ],
+  [
+   6000,
+   0.01001
+  ],
+  [
+   6100,
+   0.00602
+  ],
+  [
+   6200,
+   0.00401
+  ],
+  [
+   6300,
+   0.00304
+  ],
+  [
+   6400,
+   0.00255
+  ],
+  [
+   6500,
+   0.00221
+  ],
+  [
+   6600,
+   0.00196
+  ],
+  [
+   6700,
+   0.00175
+  ],
+  [
+   6800,
+   0.00156
+  ],
+  [
+   6900,
+   0.00139
+  ],
+  [
+   7000,
+   0.00125
+  ],
+  [
+   7100,
+   0.00111
+  ],
+  [
+   7200,
+   0.00098
+  ],
+  [
+   7300,
+   0.00086
+  ],
+  [
+   7400,
+   0.00075
+  ],
+  [
+   7500,
+   0.00068
+  ],
+  [
+   7600,
+   0.00061
+  ],
+  [
+   7700,
+   0.00055
+  ],
+  [
+   7800,
+   0.00049
+  ],
+  [
+   7900,
+   0.00044
+  ],
+  [
+   8000,
+   0.00039
+  ],
+  [
+   8100,
+   0.00034
+  ],
+  [
+   8200,
+   0.00031
+  ],
+  [
+   8300,
+   0.00027
+  ],
+  [
+   8400,
+   0.00024
+  ],
+  [
+   8500,
+   0.00021
+  ],
+  [
+   8600,
+   0.00018
+  ],
+  [
+   8700,
+   0.00016
+  ],
+  [
+   8800,
+   0.00013
+  ],
+  [
+   8900,
+   0.00011
+  ],
+  [
+   9000,
+   8e-05
+  ],
+  [
+   9100,
+   6e-05
+  ],
+  [
+   9200,
+   5e-05
+  ],
+  [
+   9300,
+   3e-05
+  ],
+  [
+   9400,
+   2e-05
+  ],
+  [
+   9500,
+   2e-05
+  ],
+  [
+   9600,
+   1e-05
+  ],
+  [
+   9700,
+   1e-05
+  ],
+  [
+   9800,
+   1e-05
+  ],
+  [
+   9900,
+   1e-05
+  ],
+  [
+   10000,
+   0.0
+  ],
+  [
+   10100,
+   0.0
+  ],
+  [
+   10200,
+   0.0
+  ],
+  [
+   10300,
+   0.0
+  ],
+  [
+   10400,
+   0.0
+  ],
+  [
+   10500,
+   0.0
+  ],
+  [
+   10600,
+   0.0
+  ],
+  [
+   10700,
+   0.0
+  ],
+  [
+   10800,
+   0.0
+  ],
+  [
+   10900,
+   0.0
+  ],
+  [
+   11000,
+   0.0
+  ]
+ ],
+ "trenches": [
+  {
+   "key": "mariana",
+   "name": "Mariana Trench",
+   "deep": "Challenger Deep",
+   "ocean": "Pacific",
+   "published": 10935,
+   "unc": 6,
+   "src": "greenaway",
+   "grid": 10264,
+   "shortfall": 671,
+   "lat": 11.372,
+   "lon": 142.588,
+   "pub_pt": true,
+   "grid_lat": 11.308,
+   "grid_lon": 142.251
+  },
+  {
+   "key": "tonga",
+   "name": "Tonga Trench",
+   "deep": "Horizon Deep",
+   "ocean": "Pacific",
+   "published": 10816,
+   "unc": 16,
+   "src": "bongiovanni",
+   "grid": 10467,
+   "shortfall": 349,
+   "lat": -23.12,
+   "lon": -174.683,
+   "pub_pt": false,
+   "grid_lat": -23.12,
+   "grid_lon": -174.683
+  },
+  {
+   "key": "philippine",
+   "name": "Philippine Trench",
+   "deep": "Emden Deep",
+   "ocean": "Pacific",
+   "published": 10540,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 9499,
+   "shortfall": 1041,
+   "lat": 9.666,
+   "lon": 126.87,
+   "pub_pt": false,
+   "grid_lat": 9.666,
+   "grid_lon": 126.87
+  },
+  {
+   "key": "kermadec",
+   "name": "Kermadec Trench",
+   "deep": "Scholl Deep",
+   "ocean": "Pacific",
+   "published": 10047,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 9604,
+   "shortfall": 443,
+   "lat": -31.84,
+   "lon": -177.231,
+   "pub_pt": false,
+   "grid_lat": -31.84,
+   "grid_lon": -177.231
+  },
+  {
+   "key": "izubonin",
+   "name": "Izu-Ogasawara (Bonin) Trench",
+   "deep": "deepest point",
+   "ocean": "Pacific",
+   "published": 9810,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 9580,
+   "shortfall": 230,
+   "lat": 28.883,
+   "lon": 142.954,
+   "pub_pt": false,
+   "grid_lat": 28.883,
+   "grid_lon": 142.954
+  },
+  {
+   "key": "kuril",
+   "name": "Kuril-Kamchatka Trench",
+   "deep": "deepest point",
+   "ocean": "Pacific",
+   "published": 9604,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 9245,
+   "shortfall": 359,
+   "lat": 45.244,
+   "lon": 152.71,
+   "pub_pt": false,
+   "grid_lat": 45.244,
+   "grid_lon": 152.71
+  },
+  {
+   "key": "japan",
+   "name": "Japan Trench",
+   "deep": "deepest point",
+   "ocean": "Pacific",
+   "published": 8412,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 8047,
+   "shortfall": 365,
+   "lat": 36.067,
+   "lon": 142.778,
+   "pub_pt": false,
+   "grid_lat": 36.067,
+   "grid_lon": 142.778
+  },
+  {
+   "key": "puertorico",
+   "name": "Puerto Rico Trench",
+   "deep": "Brownson Deep",
+   "ocean": "Atlantic",
+   "published": 8378,
+   "unc": null,
+   "src": "bongiovanni",
+   "grid": 8505,
+   "shortfall": -127,
+   "lat": 19.712,
+   "lon": -67.311,
+   "pub_pt": true,
+   "grid_lat": 19.601,
+   "grid_lon": -67.808
+  },
+  {
+   "key": "southsandwich",
+   "name": "South Sandwich Trench",
+   "deep": "Meteor Deep",
+   "ocean": "Atlantic",
+   "published": 8265,
+   "unc": 13,
+   "src": "bongiovanni",
+   "grid": 8095,
+   "shortfall": 170,
+   "lat": -55.254,
+   "lon": -26.323,
+   "pub_pt": false,
+   "grid_lat": -55.254,
+   "grid_lon": -26.323
+  },
+  {
+   "key": "atacama",
+   "name": "Peru-Chile (Atacama) Trench",
+   "deep": "Richards Deep",
+   "ocean": "Pacific",
+   "published": 8055,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 7802,
+   "shortfall": 253,
+   "lat": -22.309,
+   "lon": -71.235,
+   "pub_pt": false,
+   "grid_lat": -22.309,
+   "grid_lon": -71.235
+  },
+  {
+   "key": "cayman",
+   "name": "Cayman Trough",
+   "deep": "deepest point",
+   "ocean": "Atlantic",
+   "published": 7686,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 8071,
+   "shortfall": -385,
+   "lat": 19.187,
+   "lon": -79.849,
+   "pub_pt": false,
+   "grid_lat": 19.187,
+   "grid_lon": -79.849
+  },
+  {
+   "key": "factorian",
+   "name": "South Sandwich Trench, south of 60° S",
+   "deep": "Factorian Deep",
+   "ocean": "Southern",
+   "published": 7432,
+   "unc": null,
+   "src": "bongiovanni",
+   "grid": 6861,
+   "shortfall": 571,
+   "lat": -60.479,
+   "lon": -25.542,
+   "pub_pt": true,
+   "grid_lat": -60.087,
+   "grid_lon": -24.653
+  },
+  {
+   "key": "java",
+   "name": "Java (Sunda) Trench",
+   "deep": "deepest point",
+   "ocean": "Indian",
+   "published": 7187,
+   "unc": null,
+   "src": "bongiovanni",
+   "grid": 7360,
+   "shortfall": -173,
+   "lat": -11.129,
+   "lon": 114.942,
+   "pub_pt": true,
+   "grid_lat": -10.272,
+   "grid_lon": 110.435
+  },
+  {
+   "key": "molloy",
+   "name": "Molloy Hole, Fram Strait",
+   "deep": "Molloy Hole",
+   "ocean": "Arctic",
+   "published": 5551,
+   "unc": null,
+   "src": "bongiovanni",
+   "grid": 5657,
+   "shortfall": -106,
+   "lat": 79.194,
+   "lon": 2.706,
+   "pub_pt": true,
+   "grid_lat": 79.147,
+   "grid_lon": 2.856
+  }
+ ],
+ "tr": {
+  "mariana": {
+   "key": "mariana",
+   "name": "Mariana Trench",
+   "deep": "Challenger Deep",
+   "ocean": "Pacific",
+   "published": 10935,
+   "unc": 6,
+   "src": "greenaway",
+   "grid": 10264,
+   "shortfall": 671,
+   "lat": 11.372,
+   "lon": 142.588,
+   "pub_pt": true,
+   "grid_lat": 11.308,
+   "grid_lon": 142.251
+  },
+  "tonga": {
+   "key": "tonga",
+   "name": "Tonga Trench",
+   "deep": "Horizon Deep",
+   "ocean": "Pacific",
+   "published": 10816,
+   "unc": 16,
+   "src": "bongiovanni",
+   "grid": 10467,
+   "shortfall": 349,
+   "lat": -23.12,
+   "lon": -174.683,
+   "pub_pt": false,
+   "grid_lat": -23.12,
+   "grid_lon": -174.683
+  },
+  "philippine": {
+   "key": "philippine",
+   "name": "Philippine Trench",
+   "deep": "Emden Deep",
+   "ocean": "Pacific",
+   "published": 10540,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 9499,
+   "shortfall": 1041,
+   "lat": 9.666,
+   "lon": 126.87,
+   "pub_pt": false,
+   "grid_lat": 9.666,
+   "grid_lon": 126.87
+  },
+  "kermadec": {
+   "key": "kermadec",
+   "name": "Kermadec Trench",
+   "deep": "Scholl Deep",
+   "ocean": "Pacific",
+   "published": 10047,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 9604,
+   "shortfall": 443,
+   "lat": -31.84,
+   "lon": -177.231,
+   "pub_pt": false,
+   "grid_lat": -31.84,
+   "grid_lon": -177.231
+  },
+  "izubonin": {
+   "key": "izubonin",
+   "name": "Izu-Ogasawara (Bonin) Trench",
+   "deep": "deepest point",
+   "ocean": "Pacific",
+   "published": 9810,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 9580,
+   "shortfall": 230,
+   "lat": 28.883,
+   "lon": 142.954,
+   "pub_pt": false,
+   "grid_lat": 28.883,
+   "grid_lon": 142.954
+  },
+  "kuril": {
+   "key": "kuril",
+   "name": "Kuril-Kamchatka Trench",
+   "deep": "deepest point",
+   "ocean": "Pacific",
+   "published": 9604,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 9245,
+   "shortfall": 359,
+   "lat": 45.244,
+   "lon": 152.71,
+   "pub_pt": false,
+   "grid_lat": 45.244,
+   "grid_lon": 152.71
+  },
+  "japan": {
+   "key": "japan",
+   "name": "Japan Trench",
+   "deep": "deepest point",
+   "ocean": "Pacific",
+   "published": 8412,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 8047,
+   "shortfall": 365,
+   "lat": 36.067,
+   "lon": 142.778,
+   "pub_pt": false,
+   "grid_lat": 36.067,
+   "grid_lon": 142.778
+  },
+  "puertorico": {
+   "key": "puertorico",
+   "name": "Puerto Rico Trench",
+   "deep": "Brownson Deep",
+   "ocean": "Atlantic",
+   "published": 8378,
+   "unc": null,
+   "src": "bongiovanni",
+   "grid": 8505,
+   "shortfall": -127,
+   "lat": 19.712,
+   "lon": -67.311,
+   "pub_pt": true,
+   "grid_lat": 19.601,
+   "grid_lon": -67.808
+  },
+  "southsandwich": {
+   "key": "southsandwich",
+   "name": "South Sandwich Trench",
+   "deep": "Meteor Deep",
+   "ocean": "Atlantic",
+   "published": 8265,
+   "unc": 13,
+   "src": "bongiovanni",
+   "grid": 8095,
+   "shortfall": 170,
+   "lat": -55.254,
+   "lon": -26.323,
+   "pub_pt": false,
+   "grid_lat": -55.254,
+   "grid_lon": -26.323
+  },
+  "atacama": {
+   "key": "atacama",
+   "name": "Peru-Chile (Atacama) Trench",
+   "deep": "Richards Deep",
+   "ocean": "Pacific",
+   "published": 8055,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 7802,
+   "shortfall": 253,
+   "lat": -22.309,
+   "lon": -71.235,
+   "pub_pt": false,
+   "grid_lat": -22.309,
+   "grid_lon": -71.235
+  },
+  "cayman": {
+   "key": "cayman",
+   "name": "Cayman Trough",
+   "deep": "deepest point",
+   "ocean": "Atlantic",
+   "published": 7686,
+   "unc": null,
+   "src": "wptrench",
+   "grid": 8071,
+   "shortfall": -385,
+   "lat": 19.187,
+   "lon": -79.849,
+   "pub_pt": false,
+   "grid_lat": 19.187,
+   "grid_lon": -79.849
+  },
+  "factorian": {
+   "key": "factorian",
+   "name": "South Sandwich Trench, south of 60° S",
+   "deep": "Factorian Deep",
+   "ocean": "Southern",
+   "published": 7432,
+   "unc": null,
+   "src": "bongiovanni",
+   "grid": 6861,
+   "shortfall": 571,
+   "lat": -60.479,
+   "lon": -25.542,
+   "pub_pt": true,
+   "grid_lat": -60.087,
+   "grid_lon": -24.653
+  },
+  "java": {
+   "key": "java",
+   "name": "Java (Sunda) Trench",
+   "deep": "deepest point",
+   "ocean": "Indian",
+   "published": 7187,
+   "unc": null,
+   "src": "bongiovanni",
+   "grid": 7360,
+   "shortfall": -173,
+   "lat": -11.129,
+   "lon": 114.942,
+   "pub_pt": true,
+   "grid_lat": -10.272,
+   "grid_lon": 110.435
+  },
+  "molloy": {
+   "key": "molloy",
+   "name": "Molloy Hole, Fram Strait",
+   "deep": "Molloy Hole",
+   "ocean": "Arctic",
+   "published": 5551,
+   "unc": null,
+   "src": "bongiovanni",
+   "grid": 5657,
+   "shortfall": -106,
+   "lat": 79.194,
+   "lon": 2.706,
+   "pub_pt": true,
+   "grid_lat": 79.147,
+   "grid_lon": 2.856
+  }
+ },
+ "n_trenches": 14,
+ "n_grid_deeper": 4,
+ "grid_deeper_names": [
+  "Puerto Rico Trench",
+  "Cayman Trough",
+  "Java (Sunda) Trench",
+  "Molloy Hole, Fram Strait"
+ ],
+ "mariana": {
+  "published": 10935,
+  "unc": 6,
+  "grid": 10264,
+  "cell_at_point": 9814,
+  "short": 671,
+  "everest": 8849,
+  "above_everest": 2086,
+  "above_everest_grid": 1415,
+  "five_deeps": 10924,
+  "prof_min": 9931,
+  "prof": {
+   "lon": 142.588,
+   "lat0": 14.5,
+   "lat1": 8.0,
+   "step_km": 1,
+   "h": [
+    -3149,
+    -3158,
+    -3168,
+    -3178,
+    -3187,
+    -3197,
+    -3206,
+    -3216,
+    -3225,
+    -3235,
+    -3244,
+    -3254,
+    -3263,
+    -3248,
+    -3234,
+    -3219,
+    -3204,
+    -3190,
+    -3175,
+    -3160,
+    -3146,
+    -3131,
+    -3111,
+    -3086,
+    -3061,
+    -3036,
+    -3012,
+    -2987,
+    -2962,
+    -2937,
+    -2912,
+    -2889,
+    -2896,
+    -2903,
+    -2910,
+    -2917,
+    -2924,
+    -2931,
+    -2938,
+    -2945,
+    -2952,
+    -2958,
+    -2964,
+    -2969,
+    -2975,
+    -2980,
+    -2986,
+    -2992,
+    -2997,
+    -3003,
+    -3005,
+    -2980,
+    -2954,
+    -2929,
+    -2904,
+    -2878,
+    -2853,
+    -2828,
+    -2802,
+    -2777,
+    -2744,
+    -2705,
+    -2667,
+    -2629,
+    -2591,
+    -2553,
+    -2514,
+    -2476,
+    -2438,
+    -2400,
+    -2367,
+    -2333,
+    -2299,
+    -2266,
+    -2232,
+    -2198,
+    -2164,
+    -2131,
+    -2097,
+    -2081,
+    -2075,
+    -2069,
+    -2063,
+    -2057,
+    -2051,
+    -2045,
+    -2039,
+    -2033,
+    -2036,
+    -2086,
+    -2136,
+    -2185,
+    -2235,
+    -2285,
+    -2335,
+    -2385,
+    -2435,
+    -2485,
+    -2533,
+    -2582,
+    -2630,
+    -2678,
+    -2727,
+    -2775,
+    -2823,
+    -2872,
+    -2920,
+    -2960,
+    -2955,
+    -2950,
+    -2944,
+    -2939,
+    -2934,
+    -2929,
+    -2924,
+    -2918,
+    -2913,
+    -2906,
+    -2898,
+    -2890,
+    -2882,
+    -2874,
+    -2866,
+    -2857,
+    -2849,
+    -2841,
+    -2839,
+    -2871,
+    -2903,
+    -2935,
+    -2967,
+    -2999,
+    -3030,
+    -3062,
+    -3094,
+    -3126,
+    -3177,
+    -3238,
+    -3300,
+    -3362,
+    -3423,
+    -3485,
+    -3546,
+    -3608,
+    -3669,
+    -3724,
+    -3729,
+    -3734,
+    -3739,
+    -3744,
+    -3749,
+    -3754,
+    -3759,
+    -3764,
+    -3769,
+    -3740,
+    -3690,
+    -3640,
+    -3590,
+    -3540,
+    -3490,
+    -3440,
+    -3389,
+    -3339,
+    -3293,
+    -3279,
+    -3266,
+    -3253,
+    -3239,
+    -3226,
+    -3213,
+    -3200,
+    -3186,
+    -3173,
+    -3180,
+    -3202,
+    -3224,
+    -3246,
+    -3268,
+    -3290,
+    -3312,
+    -3334,
+    -3356,
+    -3378,
+    -3396,
+    -3414,
+    -3432,
+    -3450,
+    -3469,
+    -3487,
+    -3505,
+    -3523,
+    -3541,
+    -3541,
+    -3524,
+    -3506,
+    -3489,
+    -3471,
+    -3454,
+    -3436,
+    -3419,
+    -3401,
+    -3384,
+    -3369,
+    -3355,
+    -3341,
+    -3326,
+    -3312,
+    -3298,
+    -3283,
+    -3269,
+    -3255,
+    -3258,
+    -3284,
+    -3310,
+    -3336,
+    -3361,
+    -3387,
+    -3413,
+    -3439,
+    -3465,
+    -3491,
+    -3510,
+    -3529,
+    -3548,
+    -3567,
+    -3586,
+    -3605,
+    -3624,
+    -3643,
+    -3662,
+    -3678,
+    -3688,
+    -3697,
+    -3707,
+    -3717,
+    -3727,
+    -3737,
+    -3747,
+    -3757,
+    -3767,
+    -3781,
+    -3795,
+    -3810,
+    -3825,
+    -3839,
+    -3854,
+    -3869,
+    -3883,
+    -3898,
+    -3911,
+    -3919,
+    -3926,
+    -3934,
+    -3942,
+    -3949,
+    -3957,
+    -3964,
+    -3972,
+    -3980,
+    -3974,
+    -3962,
+    -3950,
+    -3938,
+    -3926,
+    -3914,
+    -3903,
+    -3891,
+    -3879,
+    -3865,
+    -3842,
+    -3818,
+    -3794,
+    -3770,
+    -3747,
+    -3723,
+    -3699,
+    -3676,
+    -3652,
+    -3619,
+    -3580,
+    -3541,
+    -3501,
+    -3462,
+    -3423,
+    -3383,
+    -3344,
+    -3305,
+    -3268,
+    -3288,
+    -3308,
+    -3328,
+    -3348,
+    -3368,
+    -3388,
+    -3408,
+    -3428,
+    -3448,
+    -3526,
+    -3671,
+    -3816,
+    -3961,
+    -4106,
+    -4250,
+    -4395,
+    -4540,
+    -4685,
+    -4830,
+    -4984,
+    -5140,
+    -5296,
+    -5451,
+    -5607,
+    -5763,
+    -5918,
+    -6074,
+    -6230,
+    -6370,
+    -6481,
+    -6592,
+    -6703,
+    -6814,
+    -6924,
+    -7035,
+    -7146,
+    -7257,
+    -7367,
+    -7503,
+    -7646,
+    -7789,
+    -7933,
+    -8076,
+    -8219,
+    -8363,
+    -8506,
+    -8649,
+    -8787,
+    -8899,
+    -9011,
+    -9124,
+    -9236,
+    -9348,
+    -9460,
+    -9572,
+    -9684,
+    -9797,
+    -9847,
+    -9857,
+    -9866,
+    -9876,
+    -9885,
+    -9895,
+    -9904,
+    -9913,
+    -9923,
+    -9931,
+    -9835,
+    -9739,
+    -9643,
+    -9547,
+    -9452,
+    -9356,
+    -9260,
+    -9164,
+    -9069,
+    -8960,
+    -8835,
+    -8709,
+    -8584,
+    -8458,
+    -8333,
+    -8207,
+    -8082,
+    -7957,
+    -7831,
+    -7741,
+    -7657,
+    -7572,
+    -7488,
+    -7404,
+    -7320,
+    -7236,
+    -7152,
+    -7068,
+    -6991,
+    -6938,
+    -6884,
+    -6831,
+    -6777,
+    -6723,
+    -6670,
+    -6616,
+    -6563,
+    -6509,
+    -6462,
+    -6417,
+    -6373,
+    -6329,
+    -6284,
+    -6240,
+    -6196,
+    -6152,
+    -6107,
+    -6063,
+    -6021,
+    -5979,
+    -5937,
+    -5896,
+    -5854,
+    -5812,
+    -5770,
+    -5728,
+    -5686,
+    -5650,
+    -5621,
+    -5592,
+    -5563,
+    -5533,
+    -5504,
+    -5475,
+    -5446,
+    -5417,
+    -5388,
+    -5364,
+    -5342,
+    -5320,
+    -5297,
+    -5275,
+    -5252,
+    -5230,
+    -5208,
+    -5185,
+    -5164,
+    -5147,
+    -5130,
+    -5113,
+    -5096,
+    -5078,
+    -5061,
+    -5044,
+    -5027,
+    -5010,
+    -4995,
+    -4983,
+    -4970,
+    -4957,
+    -4945,
+    -4932,
+    -4920,
+    -4907,
+    -4894,
+    -4882,
+    -4870,
+    -4858,
+    -4846,
+    -4835,
+    -4823,
+    -4811,
+    -4799,
+    -4788,
+    -4776,
+    -4766,
+    -4758,
+    -4750,
+    -4742,
+    -4734,
+    -4727,
+    -4719,
+    -4711,
+    -4703,
+    -4695,
+    -4689,
+    -4682,
+    -4676,
+    -4670,
+    -4664,
+    -4658,
+    -4652,
+    -4646,
+    -4640,
+    -4633,
+    -4627,
+    -4620,
+    -4613,
+    -4606,
+    -4600,
+    -4593,
+    -4586,
+    -4580,
+    -4573,
+    -4566,
+    -4559,
+    -4552,
+    -4545,
+    -4538,
+    -4531,
+    -4524,
+    -4517,
+    -4510,
+    -4503,
+    -4502,
+    -4502,
+    -4501,
+    -4500,
+    -4500,
+    -4499,
+    -4499,
+    -4498,
+    -4497,
+    -4497,
+    -4499,
+    -4501,
+    -4503,
+    -4504,
+    -4506,
+    -4508,
+    -4509,
+    -4511,
+    -4513,
+    -4508,
+    -4501,
+    -4494,
+    -4487,
+    -4479,
+    -4472,
+    -4465,
+    -4458,
+    -4451,
+    -4442,
+    -4418,
+    -4393,
+    -4368,
+    -4344,
+    -4319,
+    -4294,
+    -4270,
+    -4245,
+    -4220,
+    -4191,
+    -4156,
+    -4120,
+    -4085,
+    -4049,
+    -4014,
+    -3979,
+    -3943,
+    -3908,
+    -3872,
+    -3851,
+    -3834,
+    -3817,
+    -3800,
+    -3783,
+    -3766,
+    -3748,
+    -3731,
+    -3714,
+    -3697,
+    -3679,
+    -3661,
+    -3643,
+    -3625,
+    -3607,
+    -3589,
+    -3572,
+    -3554,
+    -3536,
+    -3506,
+    -3466,
+    -3425,
+    -3385,
+    -3344,
+    -3304,
+    -3263,
+    -3222,
+    -3182,
+    -3141,
+    -3118,
+    -3097,
+    -3077,
+    -3056,
+    -3035,
+    -3015,
+    -2994,
+    -2973,
+    -2953,
+    -2935,
+    -2928,
+    -2921,
+    -2914,
+    -2906,
+    -2899,
+    -2892,
+    -2885,
+    -2878,
+    -2871,
+    -2857,
+    -2837,
+    -2818,
+    -2799,
+    -2779,
+    -2760,
+    -2741,
+    -2721,
+    -2702,
+    -2682,
+    -2656,
+    -2628,
+    -2600,
+    -2573,
+    -2545,
+    -2518,
+    -2490,
+    -2463,
+    -2435,
+    -2411,
+    -2393,
+    -2376,
+    -2359,
+    -2341,
+    -2324,
+    -2307,
+    -2290,
+    -2272,
+    -2255,
+    -2254,
+    -2262,
+    -2270,
+    -2279,
+    -2287,
+    -2296,
+    -2304,
+    -2312,
+    -2321,
+    -2329,
+    -2351,
+    -2374,
+    -2397,
+    -2420,
+    -2443,
+    -2466,
+    -2489,
+    -2512,
+    -2535,
+    -2552,
+    -2557,
+    -2561,
+    -2565,
+    -2569,
+    -2573,
+    -2578,
+    -2582,
+    -2586,
+    -2590,
+    -2572,
+    -2541,
+    -2510,
+    -2479,
+    -2447,
+    -2416,
+    -2385,
+    -2354,
+    -2323,
+    -2292,
+    -2261,
+    -2231,
+    -2201,
+    -2170,
+    -2140,
+    -2109,
+    -2079,
+    -2048,
+    -2018,
+    -1996,
+    -1993,
+    -1991,
+    -1988,
+    -1985,
+    -1983,
+    -1980,
+    -1977,
+    -1974,
+    -1972,
+    -1974,
+    -1978,
+    -1983,
+    -1988,
+    -1993,
+    -1997,
+    -2002,
+    -2007,
+    -2011,
+    -2016,
+    -2028,
+    -2040,
+    -2052,
+    -2064,
+    -2076,
+    -2088,
+    -2100,
+    -2112,
+    -2124,
+    -2134,
+    -2140,
+    -2146,
+    -2153,
+    -2159,
+    -2165,
+    -2171,
+    -2177,
+    -2184,
+    -2190,
+    -2178,
+    -2156,
+    -2133,
+    -2111,
+    -2088,
+    -2066,
+    -2044,
+    -2021,
+    -1999,
+    -1976,
+    -1954
+   ],
+   "min": -9930.626910523757,
+   "min_lat": 11.308,
+   "guam_side_max": -2033.0955376330337
+  },
+  "vs_mean": 3.0,
+  "tonga_grid_deeper": true
+ },
+ "seabed2030": {
+  "pct": 28.7,
+  "prev": 27.3,
+  "grid": "GEBCO_2026",
+  "year": 2026,
+  "mapped_m": 104,
+  "added_m": 5,
+  "unmapped_pct": 71.3,
+  "unmapped_m": 259,
+  "gain": 1.4,
+  "years_left": 51,
+  "to2030": 17.8
+ },
+ "features": {
+  "n": 5638,
+  "counts": {
+   "Basin": 667,
+   "Trough": 282,
+   "Fracture Zone": 181,
+   "Escarpment": 101,
+   "Seamount(s)": 2000,
+   "Deep": 36,
+   "Rise": 133,
+   "Canyon(s)": 829,
+   "Ridge": 593,
+   "Knoll(s)": 330,
+   "Guyot": 219,
+   "Seamount Chain": 23,
+   "Plateau": 92,
+   "Trench": 51,
+   "Plain": 42,
+   "Abyssal Plain": 55,
+   "Seamount Province": 4
+  },
+  "seamountlike": 2549,
+  "seamounts": 2000,
+  "guyots": 219,
+  "knolls": 330,
+  "trenches": 51,
+  "deeps": 36,
+  "kw2011": 24646,
+  "named_vs_kw": 9.7,
+  "smt_median_grid": 2902
+ },
+ "eez": {
+  "n_zones": 267,
+  "national_share": 0.3879,
+  "high_share": 0.6121,
+  "national_mean": 2731,
+  "high_mean": 4273,
+  "hadal_national": 0.3723,
+  "high_m": 222.1,
+  "top": [
+   {
+    "name": "Tongan EEZ",
+    "max": 10467,
+    "lat": -23.12,
+    "lon": -174.683,
+    "mean": 3431,
+    "area": 669531
+   },
+   {
+    "name": "Micronesian EEZ",
+    "max": 10264,
+    "lat": 11.308,
+    "lon": 142.251,
+    "mean": 3952,
+    "area": 3033614
+   },
+   {
+    "name": "United States EEZ (Guam)",
+    "max": 9990,
+    "lat": 11.996,
+    "lon": 144.536,
+    "mean": 4615,
+    "area": 210671
+   },
+   {
+    "name": "New Zealand EEZ",
+    "max": 9604,
+    "lat": -31.84,
+    "lon": -177.231,
+    "mean": 2467,
+    "area": 4120964
+   },
+   {
+    "name": "Japanese EEZ",
+    "max": 9580,
+    "lat": 28.883,
+    "lon": 142.954,
+    "mean": 3684,
+    "area": 4089565
+   },
+   {
+    "name": "United States EEZ (Northern Mariana Islands)",
+    "max": 9510,
+    "lat": 13.283,
+    "lon": 146.558,
+    "mean": 4215,
+    "area": 771362
+   },
+   {
+    "name": "Philippine EEZ",
+    "max": 9499,
+    "lat": 9.666,
+    "lon": 126.87,
+    "mean": 3144,
+    "area": 1977520
+   },
+   {
+    "name": "Russian EEZ",
+    "max": 9245,
+    "lat": 45.244,
+    "lon": 152.71,
+    "mean": 1044,
+    "area": 7548002
+   },
+   {
+    "name": "Indonesian EEZ",
+    "max": 9165,
+    "lat": 6.097,
+    "lon": 127.397,
+    "mean": 2070,
+    "area": 6059375
+   },
+   {
+    "name": "Papua New Guinean EEZ",
+    "max": 8605,
+    "lat": -6.446,
+    "lon": 153.94,
+    "mean": 2690,
+    "area": 2416288
+   },
+   {
+    "name": "Dominican (Republic) EEZ",
+    "max": 8505,
+    "lat": 19.601,
+    "lon": -67.808,
+    "mean": 3972,
+    "area": 353831
+   },
+   {
+    "name": "United States EEZ (Puerto Rico)",
+    "max": 8459,
+    "lat": 19.767,
+    "lon": -66.313,
+    "mean": 4385,
+    "area": 155603
+   }
+  ],
+  "deepest_mean": [
+   {
+    "name": "Kiribati EEZ (Phoenix Group)",
+    "mean": 5382,
+    "area": 756434
+   },
+   {
+    "name": "United States EEZ (Howland and Baker Islands)",
+    "mean": 5294,
+    "area": 442404
+   },
+   {
+    "name": "New Zealand EEZ (Niue)",
+    "mean": 5198,
+    "area": 319645
+   },
+   {
+    "name": "Australian EEZ (Christmas Island)",
+    "mean": 5143,
+    "area": 332319
+   },
+   {
+    "name": "United States EEZ (Jarvis Islands)",
+    "mean": 5099,
+    "area": 327786
+   },
+   {
+    "name": "Australian EEZ (Cocos Islands)",
+    "mean": 5042,
+    "area": 475059
+   },
+   {
+    "name": "Brazilian EEZ (Trindade)",
+    "mean": 5023,
+    "area": 479686
+   },
+   {
+    "name": "United States EEZ (American Samoa)",
+    "mean": 4963,
+    "area": 407394
+   },
+   {
+    "name": "British EEZ (Bermuda)",
+    "mean": 4844,
+    "area": 470328
+   },
+   {
+    "name": "United States EEZ (Johnston Atoll)",
+    "mean": 4783,
+    "area": 450411
+   }
+  ],
+  "biggest": [
+   {
+    "state": "United States",
+    "area_m": 11.8,
+    "mean": 3321,
+    "max": 9990,
+    "zones": 12
+   },
+   {
+    "state": "French",
+    "area_m": 9.6,
+    "mean": 3442,
+    "max": 6877,
+    "zones": 18
+   },
+   {
+    "state": "Australian",
+    "area_m": 9.04,
+    "mean": 2609,
+    "max": 7134,
+    "zones": 6
+   },
+   {
+    "state": "Russian",
+    "area_m": 7.55,
+    "mean": 1044,
+    "max": 9245,
+    "zones": 1
+   },
+   {
+    "state": "New Zealand",
+    "area_m": 6.75,
+    "mean": 3347,
+    "max": 9604,
+    "zones": 4
+   },
+   {
+    "state": "Indonesian",
+    "area_m": 6.06,
+    "mean": 2070,
+    "max": 9165,
+    "zones": 1
+   },
+   {
+    "state": "Canadian",
+    "area_m": 5.71,
+    "mean": 874,
+    "max": 5162,
+    "zones": 1
+   },
+   {
+    "state": "British",
+    "area_m": 4.12,
+    "mean": 3274,
+    "max": 8071,
+    "zones": 14
+   },
+   {
+    "state": "Japanese",
+    "area_m": 4.09,
+    "mean": 3684,
+    "max": 9580,
+    "zones": 1
+   },
+   {
+    "state": "Brazilian",
+    "area_m": 3.72,
+    "mean": 2905,
+    "max": 6108,
+    "zones": 2
+   }
+  ]
+ },
+ "seas": {
+  "deepest": [
+   {
+    "name": "South Pacific Ocean",
+    "ocean": "Pacific",
+    "max": 10467,
+    "mean": 3996
+   },
+   {
+    "name": "North Pacific Ocean",
+    "ocean": "Pacific",
+    "max": 10264,
+    "mean": 4631
+   },
+   {
+    "name": "Philippine Sea",
+    "ocean": "Pacific",
+    "max": 9499,
+    "mean": 4361
+   },
+   {
+    "name": "Solomon Sea",
+    "ocean": "Pacific",
+    "max": 8605,
+    "mean": 2776
+   },
+   {
+    "name": "North Atlantic Ocean",
+    "ocean": "Atlantic",
+    "max": 8505,
+    "mean": 3866
+   },
+   {
+    "name": "Coral Sea",
+    "ocean": "Pacific",
+    "max": 8273,
+    "mean": 2479
+   },
+   {
+    "name": "South Atlantic Ocean",
+    "ocean": "Atlantic",
+    "max": 8095,
+    "mean": 3958
+   },
+   {
+    "name": "Caribbean Sea",
+    "ocean": "Atlantic",
+    "max": 8071,
+    "mean": 2511
+   },
+   {
+    "name": "Indian Ocean",
+    "ocean": "Indian",
+    "max": 7683,
+    "mean": 4038
+   },
+   {
+    "name": "Banda Sea",
+    "ocean": "Pacific",
+    "max": 7317,
+    "mean": 2968
+   },
+   {
+    "name": "Southern Ocean",
+    "ocean": "Southern",
+    "max": 6861,
+    "mean": 3213
+   },
+   {
+    "name": "Bering Sea",
+    "ocean": "Pacific",
+    "max": 6042,
+    "mean": 1663
+   }
+  ],
+  "deep_mean": [
+   {
+    "name": "Philippine Sea",
+    "mean": 4361,
+    "max": 9499,
+    "area_m": 5.6
+   },
+   {
+    "name": "Celebes Sea",
+    "mean": 3497,
+    "max": 5919,
+    "area_m": 0.45
+   },
+   {
+    "name": "Tasman Sea",
+    "mean": 3363,
+    "max": 6040,
+    "area_m": 3.35
+   },
+   {
+    "name": "Arabian Sea",
+    "mean": 3265,
+    "max": 5537,
+    "area_m": 4.21
+   },
+   {
+    "name": "Great Australian Bight",
+    "mean": 3233,
+    "max": 5980,
+    "area_m": 1.35
+   },
+   {
+    "name": "Banda Sea",
+    "mean": 2968,
+    "max": 7317,
+    "area_m": 0.69
+   },
+   {
+    "name": "Solomon Sea",
+    "mean": 2776,
+    "max": 8605,
+    "area_m": 0.74
+   },
+   {
+    "name": "Gulf of Guinea",
+    "mean": 2606,
+    "max": 5361,
+    "area_m": 0.75
+   },
+   {
+    "name": "Bay of Bengal",
+    "mean": 2590,
+    "max": 4397,
+    "area_m": 2.19
+   },
+   {
+    "name": "Caribbean Sea",
+    "mean": 2511,
+    "max": 8071,
+    "area_m": 2.83
+   }
+  ],
+  "n": 101
+ },
+ "sea": {
+  "north": {
+   "mean": 76,
+   "max": 445,
+   "shelf": 0.9343,
+   "area_m": 0.52
+  },
+  "baltic": {
+   "mean": 60,
+   "max": 274,
+   "shelf": 0.992,
+   "area_m": 0.22
+  },
+  "med_e": {
+   "mean": 1674,
+   "max": 4786,
+   "shelf": 0.1718,
+   "area_m": 1.17
+  },
+  "caribbean": {
+   "mean": 2511,
+   "max": 8071,
+   "shelf": 0.132,
+   "area_m": 2.83
+  },
+  "philippine": {
+   "mean": 4361,
+   "max": 9499,
+   "shelf": 0.0256,
+   "area_m": 5.6
+  },
+  "black": {
+   "mean": 1271,
+   "max": 2514,
+   "shelf": 0.2626,
+   "area_m": 0.42
+  },
+  "hudson": {
+   "mean": 98,
+   "max": 294,
+   "shelf": 0.9751,
+   "area_m": 0.83
+  },
+  "scs": {
+   "mean": 1267,
+   "max": 5109,
+   "shelf": 0.4885,
+   "area_m": 3.34
+  },
+  "arctic": {
+   "mean": 2301,
+   "max": 5368,
+   "shelf": 0.1305,
+   "area_m": 5.08
+  },
+  "celtic": {
+   "mean": 280,
+   "max": 4419,
+   "shelf": 0.8414,
+   "area_m": 0.22
+  },
+  "english": {
+   "mean": 46,
+   "max": 120,
+   "shelf": 1.0,
+   "area_m": 0.08
+  },
+  "irish": {
+   "mean": 44,
+   "max": 141,
+   "shelf": 1.0,
+   "area_m": 0.05
+  },
+  "persian": {
+   "mean": 33,
+   "max": 164,
+   "shelf": 1.0,
+   "area_m": 0.24
+  },
+  "japan": {
+   "mean": 1550,
+   "max": 3844,
+   "shelf": 0.2559,
+   "area_m": 1.06
+  },
+  "bengal": {
+   "mean": 2590,
+   "max": 4397,
+   "shelf": 0.1087,
+   "area_m": 2.19
+  }
+ },
+ "ne_check": [
+  {
+   "depth": 0,
+   "ne_m": 363.2,
+   "grid_m": 362.9
+  },
+  {
+   "depth": 200,
+   "ne_m": 334.4,
+   "grid_m": 335.1
+  },
+  {
+   "depth": 1000,
+   "ne_m": 317.2,
+   "grid_m": 319.5
+  },
+  {
+   "depth": 2000,
+   "ne_m": 299.9,
+   "grid_m": 303.6
+  },
+  {
+   "depth": 3000,
+   "ne_m": 266.0,
+   "grid_m": 272.4
+  },
+  {
+   "depth": 4000,
+   "ne_m": 181.2,
+   "grid_m": 191.1
+  },
+  {
+   "depth": 5000,
+   "ne_m": 67.8,
+   "grid_m": 75.9
+  },
+  {
+   "depth": 6000,
+   "ne_m": 2.4,
+   "grid_m": 3.6
+  },
+  {
+   "depth": 7000,
+   "ne_m": 0.3,
+   "grid_m": 0.5
+  },
+  {
+   "depth": 8000,
+   "ne_m": 0.1,
+   "grid_m": 0.1
+  },
+  {
+   "depth": 9000,
+   "ne_m": 0.0,
+   "grid_m": 0.0
+  },
+  {
+   "depth": 10000,
+   "ne_m": 0.0,
+   "grid_m": 0.0
+  }
+ ],
+ "ne": {
+  "d4000": 0.054,
+  "d200": 0.002,
+  "d6000_ne": 2.4,
+  "d6000_grid": 3.6
+ },
+ "derived": {
+  "sea_vs_land": 4.6,
+  "everest_cells": null,
+  "shelf_m": 27.8,
+  "abyssal_m": 268.8,
+  "ocean_vol_shelf_pct": null,
+  "tonga_minus_mariana_grid": 203,
+  "deeper6000_vs_uk": 15.0
+ },
+ "charette": {
+  "mean": 3682.2,
+  "volume_bn": 1.332
+ },
+ "sources": {
+  "greenaway": "Greenaway, S.F., Sullivan, K.D., Umfress, S.H., Beittel, A.B. and Wagner, K.D. (2021) Revised depth of the Challenger Deep from submersible transects; including a general method for precise, pressure-derived depth estimates. Progress in Oceanography, 195, 102564.",
+  "bongiovanni": "Bongiovanni, C., Stewart, H.A. and Jamieson, A.J. (2022) High-resolution multibeam sonar bathymetry of the deepest place in each ocean. Geoscience Data Journal, 9(1), 108 to 123. doi:10.1002/gdj3.122",
+  "stewart": "Stewart, H.A. and Jamieson, A.J. (2019) The five deeps: the location and depth of the deepest place in each of the world's oceans. Earth-Science Reviews, 197, 102896.",
+  "wptrench": "Wikipedia contributors (2026) Oceanic trench, table of the deepest trenches. English Wikipedia, CC BY-SA 4.0. https://en.wikipedia.org/wiki/Oceanic_trench"
+ },
+ "seabed2030_src": "Seabed 2030 and GEBCO, 'Release of the GEBCO_2026 grid' (gebco.net) and IHO news release, 2026: '28.7% of the world's ocean floor has now been mapped to modern standards', up from 27.3% in the 2025 grid; about 104 million km² mapped, almost 5 million km² added in a year.",
+ "kw2011_src": "Kim, S.-S. and Wessel, P. (2011) New global seamount census from altimetry-derived gravity data. Geophysical Journal International, 186(2), 615 to 631. The catalogue file KWSMTSv01.txt (header: '24,646 potential seamounts') is published at http://www.soest.hawaii.edu/PT/SMTS/kwsmts/, which the build container could not reach."
+}

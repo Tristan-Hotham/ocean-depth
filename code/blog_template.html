@@ -1,0 +1,135 @@
+<!-- wp:paragraph -->
+<p><em>The average sea floor lies {{ocean.mean|int}} m down, and the deepest place on Earth is deep enough to hide Everest with {{mariana.above_everest|int}} m to spare. I made a map of the floor of the whole ocean, sharp from ocean basins down to single seamounts, to see how deep the sea really is, and how little of it anyone has actually measured.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/ocean-depth/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.23850291">Read the paper</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph -->
+<p>After mapping how high the world's land is, I wanted to turn the same question upside down. Two thirds of the planet is under water, and the landscape down there is stranger than anything on land: plains of mud kilometres deep, a volcanic ridge that runs round the globe like the seam on a tennis ball, and trenches deep enough to swallow mountain ranges. Most maps paint it a flat, comforting blue.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The same open terrain tiles I used for the land, first built by Mapzen and now hosted by Amazon, carry the sea floor too, from the global ETOPO1, GEBCO and SRTM15+ compilations. Each tile is a picture whose colours are a code for height, negative under the sea. The interactive map decodes them in your browser and turns them into depth tints and shaded relief at every zoom, and tells you the depth of any spot you click.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_world_depth.png|World map in the Equal Earth projection with land in pale sand and the sea floor in blues that darken with depth, from pale turquoise continental shelves round the coasts through mid blue ridges, such as the Mid-Atlantic Ridge running down the middle of the Atlantic, to deep navy abyssal plains and dark purple lines along the trenches of the western Pacific; dots mark the deepest known place in each ocean|The floor of the world ocean, by depth below sea level, with shaded relief.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Most of the sea is deep</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>To measure the sea I used the tiles at their coarsest level, a world grid of cells about {{grid.km_equator|f1}} km across, weighting every cell by its true area on the globe. On that grid the sea covers {{ocean.area_m|f1}} million km², {{ocean.earth_share|pct1}} of the Earth. Its average depth is {{ocean.mean|int}} m, and half of the sea floor is deeper than {{ocean.median|int}} m. Fill it in and you would need {{ocean.volume_bn|f2}} billion cubic kilometres of water, close to what oceanographers have calculated from finer data.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The shallow seas we know, the shelves round the continents less than 200 m deep, where almost all fishing, oil rigs and wind farms are, cover only {{ocean.shelf|pct1}} of the sea floor. The continental slopes and the shallower ridges between 200 and 3,000 m take {{ocean.slope|pct}}. Then come the abyssal plains and hills between 3,000 and 6,000 m: {{ocean.abyssal|pct}} of the sea floor, and more than half of the surface of the whole planet. Pick a spot on Earth at random and the odds are better than one in five that it lies 4 to 5 km under water.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_depth_bands.png|Bar chart of the share of the ocean floor in each depth band: 7.7 per cent from 0 to 200 m, 4.3 per cent 200 to 1,000 m, 4.4 per cent 1,000 to 2,000 m, 8.6 per cent 2,000 to 3,000 m, then 22.4, 31.7 and 19.9 per cent in the bands from 3,000 to 6,000 m, and under 1 per cent deeper, grouped as shelf, slope and rise, abyssal and hadal|How much of the sea floor lies at each depth.}}
+
+<!-- wp:paragraph -->
+<p>Put the land and the sea together and the Earth turns out to have two levels, not one. A chart of every height and depth has two humps: one just above sea level, and a bigger one around 4,000 to 5,000 m down. They are two different kinds of crust: thick, light continents floating high, and thin, dense ocean floor riding low. The average sea floor lies {{derived.sea_vs_land|f1}} times deeper than the average land stands high.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_two_levels.png|Histogram of the Earth's surface by height and depth in 250 metre steps, with a tall narrow peak of sandy bars just above sea level and a broad peak of dark blue bars between about 3,500 and 5,500 metres below sea level|The two levels of the Earth: lowland just above the sea, and ocean floor 4 to 5 km down.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Five oceans</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Grouping the International Hydrographic Organization's sea areas into five oceans, the Pacific is both the biggest, with {{oc.Pacific.share|pct}} of all the sea, and the deepest, averaging {{oc.Pacific.mean|int}} m. The Indian Ocean averages {{oc.Indian.mean|int}} m, the Atlantic {{oc.Atlantic.mean|int}} m and the Southern Ocean {{oc.Southern.mean|int}} m. The Arctic is a different kind of sea, averaging just {{oc.Arctic.mean|int}} m because two fifths of it is shallow shelf, much of it off Siberia. Closer to home, the North Sea averages a mere {{sea.north.mean|int}} m and the Irish Sea {{sea.irish.mean|int}} m.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_oceans.png|Horizontal bars of the mean depth of each ocean, Pacific 3,943 metres, Atlantic 3,606, Indian 3,775, Southern 3,213 and Arctic 1,205, with a purple dot for the deepest measured place in each: Challenger Deep 10,935 metres, Brownson Deep 8,378, a deep in the Java Trench 7,187, Factorian Deep 7,432 and Molloy Hole 5,551|The five oceans: average depth and deepest known place.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Everest in the Mariana Trench</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The deepest places are trenches, long narrow gashes where one plate of ocean floor bends down beneath another. The deepest of all is the Challenger Deep, at the southern end of the Mariana Trench south-west of Guam. The best measurement, from pressure sensors on crewed submersible dives in 2021, puts it at {{mariana.published|int}} m, give or take {{mariana.unc|int}} m. Stand Mount Everest on the bottom and its summit would still be {{mariana.above_everest|int}} m under water.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_mariana.png|Cross-section of the sea floor through the Mariana Trench, a deep V cut into a floor at 3,000 to 5,000 metres, with a white outline of Mount Everest standing on a dashed line at the measured depth of the Challenger Deep, 10,935 metres, its summit still 2,086 metres below the surface|A slice through the Mariana Trench, with Everest for scale.}}
+
+<!-- wp:pullquote -->
+<figure class="wp-block-pullquote"><blockquote><p>Stand Everest in the Challenger Deep and its summit would still be {{mariana.above_everest|int}} m under water.</p></blockquote></figure>
+<!-- /wp:pullquote -->
+
+<!-- wp:paragraph -->
+<p>Here the coarse grid shows its limits, which I think is one of the most interesting things in the data. A 10 km cell averages over a trench floor only a few kilometres wide, so the grid's deepest Mariana cell is {{mariana.grid|int}} m, {{mariana.short|int}} m short of the truth. Its deepest cell anywhere is in the Tonga Trench instead ({{tr.tonga.grid|int}} m). And in {{n_grid_deeper|int}} of the {{n_trenches|int}} deep places I checked, including the Puerto Rico Trench, the grid is deeper than anything that has been measured there, which an average should never be: those cells carry errors from old soundings or satellite estimates. The global maps of the sea floor are smoother and less certain than they look.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_trenches.png|Dot chart for fourteen deep places comparing the measured depth, a purple dot, with the deepest 10 km grid cell, an open blue dot: for the Mariana, Philippine and Kermadec trenches the grid is hundreds of metres to a kilometre shallower, while for the Puerto Rico Trench, Cayman Trough, Java Trench and Molloy Hole the grid is deeper|The deepest places: measured depth and what the 10 km grid sees.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Whose sea floor?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Coastal states claim waters up to 200 nautical miles out. Using the Marine Regions boundaries, those national waters cover {{eez.national_share|pct}} of the sea and the high seas {{eez.high_share|pct}}. National waters are shallower on average, because they hold the shelves, but the trenches hug island arcs, so {{eez.hadal_national|pct}} of the sea floor deeper than 6,000 m is in someone's zone. The Challenger Deep itself lies in the waters of the Federated States of Micronesia, just south of those of the United States territory of Guam.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_eez.png|Left, two bars: national waters 39 per cent of the sea with a mean depth of 2,731 metres, high seas 61 per cent with a mean of 4,273 metres. Right, horizontal bars of the deepest grid cell in the ten deepest Exclusive Economic Zones, led by Tonga at 10,467 metres, Micronesia at 10,264 and the United States waters of Guam at 9,990|National waters and the high seas, and the deepest national waters.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Mostly unmapped</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>All of this rests on a sea floor that is mostly estimated rather than measured. Satellites measure the height of the sea surface, which bulges by a few metres over a seamount and sags over a trench, and models turn those bumps into depths, sharp only to ten kilometres or so. Proper maps need ships with sonar sweeping the floor a strip at a time. The Seabed 2030 project reported in {{seabed2030.year|raw}} that {{seabed2030.pct|raw}}% of the ocean floor is now mapped to modern standards. That leaves about {{seabed2030.unmapped_m|int}} million km² known only roughly, more than all the land on Earth. The gazetteer of undersea names lists {{features.seamounts|int}} named seamounts; satellite gravity suggests there are at least {{features.named_vs_kw|f1}} times as many big ones, and far more small ones, that nobody has named or surveyed.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How I did this</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The statistics use the zoom 4 level of the AWS Terrain Tiles, a 4,096 by 4,096 grid in the Web Mercator projection, with every cell weighted by its true area and by the share of it that is sea. Sea is everything outside Natural Earth's land and lakes that joins the world ocean (so the Caspian is out and the Black Sea in), the Arctic north of 85 degrees comes from ETOPO10, and the sea under Antarctica's floating ice shelves is missing. Oceans are the IHO sea areas grouped into five; national waters, sea names and undersea feature names come from Marine Regions; the depths of the deepest places come from published surveys. The interactive map draws the same tiles live at every zoom, with depth tints, shading, depth bands, trenches, named seamounts, national waters and a readout of any point. The numbers are smoothed to about 10 km, so they understate trenches and seamounts; the paper sets out every step and caveat.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/ocean-depth/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.23850291">Read the paper</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://github.com/Tristan-Hotham/ocean-depth">Data and code</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Notes and sources</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><a href="https://registry.opendata.aws/terrain-tiles/">AWS Terrain Tiles</a> (Mapzen, Terrarium format); under the sea they use ETOPO1 (NOAA), GEBCO and SRTM15+ (Scripps Institution of Oceanography); <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">full sources and terms</a>. ETOPO10, derived from ETOPO1, for the Arctic north of 85 degrees.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.marineregions.org/">Marine Regions</a> (Flanders Marine Institute, VLIZ): IHO sea areas, Exclusive Economic Zones and the gazetteer of undersea feature names. CC BY 4.0, via the CatalogueOfLife col-gazetteers package.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.naturalearthdata.com/">Natural Earth</a> land, lakes, countries, places, marine names and bathymetry polygons. Public domain.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Depths of the deepest places: Greenaway and others (2021), Progress in Oceanography; Bongiovanni, Stewart and Jamieson (2022), Geoscience Data Journal; Stewart and Jamieson (2019), Earth-Science Reviews; English Wikipedia, <a href="https://en.wikipedia.org/wiki/Oceanic_trench">Oceanic trench</a> (CC BY-SA 4.0).</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Mapping progress: Seabed 2030 and GEBCO, release of the {{seabed2030.grid|raw}} grid ({{seabed2030.year|raw}}). Ocean volume: Charette and Smith (2010), Oceanography. Seamount census: Kim and Wessel (2011), Geophysical Journal International.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->

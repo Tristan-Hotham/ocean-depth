@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>How Deep Is the Sea?</title>
+<meta name="description" content="A detailed world map of ocean depth, with shaded sea floor relief at every zoom, a depth readout anywhere, the deepest trenches and named seamounts, and how little of the sea floor is mapped in detail.">
+<meta property="og:title" content="How deep is the sea? The ocean floor, its trenches and seamounts, on one map">
+<meta property="og:description" content="The average sea floor lies {{ocean.mean|int}} m down and {{ocean.abyssal|pct}} of it is abyssal plain and hill between 3,000 and 6,000 m. Click anywhere for its depth.">
+<meta property="og:image" content="https://maps.tristanhotham.com/ocean-depth/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/ocean-depth/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/*CSS*/
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>Oceans</span><span>World, 2026</span></div>
+<header class="hero">
+  <h1>How <span class="u">deep</span> is the <span class="m">sea</span>?</h1>
+  <svg class="mark" viewBox="0 0 120 120" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">A map of the floor of the whole ocean, sharp from the scale of ocean basins down to single canyons and seamounts, with the great trenches marked at their measured depths. How deep is the sea on average, how much of it is shallow shelf or deep abyss, and how much of it has anyone actually mapped?</p>
+</header>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: AWS Terrain Tiles (ETOPO1, GEBCO, SRTM15+ and others); Marine Regions; Natural Earth; published surveys of the deepest places</div>
+
+<div class="stats">
+  <div><b class="u">{{ocean.mean|int}} m</b><span>average depth of the sea floor; half of it lies deeper than {{ocean.median|int}} m</span></div>
+  <div><b class="i">{{ocean.abyssal|pct}}</b><span>of the ocean floor is abyssal, between 3,000 and 6,000 m down; only {{ocean.shelf|pct1}} is continental shelf</span></div>
+  <div><b class="r">{{mariana.published|int}} m</b><span>the Challenger Deep, deepest known place on Earth: Everest would sit {{mariana.above_everest|int}} m under water</span></div>
+  <div><b class="m">{{seabed2030.pct|raw}}%</b><span>of the sea floor is mapped to modern standards (Seabed 2030, {{seabed2030.year|raw}}); the rest is known only roughly</span></div>
+</div>
+
+<p class="lede">We know the shape of the Moon's surface better than the floor of our own sea. Two thirds of the planet is under water, and most of that water is deep: not the blue shallows of the beach, but kilometres of cold, dark sea over plains of mud, ridges of young volcanic rock and trenches deep enough to swallow mountain ranges. I wanted one map of that hidden landscape that stays sharp whether you look at a whole ocean or a single seamount, tells you the depth of any spot you click, and gives plain answers to plain questions. How deep is the sea, really? Where are the deepest places? And how much of the floor has anyone actually measured?</p>
+<p>The map below is drawn in your browser from the open terrain tiles first built by Mapzen and now hosted by Amazon. Under the sea they carry the global ETOPO1 and GEBCO compilations and SRTM15+, which combine ship soundings with depths estimated from tiny bumps in the height of the sea surface measured by satellites. Every pixel is a height in metres, negative under the sea. The page turns those numbers into colour and shaded relief as you go. For the numbers I used the same tiles at their coarsest level, a world grid of {{grid.px|int}} by {{grid.px|int}} cells, about {{grid.km_equator|f1}} km across at the equator, with every cell weighted by its true area.</p>
+
+<h2><span class="n">01 · The map</span>Click anywhere for its depth</h2>
+<div class="figure bleed" id="atlas">
+  <div class="controls scroll">
+    <div class="seg" role="group" aria-label="Map style" id="styleBtns"><button class="btn" data-s="both" aria-pressed="true">Depth and shading</button><button class="btn" data-s="tint" aria-pressed="false">Depth tints</button><button class="btn" data-s="shade" aria-pressed="false">Shading only</button><button class="btn" data-s="band" aria-pressed="false">Depth bands</button></div>
+    <button class="btn" id="trBtn" aria-pressed="true">Trenches</button>
+    <button class="btn" id="smBtn" aria-pressed="false">Seamounts</button>
+  </div>
+  <div class="controls">
+    <div class="searchbox">
+      <input type="search" id="q" placeholder="Search a trench, sea, seamount or ridge" aria-label="Search a trench, sea, seamount or ridge" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sug">
+      <ul class="suggest" id="sug" role="listbox"></ul>
+    </div>
+    <div class="seg" role="group" aria-label="Zoom to" id="viewBtns"><button class="btn" data-v="world">World</button><button class="btn" data-v="mariana">Mariana</button><button class="btn" data-v="tonga">Tonga</button><button class="btn" data-v="ridge">Mid-Atlantic Ridge</button><button class="btn" data-v="uk">Britain</button></div>
+    <span class="loading" id="loadMsg"></span>
+  </div>
+  <div class="mapgrid">
+    <div id="lmap" role="region" aria-label="Map of ocean depth"></div>
+    <div class="side">
+      <h4 id="legTitle">Depth below sea level</h4>
+      <div id="legend"></div>
+      <h4 class="t">Depth here</h4>
+      <div id="readout">Move over the map, or click or tap anywhere, for its depth (or, on land, its height).</div>
+      <h4 class="t">How much of the sea floor is this deep?</h4>
+      <div id="miniCurve"></div>
+      <div class="thr"><label for="thr">Grey out sea shallower than</label><input type="range" id="thr" min="0" max="9000" step="100" value="0" aria-label="Grey out sea shallower than this depth"><output id="thrOut" for="thr">off</output></div>
+      <div id="thrNote">Drag to see which sea floor lies deeper than a depth.</div>
+    </div>
+  </div>
+  <div class="src">Depths: AWS Terrain Tiles (Mapzen Terrarium), drawn in your browser at every zoom; under the sea they come from ETOPO1, GEBCO and SRTM15+ (see the notes below). Depths in metres below mean sea level; tints and shading computed on the fly, vertical exaggeration strongest when zoomed out. Away from surveyed tracks the sea floor is estimated from satellite measurements of the sea surface, so fine detail there can be smooth or wrong. Trenches: published surveys. Seamounts and undersea names: Marine Regions gazetteer. National waters: Marine Regions. Borders and place names: Natural Earth. Base map © Esri.</div>
+</div>
+
+<h2><span class="n">02 · The shape of the sea floor</span>A planet of deep plains</h2>
+<p>Line up every square kilometre of the sea floor from the shallowest to the deepest and the ocean turns out to be anything but a bowl. The average depth is {{ocean.mean|int}} m and the median {{ocean.median|int}} m: half the sea floor is deeper than four kilometres. The shallow continental shelves, the drowned edges of the continents less than 200 m down where most fishing, oil and wind farms are, cover only {{ocean.shelf|pct1}} of it. The continental slopes and rises and the shallower ridges between 200 and 3,000 m take {{ocean.slope|pct}}. Then come the abyssal plains and hills between 3,000 and 6,000 m: {{ocean.abyssal|pct}} of the floor, {{derived.abyssal_m|f1}} million km², more than half of the whole planet's surface. The hadal zone, the trenches below 6,000 m, is only {{ocean.hadal|pct1}} of it, about {{ocean.hadal_km2|int}} km² on this grid.</p>
+<div class="figure"><p class="fig-h">How much of the sea floor lies at each depth</p><p class="fig-sub">Share of the ocean floor in each depth band, from the zoom 4 grid weighted by true cell area. Hover for areas and the share of the whole Earth's surface.</p><div class="chart" id="bandChart"></div></div>
+<p>Seen against the whole planet, the Earth's surface has two levels, not one. A histogram of every height and depth has two humps: one just above sea level, where {{earth.peak_high.2|pct1}} of the surface lies between 0 and 250 m up, and a bigger, broader one around 4,000 to 5,000 m down, where the ocean crust sits. The sea covers {{ocean.earth_share|pct1}} of the Earth on this grid, and the average sea floor lies {{derived.sea_vs_land|f1}} times deeper than the average land stands high ({{earth.land_mean|int}} m). The two levels are two different kinds of crust: thick, light continents floating high, and thin, dense ocean floor riding low.</p>
+<div class="figure"><p class="fig-h">The two levels of the Earth</p><p class="fig-sub">Share of the Earth's whole surface in each 250 m step of height or depth (sea floor in blue, land in sand). Hover for values.</p><div class="chart" id="earthChart"></div></div>
+
+<h2><span class="n">03 · Five oceans</span>The Pacific is deepest, the Arctic shallowest</h2>
+<p>Grouping the International Hydrographic Organization's sea areas into five oceans, the Pacific is the biggest ({{oc.Pacific.share|pct}} of all sea) and the deepest, averaging {{oc.Pacific.mean|int}} m. The Indian Ocean averages {{oc.Indian.mean|int}} m, the Atlantic {{oc.Atlantic.mean|int}} m and the Southern Ocean {{oc.Southern.mean|int}} m. The Arctic is the odd one out: {{oc.Arctic.mean|int}} m on average and a median of only {{oc.Arctic.median|int}} m, because two fifths of it is shallow continental shelf, much of it off Siberia. Marginal seas can be shallower still: the North Sea averages {{sea.north.mean|int}} m, the Baltic {{sea.baltic.mean|int}} m and the Persian Gulf {{sea.persian.mean|int}} m, while the Philippine Sea averages {{sea.philippine.mean|int}} m.</p>
+<div class="figure"><p class="fig-h">Average depth of each ocean, and its deepest known place</p><p class="fig-sub">Mean depth of each ocean on the 10 km grid (bars), with the deepest point found by published sonar surveys. Hover for medians and the grid's own deepest cell.</p><div class="chart" id="oceanChart"></div></div>
+
+<h2><span class="n">04 · The trenches</span>Where the sea is deepest</h2>
+<p>The deepest places are long, narrow trenches where one plate of ocean floor bends down under another. The deepest of all is the Challenger Deep at the southern end of the Mariana Trench, south-west of Guam. Its depth has been argued over for seventy years; the most careful estimate, from pressure sensors on crewed submersible dives, is {{mariana.published|int}} m, give or take {{mariana.unc|int}} m. Put Mount Everest ({{mariana.everest|int}} m) on the floor there and its summit would still be {{mariana.above_everest|int}} m under water, deeper than most submarines can go.</p>
+<div class="figure"><p class="fig-h">A slice through the Mariana Trench, with Everest for scale</p><p class="fig-sub">Height of the sea floor along longitude {{mariana.prof.lon|raw}}° E from 14.5° N to 8° N, through the Challenger Deep (zoom 4 grid, sampled every km). The dashed line is the measured depth of the Deep; Everest is drawn standing on it. Vertical scale exaggerated.</p><div class="chart" id="profChart"></div></div>
+<p>A 10 km grid cannot see the very bottom of features only a few kilometres wide, so it understates the trenches. Its deepest cell in the Mariana Trench is {{mariana.grid|int}} m, {{mariana.short|int}} m short of the truth. In fact the deepest cell of the whole grid is not there at all but in the Tonga Trench ({{tr.tonga.grid|int}} m), whose deepest place, the Horizon Deep, has been measured at {{tr.tonga.published|int}} m. The table compares the grid with published surveys for {{n_trenches|int}} of the deepest places. In {{n_grid_deeper|int}} of them the grid is deeper than anything measured there, which a 10 km average should not be: those cells carry errors from old soundings or from the satellite estimates, a reminder that the global maps are smoother and less certain than they look.</p>
+<div class="figure"><p class="fig-h">The deepest places: measured depth and what the 10 km grid sees</p><p class="fig-sub">Published depth of each trench's deepest point (dark dot, sources in the notes) and the deepest cell of the zoom 4 grid along the trench (open dot). Click to fly there.</p><div class="chart" id="trenchChart"></div></div>
+
+<h2><span class="n">05 · Whose sea?</span>National waters and the high seas</h2>
+<p>Every coastal state claims an Exclusive Economic Zone reaching up to 200 nautical miles out to sea. Using the Marine Regions boundaries, including joint regimes and disputed claims, national waters cover {{eez.national_share|pct}} of the sea on this grid, and the high seas beyond them {{eez.high_share|pct}}. National waters are shallower on average ({{eez.national_mean|int}} m against {{eez.high_mean|int}} m), because they hold the shelves, but they also hold the trenches, which hug island arcs: {{eez.hadal_national|pct}} of the sea floor deeper than 6,000 m is in someone's zone. The deepest cell of any zone on the grid is in Tonga's; the Challenger Deep itself lies in the zone of the Federated States of Micronesia, just south of the waters of the United States territory of Guam.</p>
+<div class="figure"><p class="fig-h">The deepest national waters</p><p class="fig-sub">Deepest cell of the zoom 4 grid inside each Exclusive Economic Zone (Marine Regions). Click to fly there.</p><div class="chart" id="eezChart"></div></div>
+
+<h2><span class="n">06 · Seamounts</span>Mountains nobody has climbed</h2>
+<p>The sea floor is studded with volcanoes that never reached the surface. The Marine Regions gazetteer, which carries the official undersea feature names, lists {{features.seamounts|int}} named seamounts, {{features.guyots|int}} guyots (flat-topped seamounts, planed off by waves when they stood at sea level and since sunk) and {{features.knolls|int}} knolls. Turn on the seamounts layer to see them. That is only a sliver of what is there: a census from satellite gravity data by Kim and Wessel found {{features.kw2011|int}} likely seamounts big enough to show up from space, around {{features.named_vs_kw|f1}} times as many as have names, and estimates for the smaller ones run far higher. Most have never been surveyed by a ship.</p>
+
+<h2><span class="n">07 · How little is mapped</span>A sea floor seen through frosted glass</h2>
+<p>Almost everything on this map away from the coasts and the ships' tracks is an estimate. Satellites measure the height of the sea surface, which bulges by a few metres over a seamount and dips over a trench, and models turn those bumps into depths, sharp only to around ten kilometres or more. Mapping the floor properly takes ships with multibeam sonar, slowly sweeping a strip at a time. The international Seabed 2030 project, which compiles the GEBCO grid, reported in {{seabed2030.year|raw}} that {{seabed2030.pct|raw}}% of the ocean floor is now mapped to modern standards, up from {{seabed2030.prev|raw}}% a year earlier. That leaves about {{seabed2030.unmapped_m|int}} million km² known only roughly, an area larger than all the land on Earth.</p>
+<div class="figure"><p class="fig-h">Share of the sea floor mapped to modern standards</p><p class="fig-sub">Seabed 2030 and GEBCO, {{seabed2030.grid|raw}} grid.</p><div class="bar2030" role="img" aria-label="{{seabed2030.pct|raw}} per cent mapped"><i style="width:{{seabed2030.pct|raw}}%"></i></div><p class="src">{{seabed2030.pct|raw}}% mapped · {{seabed2030.unmapped_pct|raw}}% still to go. At last year's pace of {{seabed2030.gain|f1}} percentage points a year the job would take about {{seabed2030.years_left|int}} more years; finishing by 2030 would need about {{seabed2030.to2030|f1}} points a year.</p></div>
+<div class="pull">Put Everest in the Challenger Deep and its summit would still be {{mariana.above_everest|int}} m under water.</div>
+
+<h2><span class="n">08 · How I did this</span>Methods and caveats</h2>
+<p><b>Depths.</b> The AWS Terrain Tiles store height in the red, green and blue of each pixel (height = R × 256 + G + B ÷ 256 minus 32,768 m). The map decodes them live at every zoom. For the statistics I mosaicked the {{grid.px|int}} by {{grid.px|int}} grid at zoom 4 ({{grid.km_equator|f1}} km at the equator, {{grid.km_60|f1}} km at 60°), weighted each cell by its exact area on a sphere and by the share of it that is sea, and replaced {{grid.n_spikes|int}} corrupt cells by the median of their neighbours. The Web Mercator grid stops at 85° N, so the Arctic Ocean around the Pole ({{grid.cap_m|f1}} million km²) comes from ETOPO10, a coarser version of ETOPO1.</p>
+<p><b>What counts as sea.</b> Everything outside Natural Earth's land and lakes that joins the world ocean; the Caspian is a lake and is left out, the Black Sea is in. Sea cells whose 10 km average is above sea level count as 0 m deep. The floating ice shelves of Antarctica count as land, so the sea under them is missing. Oceans are the IHO's sea areas grouped into five (the Arctic includes the Greenland, Norwegian and Barents Seas and Baffin and Hudson Bays; the Southern Ocean is the sea south of 60° S). National waters are Marine Regions' Exclusive Economic Zones, joint regimes and overlapping claims.</p>
+<p><b>Checks.</b> Natural Earth's hand-drawn bathymetry polygons give almost the same picture: {{ne_check.1.ne_m|f1}} million km² deeper than 200 m against {{ne_check.1.grid_m|f1}} million on the grid, and {{ne_check.5.ne_m|f1}} million against {{ne_check.5.grid_m|f1}} million deeper than 4,000 m. The grid's average depth of {{ocean.mean|int}} m and volume of {{ocean.volume_bn|f2}} billion km³ are close to the {{charette.mean|f1}} m and {{charette.volume_bn|raw}} billion km³ that Charette and Smith calculated from a finer grid.</p>
+<p><b>Limits.</b> A 10 km grid smooths the sea floor: trenches look shallower and seamounts lower than they are, and the shares in each depth band are good to a point or so, not to the decimal. Most of the floor is estimated from satellites rather than measured. The published depths of the deepest places come from different surveys of different ages and accuracies; the ones without a stated uncertainty are rougher. The named seamounts are only those that someone has named, which says as much about where research ships have been as about the sea floor.</p>
+
+<div class="cta">
+  <a class="p" href="https://github.com/Tristan-Hotham/ocean-depth">Data and code</a>
+  <a href="https://doi.org/10.5281/zenodo.23850291">Paper (Zenodo)</a>
+  <a href="https://blog.tristanhotham.com/2026/10/31/ocean-depth/">Blog post</a>
+  <a href="https://blog.tristanhotham.com/">All posts</a>
+</div>
+<footer>
+  <p>Dr Tristan Hotham, Independent researcher. ORCID 0000-0003-4931-9349. Cite as: Hotham, T. (2026) How deep is the sea? Ocean depth, trenches and the unmapped sea floor, from open data. https://doi.org/10.5281/zenodo.23850291</p>
+  <p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+  <p>Depths: AWS Terrain Tiles, Terrarium format (Mapzen, hosted on the Registry of Open Data on AWS). Under the sea they use ETOPO1 (NOAA, Amante and Eakins 2009, public domain), GEBCO (General Bathymetric Chart of the Oceans) and SRTM15+ (Scripps Institution of Oceanography, Tozer and others 2019); on land SRTM, GMTED2010 and national models. Full list and terms: github.com/tilezen/joerd/blob/master/docs/attribution.md. Arctic north of 85° N: ETOPO10, derived from ETOPO1. Sea areas (IHO S-23), Exclusive Economic Zones and undersea feature names: Flanders Marine Institute (VLIZ), MarineRegions.org, CC BY 4.0, via the CatalogueOfLife col-gazetteers package. Bathymetry polygons, marine names, countries, lakes and places: Natural Earth (public domain). Depths of the deepest places: Greenaway and others (2021); Bongiovanni, Stewart and Jamieson (2022); Stewart and Jamieson (2019); English Wikipedia, Oceanic trench (CC BY-SA 4.0). Mapping progress: Seabed 2030 and GEBCO ({{seabed2030.grid|raw}}). Seamount census: Kim and Wessel (2011). Ocean volume: Charette and Smith (2010). Base map © Esri. Map library: Leaflet.</p>
+  <p>Text, figures, code (MIT) and derived data: CC BY 4.0. Other studies: <a href="https://maps.tristanhotham.com/world-terrain/">How high is the world?</a>, <a href="https://maps.tristanhotham.com/wind-map/">Where the wind blows</a>, <a href="https://blog.tristanhotham.com/">all posts</a>.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const PD = /*PD*/;
+const R = PD.R;
+const NS = "http://www.w3.org/2000/svg";
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const el = (t, a = {}, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const fmt = n => n == null || isNaN(n) ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const pc = (x, d = 0) => x == null ? "n/a" : (x * 100).toFixed(d) + "%";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+function hover(node, h) { node.style.cursor = "pointer"; node.setAttribute("tabindex", "0"); const s = () => { const r = node.getBoundingClientRect(); showTip(h, r.left + r.width / 2, r.top); }; node.addEventListener("pointerenter", s); node.addEventListener("pointerleave", hideTip); node.addEventListener("focus", s); node.addEventListener("blur", hideTip); }
+const redraws = [];
+function resp(box, render) { let last = 0; const go = (force) => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+const msg = document.getElementById("loadMsg");
+
+/* ===== the bathymetric palette (metres below sea level, positive down) ===== */
+const DEEP = [[0, [226, 243, 245]], [100, [204, 234, 240]], [200, [182, 222, 234]], [500, [152, 204, 225]], [1000, [124, 184, 215]], [2000, [94, 158, 202]], [3000, [68, 130, 187]],
+  [4000, [47, 102, 167]], [5000, [34, 76, 141]], [6000, [30, 54, 113]], [7000, [40, 39, 93]], [8000, [56, 31, 85]], [9000, [74, 27, 81]], [11000, [98, 25, 84]]];
+const LAND = [[0, [236, 232, 222]], [500, [228, 222, 207]], [1500, [214, 205, 187]], [3000, [200, 190, 174]], [5000, [228, 226, 224]], [7000, [246, 246, 246]]];
+const STEPS = [0, 200, 500, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000];
+function ramp(st, v) {
+  if (v <= st[0][0]) return st[0][1]; if (v >= st[st.length - 1][0]) return st[st.length - 1][1];
+  for (let i = 1; i < st.length; i++) if (v <= st[i][0]) { const a = st[i - 1], b = st[i], t = (v - a[0]) / (b[0] - a[0]); return [a[1][0] + (b[1][0] - a[1][0]) * t, a[1][1] + (b[1][1] - a[1][1]) * t, a[1][2] + (b[1][2] - a[1][2]) * t]; }
+}
+const deepRGB = d => ramp(DEEP, d);
+function stepOf(d) { let k = 0; for (let i = 0; i < STEPS.length; i++) if (d >= STEPS[i]) k = i; return k; }
+const stepRGB = k => deepRGB(k < STEPS.length - 1 ? (STEPS[k] + STEPS[k + 1]) / 2 : 10000);
+const rgb = c => `rgb(${Math.round(c[0])},${Math.round(c[1])},${Math.round(c[2])})`;
+const depthCol = d => rgb(deepRGB(d));
+
+/* hero mark: a trench cut into depth bands */
+(() => { const g = document.getElementById("heroMark"); const cl = el("clipPath", { id: "sea" }, g);
+  const P = "M0 20 L22 26 L40 34 L52 58 L60 104 L68 66 L82 44 L100 38 L120 40 L120 120 L0 120 Z";
+  el("path", { d: "M0 0 H120 V120 H0 Z" }, cl);
+  const gg = el("g", { "clip-path": "url(#sea)" }, g);
+  for (let i = 0; i < 11; i++) el("rect", { x: 0, y: 14 + i * 9.4, width: 120, height: 9.6, fill: rgb(deepRGB(i * 1000)) }, gg);
+  el("path", { d: P, fill: "#E9E3D4", stroke: "currentColor", "stroke-width": 2.4, "stroke-linejoin": "round" }, g);
+  el("line", { x1: 0, x2: 120, y1: 14, y2: 14, stroke: "currentColor", "stroke-width": 2.6 }, g);
+})();
+
+/* ===== map ===== */
+const TILE = "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png";
+const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+const LYDEF = { base: "light", style: "both", alpha: 100, relief: 60, land: true, borders: true, borderK: 35, names: true, nameLvl: 1, seaNames: true, trenches: true, seamounts: false, smLvl: 1, uf: false, eez: false, thr: 0 };
+const LY = { ...LYDEF };
+try { Object.assign(LY, JSON.parse(localStorage.getItem("od_layers") || "{}")); } catch (e) {}
+LY.thr = 0;
+const saveLY = () => { try { const o = { ...LY }; delete o.thr; localStorage.setItem("od_layers", JSON.stringify(o)); } catch (e) {} };
+const small = innerWidth < 600;
+const map = L.map("lmap", { minZoom: 1, maxZoom: 15, zoomSnap: .5, worldCopyJump: true, maxBounds: [[-86, -300], [86, 300]], scrollWheelZoom: false }).setView([5, 160], small ? 1 : 2);
+map.on("click", () => map.scrollWheelZoom.enable());
+map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+[["terrain", 300], ["lines", 420], ["feat", 600], ["trench", 620], ["names", 640]].forEach(([n, z]) => { map.createPane(n); map.getPane(n).style.zIndex = z; });
+["terrain", "lines", "names"].forEach(n => map.getPane(n).style.pointerEvents = "none");
+let base = null;
+function setBase() {
+  if (base) map.removeLayer(base); base = null;
+  if (LY.base !== "none") base = L.tileLayer(LY.base === "ocean" ? ESRI + "Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}" : `${ESRI}Canvas/World_${LY.base === "dark" ? "Dark" : "Light"}_Gray_Base/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 16, attribution: "Base map © Esri" }).addTo(map);
+  document.getElementById("lmap").style.background = LY.base === "dark" ? "#1B2026" : "#CFE3EC";
+}
+
+/* the depth layer: Terrarium tiles decoded in the browser (height = R*256 + G + B/256 - 32768) */
+const H = new Map(), MASK = new Map();
+let BORD = null;
+function tileBounds(c) { const n = Math.pow(2, c.z), lon = x => x / n * 360 - 180, lat = y => Math.atan(Math.sinh(Math.PI * (1 - 2 * y / n))) * 180 / Math.PI; return [lon(c.x), lat(c.y + 1), lon(c.x + 1), lat(c.y)]; }
+function landMask(c) {
+  const key = c.z + "/" + c.x + "/" + c.y; if (MASK.has(key)) return MASK.get(key); if (!BORD) return null;
+  const cv = document.createElement("canvas"); cv.width = cv.height = 256; const x = cv.getContext("2d"); const n = 256 * Math.pow(2, c.z);
+  const P = (lon, lat) => { const s = Math.sin(Math.max(-85.05, Math.min(85.05, lat)) * Math.PI / 180); return [(lon + 180) / 360 * n - c.x * 256, (0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)) * n - c.y * 256]; };
+  const b0 = tileBounds(c);
+  x.fillStyle = "#fff"; x.strokeStyle = "#000"; x.beginPath();
+  for (const f of BORD.features) { const bb = f.bbox; if (bb[0] > b0[2] || bb[2] < b0[0] || bb[1] > b0[3] || bb[3] < b0[1]) continue;
+    const polys = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates;
+    for (const poly of polys) for (const ring of poly) { ring.forEach((p, i) => { const q = P(p[0], p[1]); i ? x.lineTo(q[0], q[1]) : x.moveTo(q[0], q[1]); }); x.closePath(); } }
+  x.fill("evenodd");
+  x.lineWidth = Math.max(2, 3 * Math.pow(2, Math.max(0, c.z - 6))); x.stroke();       // trim the coast, where the outline is coarser than the tiles
+  const d = x.getImageData(0, 0, 256, 256).data, m = new Uint8Array(65536); for (let i = 0; i < m.length; i++) m[i] = d[i * 4] > 200 && d[i * 4 + 1] > 200 ? 1 : 0;
+  MASK.set(key, m); return m;
+}
+function decode(img) {
+  const cv = document.createElement("canvas"); cv.width = cv.height = 256; const x = cv.getContext("2d", { willReadFrequently: true }); x.drawImage(img, 0, 0);
+  const d = x.getImageData(0, 0, 256, 256).data, h = new Float32Array(65536);
+  for (let i = 0; i < 65536; i++) h[i] = d[i * 4] * 256 + d[i * 4 + 1] + d[i * 4 + 2] / 256 - 32768;
+  return h;
+}
+function paint(canvas, c) {
+  const key = c.z + "/" + c.x + "/" + c.y, h = H.get(key); if (!h) return;
+  const ctx = canvas.getContext("2d"), img = ctx.createImageData(256, 256), d = img.data;
+  const tb = tileBounds(c), lat = (tb[1] + tb[3]) / 2, px = 40075016.7 * Math.cos(lat * Math.PI / 180) / (256 * Math.pow(2, c.z));
+  const ex = Math.min(30, Math.max(1.5, Math.pow(2, (11 - c.z) * .45))) * (.3 + LY.relief / 60 * .7);
+  const st = LY.style, sh = st !== "tint", ti = st !== "shade", band = st === "band", thr = LY.thr, mask = landMask(c);
+  const azm = (360 - 315 + 90) * Math.PI / 180, alt = 45 * Math.PI / 180, ca = Math.cos(alt), sa = Math.sin(alt);
+  const g = (i, j) => h[Math.max(0, Math.min(255, j)) * 256 + Math.max(0, Math.min(255, i))];
+  for (let j = 0; j < 256; j++) for (let i = 0; i < 256; i++) {
+    const q = j * 256 + i, v = h[q], land = v > 0 || (mask ? mask[q] === 1 : false), o = q * 4;
+    if (land && !LY.land) { d[o + 3] = 0; continue; }
+    let shade = 1;
+    if (sh) {
+      const dzdx = ((g(i + 1, j - 1) + 2 * g(i + 1, j) + g(i + 1, j + 1)) - (g(i - 1, j - 1) + 2 * g(i - 1, j) + g(i - 1, j + 1))) / (8 * px);
+      const dzdy = ((g(i - 1, j + 1) + 2 * g(i, j + 1) + g(i + 1, j + 1)) - (g(i - 1, j - 1) + 2 * g(i, j - 1) + g(i + 1, j - 1))) / (8 * px);
+      const k = land ? ex * .5 : ex, sx = dzdx * k, sy = dzdy * k, slope = Math.atan(Math.hypot(sx, sy)), aspect = Math.atan2(sy, -sx);
+      shade = Math.max(0, sa * Math.cos(slope) + ca * Math.sin(slope) * Math.cos(azm - aspect));
+    }
+    let col, f = 1;
+    if (land) {
+      col = ti ? ramp(LAND, Math.max(0, v)) : [238, 236, 232];
+      if (sh) f = .72 + .36 * shade;
+    } else {
+      const dep = Math.max(0, -v);
+      if (!ti) col = [232, 238, 240];
+      else if (band) { const k = stepOf(dep); col = stepRGB(k); const kr = stepOf(Math.max(0, -g(i + 1, j))), kd = stepOf(Math.max(0, -g(i, j + 1))); if (kr !== k || kd !== k) col = [col[0] * .78, col[1] * .78, col[2] * .78]; }
+      else col = deepRGB(dep);
+      if (thr > 0 && dep < thr) { const y = (col[0] * .3 + col[1] * .59 + col[2] * .11); col = [y * .35 + 150, y * .35 + 150, y * .35 + 150]; }
+      if (sh) f = ti ? .55 + .6 * shade : .3 + .85 * shade;
+    }
+    d[o] = Math.min(255, col[0] * f); d[o + 1] = Math.min(255, col[1] * f); d[o + 2] = Math.min(255, col[2] * f); d[o + 3] = 255;
+  }
+  ctx.putImageData(img, 0, 0);
+}
+const Terrain = L.GridLayer.extend({
+  createTile(c, done) {
+    const t = document.createElement("canvas"); t.width = t.height = 256; const key = c.z + "/" + (((c.x % Math.pow(2, c.z)) + Math.pow(2, c.z)) % Math.pow(2, c.z)) + "/" + c.y;
+    const n = Math.pow(2, c.z), xx = ((c.x % n) + n) % n; const cc = { z: c.z, x: xx, y: c.y };
+    if (H.has(key)) { paint(t, cc); setTimeout(() => done(null, t), 0); return t; }
+    const img = new Image(); img.crossOrigin = "anonymous";
+    img.onload = () => { try { H.set(key, decode(img)); if (H.size > 600) H.delete(H.keys().next().value); paint(t, cc); done(null, t); } catch (e) { done(e, t); } };
+    img.onerror = () => done(new Error("tile"), t);
+    img.src = TILE.replace("{z}", c.z).replace("{x}", xx).replace("{y}", c.y);
+    return t;
+  }
+});
+const terrain = new Terrain({ pane: "terrain", maxNativeZoom: 14, maxZoom: 15, keepBuffer: 1, attribution: 'Depths: <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">AWS Terrain Tiles</a> (ETOPO1, GEBCO, SRTM15+ and others)' }).addTo(map);
+function repaint() { for (const k in terrain._tiles) { const t = terrain._tiles[k]; const c = t.coords, n = Math.pow(2, c.z); paint(t.el, { z: c.z, x: ((c.x % n) + n) % n, y: c.y }); } }
+function heightAt(lat, lon, z) {
+  z = Math.max(0, Math.min(14, Math.round(z))); const n = Math.pow(2, z), s = Math.sin(Math.max(-85.05, Math.min(85.05, lat)) * Math.PI / 180);
+  const X = ((lon + 180) / 360 * n) * 256, Y = (0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)) * n * 256;
+  const tx = ((Math.floor(X / 256) % n) + n) % n, ty = Math.floor(Y / 256), h = H.get(z + "/" + tx + "/" + ty); if (!h) return null;
+  const i = Math.min(255, Math.floor(X - Math.floor(X / 256) * 256)), j = Math.min(255, Math.floor(Y - ty * 256)); return h[j * 256 + i];
+}
+async function fetchHeight(lat, lon, z) {
+  let v = heightAt(lat, lon, z); if (v != null) return v;
+  const n = Math.pow(2, z), s = Math.sin(Math.max(-85.05, Math.min(85.05, lat)) * Math.PI / 180);
+  const X = ((lon + 180) / 360 * n), Y = (0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)) * n, tx = ((Math.floor(X) % n) + n) % n, ty = Math.floor(Y);
+  await new Promise(ok => { const img = new Image(); img.crossOrigin = "anonymous"; img.onload = () => { try { H.set(z + "/" + tx + "/" + ty, decode(img)); } catch (e) {} ok(); }; img.onerror = ok; img.src = TILE.replace("{z}", z).replace("{x}", tx).replace("{y}", ty); });
+  return heightAt(lat, lon, z);
+}
+
+/* borders, place names, sea names, national waters */
+let borderL = L.layerGroup(), nameL = L.layerGroup(), PLACES = null, SEAS = PD.seas, EEZ = null, eezL = null;
+function pip(lon, lat, ring) { let c = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const a = ring[i], b = ring[j]; if ((a[1] > lat) !== (b[1] > lat) && lon < (b[0] - a[0]) * (lat - a[1]) / (b[1] - a[1]) + a[0]) c = !c; } return c; }
+function inFeat(fc, lon, lat) { if (!fc) return null; for (const f of fc.features) { const bb = f.bbox; if (lon < bb[0] || lon > bb[2] || lat < bb[1] || lat > bb[3]) continue; const polys = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates; for (const p of polys) if (pip(lon, lat, p[0]) && !p.slice(1).some(r => pip(lon, lat, r))) return f.properties; } return null; }
+function addBbox(b) { b.features.forEach(f => { let x0 = 999, y0 = 999, x1 = -999, y1 = -999; const polys = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates; polys.forEach(p => p[0].forEach(q => { x0 = Math.min(x0, q[0]); x1 = Math.max(x1, q[0]); y0 = Math.min(y0, q[1]); y1 = Math.max(y1, q[1]); })); f.bbox = [x0, y0, x1, y1]; }); return b; }
+function drawBorders() {
+  borderL.clearLayers(); if (!LY.borders || !BORD) { map.removeLayer(borderL); return; }
+  L.geoJSON(BORD, { pane: "lines", interactive: false, style: { color: "#2B3640", weight: map.getZoom() >= 5 ? 1.1 : .8, opacity: .2 + LY.borderK / 100 * .7, fill: false } }).addTo(borderL);
+  borderL.addTo(map);
+}
+async function loadEEZ() { if (EEZ) return EEZ; msg.textContent = "Loading national waters..."; EEZ = addBbox(await fetch("data/page/eez.json").then(r => r.json())); msg.textContent = ""; return EEZ; }
+async function drawEEZ() {
+  if (eezL) { map.removeLayer(eezL); eezL = null; } if (!LY.eez) return; await loadEEZ();
+  eezL = L.geoJSON(EEZ, { pane: "lines", interactive: false, style: f => ({ color: f.properties.k === "eez" ? "#8A3B12" : "#B4532A", weight: 1.1, dashArray: f.properties.k === "eez" ? "5 4" : "2 3", opacity: .75, fill: false }) }).addTo(map);
+}
+function boxHit(boxes, bx) { return boxes.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1]); }
+let BOXES = [];
+function labels() {
+  nameL.clearLayers(); BOXES = [];
+  const z = map.getZoom(), bb = map.getBounds().pad(.05), sz = map.getSize(), add = (ll, cls, html, w, hh, anchor) => { const pt = map.latLngToContainerPoint(ll); const bx = [pt.x - anchor[0] - 2, pt.y - anchor[1] - 2, pt.x - anchor[0] + w + 2, pt.y - anchor[1] + hh + 2]; if (bx[2] < 0 || bx[0] > sz.x || boxHit(BOXES, bx)) return false; BOXES.push(bx); L.marker(ll, { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: cls, html, iconSize: null, iconAnchor: anchor }) }).addTo(nameL); return true; };
+  // trench labels first, then sea names, then undersea features and land places
+  if (LY.trenches) { let n = 0; for (const t of PD.trenches) { if (!bb.contains([t[2], t[3]])) continue; if (z < 2.5 && n >= 6) break; const s = `${t[1] === "deepest point" ? t[0] : t[1]} <b>${fmt(t[4])} m</b>`, w = (s.length - 7) * 6.6; if (add([t[2], t[3]], "tr-l", s, w, 13, [-8, 7])) n++; } }
+  if (LY.seaNames) for (const s of SEAS) { const ocean = s[1] === "ocean"; if (s[4] > z + 1.5 + (LY.nameLvl - 1) || (!ocean && z < 3 && s[5] > 1)) continue; if (!bb.contains([s[2], s[3]])) continue; const nm = ocean ? s[0].toUpperCase() : s[0]; const w = nm.length * (ocean ? 11.5 : 6.3); add([s[2], s[3]], "sea-l" + (ocean ? " o" : ""), esc(nm), w, ocean ? 16 : 13, [w / 2, 7]); }
+  if (LY.uf && PD.feat && z >= 4) { let n = 0; for (const f of PD.feat) { if ("sgkc".includes(f[1]) && !LY.seamounts) continue; if (!bb.contains([f[2], f[3]])) continue; if (add([f[2], f[3]], "uf", esc(f[0]), f[0].length * 6.1, 12, [-5, 6])) n++; if (n > 90) break; } }
+  if (LY.names && PLACES) {
+    const lvl = LY.nameLvl, minPop = [[2, 1e7], [3, 4e6], [4, 1.5e6], [5, 6e5], [6, 2.5e5], [7, 9e4], [8, 3e4], [99, 5000]].find(([zz]) => z < zz + (lvl === 2 ? 1 : lvl === 0 ? -1 : 0))[1] * (lvl === 0 ? 2 : 1);
+    let n = 0; for (const c of PLACES) { if (c[3] < minPop) break; if (!bb.contains([c[1], c[2]])) continue; const big = c[3] >= 1e6; if (add([c[1], c[2]], "place" + (big ? "" : " s"), `<i></i>${esc(c[0])}`, 10 + c[0].length * (big ? 6.9 : 6.3), 12, [3, 6])) n++; if (n >= 140) break; }
+  }
+  nameL.addTo(map);
+}
+
+/* trenches and seamounts */
+const SRC = { greenaway: "Greenaway and others (2021), submersible pressure transects", bongiovanni: "Bongiovanni, Stewart and Jamieson (2022), multibeam sonar", stewart: "Stewart and Jamieson (2019)", wptrench: "English Wikipedia, Oceanic trench (older or less certain survey)" };
+let trL = L.layerGroup(), smL = L.layerGroup();
+const trR = L.canvas({ pane: "trench", padding: .3, tolerance: 6 }), ftR = L.canvas({ pane: "feat", padding: .3, tolerance: 5 });
+const share = d => { const cv = R.curve; if (d <= 0) return 1; for (let i = 1; i < cv.length; i++) if (d <= cv[i][0]) { const a = cv[i - 1], b = cv[i], t = (d - a[0]) / (b[0] - a[0]); return a[1] + (b[1] - a[1]) * t; } return 0; };
+function trenchPopup(t) {
+  return `<b class="h">${esc(t[1] === "deepest point" ? t[0] : t[1])}</b><span class="mut">${t[1] === "deepest point" ? "" : esc(t[0]) + " · "}${esc(t[8])} Ocean</span><span class="big">${fmt(t[4])} m</span>measured depth${t[5] ? ` (± ${t[5]} m)` : ""}<br><span class="mut">${esc(SRC[t[6]])}</span><br>Deepest 10 km cell of the grid along this trench: ${fmt(t[7])} m.${t[9] ? "" : "<br><span class='mut'>Marker at that cell; the published point may differ.</span>"}`;
+}
+function drawTrenches() {
+  trL.clearLayers(); if (!LY.trenches) { map.removeLayer(trL); labels(); return; }
+  for (const t of PD.trenches) L.circleMarker([t[2], t[3]], { renderer: trR, radius: 6, color: "#fff", weight: 2, fillColor: "#5A2D63", fillOpacity: 1 }).bindPopup(() => trenchPopup(t)).addTo(trL);
+  trL.addTo(map); labels();
+}
+const KIND = { s: "Seamount", g: "Guyot (flat-topped seamount)", k: "Knoll", c: "Seamount chain", t: "Trench", d: "Deep", p: "Abyssal plain", b: "Basin", r: "Ridge or rise", u: "Plateau", f: "Fracture zone", h: "Trough", e: "Escarpment", n: "Canyon" };
+function featPopup(f) { return `<b class="h">${esc(f[0])}</b><span class="mut">${KIND[f[1]]} · Marine Regions gazetteer</span>${f[4] != null ? `<span class="big">${f[4] > 0 ? fmt(f[4]) + " m" : "above sea level"}</span>${f[4] > 0 ? "depth of the 10 km cell at its listed position (a summit is shallower)" : ""}` : ""}<br><a href="https://marineregions.org/mrgid/${f[5]}" target="_blank" rel="noopener">Marine Regions ${f[5]}</a>`; }
+function drawSeamounts() {
+  smL.clearLayers(); if (!LY.seamounts || !PD.feat) { map.removeLayer(smL); return; }
+  const bb = map.getBounds().pad(.1), z = map.getZoom();
+  for (const f of PD.feat) { if (!"sgkc".includes(f[1]) || !bb.contains([f[2], f[3]])) continue;
+    if (LY.smLvl === 0 && f[1] === "k") continue;
+    L.circleMarker([f[2], f[3]], { renderer: ftR, radius: z < 3 ? 2.6 : z < 5 ? 3.4 : 4.4, color: "#14222E", weight: .9, fillColor: f[1] === "g" ? "#E6B04A" : f[1] === "k" ? "#B9D7C9" : "#F2E4B8", fillOpacity: 1 }).bindPopup(() => featPopup(f)).addTo(smL); }
+  smL.addTo(map);
+}
+async function setTrenches(on) { LY.trenches = on; document.getElementById("trBtn").setAttribute("aria-pressed", on); if (window.syncLayers) syncLayers(); saveLY(); drawTrenches(); }
+async function loadFeat() { if (PD.feat) return; msg.textContent = "Loading undersea names..."; PD.feat = await fetch("data/page/features.json").then(r => r.json()); msg.textContent = ""; }
+async function setSeamounts(on) { LY.seamounts = on; document.getElementById("smBtn").setAttribute("aria-pressed", on); if (window.syncLayers) syncLayers(); saveLY(); if (on) await loadFeat(); drawSeamounts(); labels(); }
+document.getElementById("trBtn").onclick = () => setTrenches(!LY.trenches);
+document.getElementById("smBtn").onclick = () => setSeamounts(!LY.seamounts);
+map.on("zoomend moveend", () => { drawSeamounts(); labels(); });
+map.on("zoomend", drawBorders);
+
+/* layers panel */
+(function layerControl() {
+  const Ctl = L.Control.extend({ options: { position: "topright" }, onAdd() {
+    const d = L.DomUtil.create("div"); L.DomEvent.disableClickPropagation(d); L.DomEvent.disableScrollPropagation(d);
+    d.innerHTML = `<button class="lyrBtn" aria-expanded="false" aria-controls="lyrPanel">Map layers</button>
+<div class="lyrPanel" id="lyrPanel" hidden>
+ <div class="row"><label for="lyStyle" style="font-weight:600">Sea floor</label><div class="sub"><select id="lyStyle" aria-label="Map style"><option value="both">Depth tints and shading</option><option value="tint">Depth tints only</option><option value="shade">Shading only</option><option value="band">Depth bands (steps)</option><option value="off">Off (plain base map)</option></select></div></div>
+ <div class="row"><label style="font-weight:600">Strength</label><div class="sub"><span>opacity</span><input type="range" id="lyAlpha" min="10" max="100" step="5" aria-label="Depth layer opacity"></div><div class="sub"><span>relief</span><input type="range" id="lyRelief" min="0" max="100" step="5" aria-label="Shading strength"></div></div>
+ <div class="row"><label><input type="checkbox" id="lyLand"> Land relief</label></div>
+ <div class="row"><label for="lyBase" style="font-weight:600">Base map</label><div class="sub"><select id="lyBase" aria-label="Base map"><option value="light">Plain light grey</option><option value="dark">Plain dark grey</option><option value="ocean">Esri ocean base</option><option value="none">None</option></select></div></div>
+ <div class="hd">On top</div>
+ <div class="row"><label><input type="checkbox" id="lyTr"> Deepest trenches</label></div>
+ <div class="row"><label><input type="checkbox" id="lySm"> Named seamounts</label><div class="sub"><span>which</span><select id="lySmLvl" aria-label="Which seamounts"><option value="0">Seamounts and guyots</option><option value="1">Also knolls</option></select></div></div>
+ <div class="row"><label><input type="checkbox" id="lyUf"> Undersea feature names</label></div>
+ <div class="row"><label><input type="checkbox" id="lySea"> Sea names</label></div>
+ <div class="row"><label><input type="checkbox" id="lyEez"> National waters (EEZ)</label></div>
+ <div class="row"><label><input type="checkbox" id="lyBorders"> Country borders</label><div class="sub"><span>strength</span><input type="range" id="lyBorderK" min="10" max="100" step="5" aria-label="Border strength"></div></div>
+ <div class="row"><label><input type="checkbox" id="lyNames"> Place names</label><div class="sub"><span>how many</span><select id="lyNameLvl" aria-label="How many names"><option value="0">Fewer</option><option value="1">Some</option><option value="2">Lots</option></select></div></div>
+ <button class="reset" id="lyReset">Reset layers</button>
+</div>`;
+    return d; } });
+  map.addControl(new Ctl());
+  const q = id => document.getElementById(id), btn = map.getContainer().querySelector(".lyrBtn"), pan = q("lyrPanel");
+  btn.onclick = () => { const o = pan.hidden; pan.hidden = !o; btn.setAttribute("aria-expanded", o); };
+  const sync = () => { q("lyStyle").value = LY.style; q("lyAlpha").value = LY.alpha; q("lyRelief").value = LY.relief; q("lyLand").checked = LY.land; q("lyBase").value = LY.base;
+    q("lyTr").checked = LY.trenches; q("lySm").checked = LY.seamounts; q("lySmLvl").value = LY.smLvl; q("lyUf").checked = LY.uf; q("lySea").checked = LY.seaNames; q("lyEez").checked = LY.eez;
+    q("lyBorders").checked = LY.borders; q("lyBorderK").value = LY.borderK; q("lyNames").checked = LY.names; q("lyNameLvl").value = LY.nameLvl;
+    document.querySelectorAll("#styleBtns .btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === LY.style)); };
+  window.syncLayers = sync;
+  const on = (id, ev, f) => q(id).addEventListener(ev, e => { f(e.target); saveLY(); });
+  on("lyStyle", "change", t => setStyle(t.value));
+  on("lyAlpha", "input", t => { LY.alpha = +t.value; terrain.setOpacity(LY.alpha / 100); });
+  on("lyRelief", "change", t => { LY.relief = +t.value; repaint(); });
+  on("lyLand", "change", t => { LY.land = t.checked; repaint(); });
+  on("lyBase", "change", t => { LY.base = t.value; setBase(); });
+  on("lyTr", "change", t => setTrenches(t.checked));
+  on("lySm", "change", t => setSeamounts(t.checked)); on("lySmLvl", "change", t => { LY.smLvl = +t.value; setSeamounts(true); });
+  on("lyUf", "change", async t => { LY.uf = t.checked; if (t.checked) await loadFeat(); labels(); });
+  on("lySea", "change", t => { LY.seaNames = t.checked; labels(); });
+  on("lyEez", "change", t => { LY.eez = t.checked; drawEEZ(); });
+  on("lyBorders", "change", t => { LY.borders = t.checked; drawBorders(); }); on("lyBorderK", "input", t => { LY.borderK = +t.value; LY.borders = q("lyBorders").checked = true; drawBorders(); });
+  on("lyNames", "change", t => { LY.names = t.checked; labels(); }); on("lyNameLvl", "change", t => { LY.nameLvl = +t.value; LY.names = q("lyNames").checked = true; labels(); });
+  q("lyReset").onclick = () => { Object.assign(LY, LYDEF); saveLY(); sync(); setBase(); setStyle(LY.style); drawBorders(); drawEEZ(); setTrenches(LY.trenches); setSeamounts(LY.seamounts); };
+  sync();
+})();
+function setStyle(s) {
+  LY.style = s; saveLY(); if (window.syncLayers) syncLayers();
+  if (s === "off") map.removeLayer(terrain); else { if (!map.hasLayer(terrain)) terrain.addTo(map); terrain.setOpacity(LY.alpha / 100); repaint(); }
+  legend();
+}
+document.querySelectorAll("#styleBtns .btn").forEach(b => b.onclick = () => setStyle(b.dataset.s));
+
+/* legend: a depth scale in metres */
+function legend() {
+  const box = document.getElementById("legend"); box.innerHTML = ""; const W0 = 300, s = el("svg", { viewBox: `0 0 ${W0} 100` }, box), x0 = 8, x1 = W0 - 16;
+  const T = [0, 200, 500, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 11000];       // classes placed evenly, not to scale
+  const LB = { 0: "0", 1000: "1k", 2000: "2k", 3000: "3k", 4000: "4k", 5000: "5k", 6000: "6k", 7000: "7k", 8000: "8k", 9000: "9k", 11000: "11k" };
+  const xs = i => x0 + (x1 - x0) * i / (T.length - 1);
+  if (LY.style === "band" || LY.style === "shade") {
+    for (let i = 0; i < T.length - 1; i++) { const c = LY.style === "band" ? stepRGB(stepOf(T[i])) : [232, 238, 240]; el("rect", { x: xs(i), y: 10, width: xs(i + 1) - xs(i) + .5, height: 18, fill: rgb(c), stroke: LY.style === "band" ? "rgba(0,0,0,.25)" : "none" }, s); }
+  } else {
+    const g = el("linearGradient", { id: "lg" }, s);
+    for (let i = 0; i < T.length - 1; i++) for (let k = 0; k <= 4; k++) { const d = T[i] + (T[i + 1] - T[i]) * k / 4; el("stop", { offset: (i + k / 4) / (T.length - 1), "stop-color": rgb(deepRGB(d)) }, g); }
+    el("rect", { x: x0, y: 10, width: x1 - x0, height: 18, fill: "url(#lg)" }, s);
+  }
+  el("rect", { x: x0, y: 10, width: x1 - x0, height: 18, fill: "none", stroke: css("--border") }, s);
+  T.forEach((h, i) => { if (!(h in LB)) return; const x = xs(i); el("line", { x1: x, x2: x, y1: 28, y2: 33, stroke: css("--fg") }, s); lbl(s, x, 45, LB[h], "lab s", "middle"); });
+  lbl(s, xs(1), 45, "200", "lab s m", "middle");
+  lbl(s, x0, 64, LY.style === "shade" ? "Shading only, lit from the north-west." : LY.style === "band" ? "Depth bands: one colour per step." : "Metres below sea level (1k = 1,000 m).", "lab s m");
+  lbl(s, x0, 80, "Steps not to scale (shelf widened).", "lab s m");
+  lbl(s, x0, 94, "Land in sand, lightly shaded.", "lab s m");
+}
+
+/* readout and the mini depth curve */
+let marker = null, cur = null;
+function miniCurve(dv) {
+  const box = document.getElementById("miniCurve"); box.innerHTML = ""; const W0 = 300, H0 = 130, s = el("svg", { viewBox: `0 0 ${W0} ${H0}` }, box);
+  const L0 = 36, R0 = W0 - 6, T0 = 8, B0 = H0 - 22, X = v => L0 + (R0 - L0) * v, Y = m => T0 + (B0 - T0) * Math.min(1, m / 11000), cv = R.curve;
+  for (let k = 0; k < cv.length - 1; k++) el("rect", { x: L0, y: Y(cv[k][0]), width: Math.max(0, X(cv[k + 1][1]) - L0), height: Y(cv[k + 1][0]) - Y(cv[k][0]) + .4, fill: rgb(deepRGB(cv[k][0])) }, s);
+  el("path", { d: "M" + cv.map(c => X(c[1]) + " " + Y(c[0])).join(" L"), fill: "none", stroke: css("--fg"), "stroke-width": 1.4 }, s);
+  [0, 2000, 4000, 6000, 8000, 10000].forEach(m => { lbl(s, L0 - 4, Y(m) + 4, m ? m / 1000 + "k" : "0", "lab s m", "end"); el("line", { x1: L0 - 2, x2: L0, y1: Y(m), y2: Y(m), stroke: css("--muted") }, s); });
+  [0, .25, .5, .75, 1].forEach(v => lbl(s, X(v), H0 - 6, (v * 100) + "%", "lab s m", v === 0 ? "start" : v === 1 ? "end" : "middle"));
+  if (dv != null && dv > 0) { const v = share(dv); el("line", { x1: L0, x2: X(v), y1: Y(dv), y2: Y(dv), stroke: "#C0533A", "stroke-width": 1.5, "stroke-dasharray": "3 2" }, s); el("circle", { cx: X(v), cy: Y(dv), r: 4.5, fill: "#C0533A", stroke: "#fff", "stroke-width": 1.5 }, s); }
+}
+function nearestFeat(ll) { if (!PD.feat) return null; let best = null, bd = 60; for (const f of PD.feat) { if (Math.abs(f[2] - ll.lat) > .6) continue; const d = hav(ll.lat, ll.lng, f[2], f[3]); if (d < bd) { bd = d; best = f; } } if (best) best.d = bd; return best; }
+const hav = (a, b, c, d) => { const p = Math.PI / 180, x = Math.sin((c - a) * p / 2) ** 2 + Math.cos(a * p) * Math.cos(c * p) * Math.sin((d - b) * p / 2) ** 2; return 2 * 6371 * Math.asin(Math.sqrt(x)); };
+function readout(h, ll, precise) {
+  const box = document.getElementById("readout"); if (h == null) return;
+  const ctry = inFeat(BORD, ll.lng, ll.lat), land = h > 0 || ctry != null;
+  const res = precise ? "from the detailed tile at this point" : "at this zoom, averaged over " + fmt(40075 * Math.cos(ll.lat * Math.PI / 180) / (256 * Math.pow(2, map.getZoom())) * 1000) + " m";
+  let t;
+  if (!land) {
+    const dv = -h, z = EEZ ? inFeat(EEZ, ll.lng, ll.lat) : null;
+    t = `<span class="big" style="color:var(--ice)">${fmt(dv)} m deep</span>${dv > 0 ? `${pc(share(dv), 1)} of the world's sea floor is deeper than this.` : "At or above sea level here (reef, shoal or coast)."}<br><span class="mut">${z ? esc(z.n) + " · " : EEZ ? "High seas · " : ""}${res}</span>`;
+    const nf = nearestFeat(ll); if (nf) t += `<br><span class="mut">Nearest named feature: ${esc(nf[0])} (${KIND[nf[1]].split(" (")[0].toLowerCase()}), ${nf.d < 1 ? "here" : Math.round(nf.d) + " km away"}</span>`;
+    miniCurve(dv);
+  } else {
+    t = `<span class="big">${h < 0 ? fmt(-h) + " m below" : fmt(h) + " m"}</span>${h < 0 ? "sea level, on land." : "above sea level, on land."}<br><span class="mut">${ctry ? esc(ctry.n) + " · " : ""}${res}</span>`;
+    miniCurve(null);
+  }
+  box.innerHTML = t; return t;
+}
+let lastMove = 0;
+map.on("mousemove", e => { const now = performance.now(); if (now - lastMove < 40) return; lastMove = now; const ll = e.latlng.wrap(); const h = heightAt(ll.lat, ll.lng, map.getZoom()); if (h != null && !cur) readout(h, ll, false); });
+map.on("mouseout", () => { if (!cur) miniCurve(null); });
+async function pickPoint(ll, title) {
+  ll = L.latLng(ll.lat, ((ll.lng + 540) % 360) - 180);
+  const z = Math.min(14, Math.max(10, Math.round(map.getZoom()) + 1)); const h = await fetchHeight(ll.lat, ll.lng, z); cur = ll;
+  if (!EEZ) await loadEEZ().catch(() => null);
+  if (h == null) { document.getElementById("readout").textContent = "Could not load the depth tile for this point."; return; }
+  const t = readout(h, ll, true);
+  if (marker) map.removeLayer(marker);
+  marker = L.marker(ll, { icon: L.divIcon({ className: "pin", iconSize: [18, 18] }), title: title || "Selected point" }).addTo(map);
+  L.popup({ maxWidth: 270 }).setLatLng(ll).setContent((title ? `<b class="h">${esc(title)}</b>` : "") + t).openOn(map);
+}
+map.on("click", e => pickPoint(e.latlng));
+map.on("popupclose", () => { cur = null; });
+
+/* views and search */
+const VIEWS = { world: [[5, 160], 2], mariana: [[13, 144], 5.5], tonga: [[-24, -175], 5], ridge: [[25, -40], 4], uk: [[55, -6], 5] };
+document.querySelectorAll("#viewBtns .btn").forEach(b => b.onclick = () => { const v = VIEWS[b.dataset.v]; map.setView(v[0], small ? v[1] - 1 : v[1]); document.getElementById("lmap").scrollIntoView({ block: "nearest", behavior: "smooth" }); });
+const qi = document.getElementById("q"), sug = document.getElementById("sug");
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+let hits = [], hsel = -1;
+qi.addEventListener("focus", () => loadFeat());
+qi.addEventListener("input", async () => {
+  const s = norm(qi.value.trim()); if (s.length < 2) { sug.style.display = "none"; qi.setAttribute("aria-expanded", "false"); return; }
+  await loadFeat(); const out = [];
+  for (const t of PD.trenches) { const nm = t[1] === "deepest point" ? t[0] : `${t[1]}, ${t[0]}`; if (norm(nm).includes(s)) out.push({ t: "t", name: nm, sub: `${fmt(t[4])} m measured`, o: t, r: 0 }); }
+  for (const x of SEAS) if (norm(x[0]).includes(s)) out.push({ t: "s", name: x[0], sub: x[6] ? `${x[1] === "iho" ? "sea area" : x[1]} · average ${fmt(x[6][0])} m` : x[1], o: x, r: norm(x[0]).startsWith(s) ? 1 : 3 });
+  for (const f of PD.feat) { if (norm(f[0]).includes(s)) out.push({ t: "f", name: f[0], sub: KIND[f[1]].split(" (")[0].toLowerCase() + (f[4] > 0 ? ` · cell ${fmt(f[4])} m` : ""), o: f, r: norm(f[0]).startsWith(s) ? 2 : 4 }); if (out.length > 300) break; }
+  hits = out.sort((a, b) => (norm(a.name) === s ? 0 : 1) - (norm(b.name) === s ? 0 : 1) || a.r - b.r).slice(0, 12);
+  sug.innerHTML = hits.map((h, i) => `<li role="option" data-i="${i}">${esc(h.name)} <span>${esc(h.sub)}</span></li>`).join(""); hsel = -1;
+  sug.style.display = hits.length ? "block" : "none"; qi.setAttribute("aria-expanded", hits.length ? "true" : "false");
+});
+sug.addEventListener("click", e => { const li = e.target.closest("li"); if (li) pick(+li.dataset.i); });
+qi.addEventListener("keydown", e => { if (!hits.length) return; if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); hsel = (hsel + (e.key === "ArrowDown" ? 1 : -1) + hits.length) % hits.length; [...sug.children].forEach((li, i) => li.setAttribute("aria-selected", i === hsel)); } else if (e.key === "Enter") { e.preventDefault(); pick(Math.max(0, hsel)); } });
+function seaPopup(x) { const s = x[6]; return `<b class="h">${esc(x[0])}</b><span class="mut">${x[1] === "iho" ? "IHO sea area" : esc(x[1])}</span>` + (s ? `<span class="big">${fmt(s[0])} m</span>average depth (10 km grid, IHO limits); deepest cell ${fmt(s[1])} m; ${fmt(s[2])} km²; ${pc(s[5])} continental shelf.` : ""); }
+function pick(i) { const h = hits[i]; if (!h) return; qi.value = h.name; sug.style.display = "none"; qi.setAttribute("aria-expanded", "false");
+  if (h.t === "t") { if (!LY.trenches) setTrenches(true); map.setView([h.o[2], h.o[3]], 7); setTimeout(() => L.popup().setLatLng([h.o[2], h.o[3]]).setContent(trenchPopup(h.o)).openOn(map), 350); }
+  else if (h.t === "s") { const s = h.o[6]; map.setView([h.o[2], h.o[3]], s && s[2] > 5e6 ? 3 : s && s[2] > 5e5 ? 4.5 : 6); setTimeout(() => L.popup().setLatLng([h.o[2], h.o[3]]).setContent(seaPopup(h.o)).openOn(map), 350); }
+  else { if ("sgkc".includes(h.o[1]) && !LY.seamounts) setSeamounts(true); map.setView([h.o[2], h.o[3]], Math.max(map.getZoom(), 8)); setTimeout(() => L.popup().setLatLng([h.o[2], h.o[3]]).setContent(featPopup(h.o)).openOn(map), 350); }
+  document.getElementById("lmap").scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+document.addEventListener("click", e => { if (!e.target.closest(".searchbox")) sug.style.display = "none"; });
+window.goPlace = (lat, lon, z, name) => { map.setView([lat, lon], z); document.getElementById("lmap").scrollIntoView({ block: "start", behavior: "smooth" }); if (name) setTimeout(() => pickPoint(L.latLng(lat, lon), name), 500); };
+
+/* threshold */
+const thr = document.getElementById("thr"), thrOut = document.getElementById("thrOut"), thrNote = document.getElementById("thrNote");
+let thrT = null;
+thr.addEventListener("input", () => { LY.thr = +thr.value; thrOut.textContent = LY.thr ? fmt(LY.thr) + " m" : "off";
+  thrNote.textContent = LY.thr ? `${pc(share(LY.thr), 1)} of the world's sea floor is deeper than ${fmt(LY.thr)} m.` : "Drag to see which sea floor lies deeper than a depth.";
+  clearTimeout(thrT); thrT = setTimeout(repaint, 60); });
+
+setBase(); legend(); miniCurve(null);
+fetch("data/page/borders.json").then(r => r.json()).then(b => { BORD = addBbox(b); MASK.clear(); repaint(); drawBorders(); });
+fetch("data/page/places.json").then(r => r.json()).then(p => { PLACES = p; labels(); });
+drawTrenches(); if (LY.seamounts) setSeamounts(true); if (LY.eez) drawEEZ(); if (LY.uf) loadFeat().then(labels);
+if (LY.style !== "both") setStyle(LY.style);
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; redraws.forEach(f => f()); legend(); miniCurve(null); };
+
+/* ===== charts (SVG, drawn from PD.R = data/results.json) ===== */
+const fg = () => css("--fg"), mu = () => css("--muted"), ru = () => css("--rule");
+function hbars(id, rows, opt = {}) {
+  resp(document.getElementById(id), (W, sm) => {
+    const lw = opt.lw || (sm ? 118 : 170), rw = (sm && opt.rwSm) || opt.rw || 64, bh = opt.bh || 22, gap = 6, H0 = rows.length * (bh + gap) + 24;
+    const s = el("svg", { viewBox: `0 0 ${W} ${H0}` }, document.getElementById(id)); const mx = opt.max || Math.max(...rows.map(r => r.v)); const X = v => lw + (W - lw - rw) * v / mx;
+    rows.forEach((r, i) => { const y = 4 + i * (bh + gap);
+      const b = el("rect", { x: lw, y, width: Math.max(1, X(r.v) - lw), height: bh, fill: r.c, stroke: r.stroke || "none", rx: 2 }, s);
+      lbl(s, lw - 8, y + bh / 2 + 4, r.label, "lab" + (r.bold ? " b" : ""), "end");
+      lbl(s, X(r.v) + 6, y + bh / 2 + 4, r.text, "lab s");
+      if (r.tip) hover(b, r.tip); if (r.go) { b.style.cursor = "pointer"; b.addEventListener("click", r.go); }
+    });
+    if (opt.axis) lbl(s, W - rw, H0 - 4, opt.axis, "lab s m", "end");
+  });
+}
+hbars("bandChart", R.bands.map(b => ({ label: b.hi ? `${fmt(b.lo)} to ${fmt(b.hi)} m` : `deeper than ${fmt(b.lo)} m`, v: b.share, c: rgb(deepRGB(b.hi ? (b.lo + b.hi) / 2 : 8500)), stroke: "rgba(0,0,0,.2)",
+  text: pc(b.share, b.share < .02 ? 2 : 1), tip: `${b.hi ? fmt(b.lo) + " to " + fmt(b.hi) : "Deeper than " + fmt(b.lo)} m: ${pc(b.share, 2)} of the sea floor, ${fmt(b.km2)} km², ${pc(b.earth, 2)} of the Earth's surface` })), { max: .34, rw: 60 });
+
+/* the two levels of the Earth: histogram */
+resp(document.getElementById("earthChart"), (W, sm) => {
+  const H0 = sm ? 260 : 300, L0 = 44, R0 = W - 10, T0 = 14, B0 = H0 - 40, s = el("svg", { viewBox: `0 0 ${W} ${H0}` }, document.getElementById("earthChart"));
+  const hs = R.earth.hist, X = m => L0 + (R0 - L0) * (m + 11000) / 20000, mx = .11, Y = v => B0 - (B0 - T0) * v / mx, bw = (R0 - L0) / hs.length;
+  [0, .02, .04, .06, .08, .1].forEach(v => { el("line", { x1: L0, x2: R0, y1: Y(v), y2: Y(v), stroke: ru(), "stroke-width": .7 }, s); lbl(s, L0 - 6, Y(v) + 4, (v * 100) + "%", "lab s m", "end"); });
+  hs.forEach(([m, v]) => { const r = el("rect", { x: X(m) + .4, y: Y(v), width: Math.max(.6, bw - .8), height: B0 - Y(v), fill: m < 0 ? rgb(deepRGB(-m - 125)) : "#D7C7A3" }, s);
+    hover(r, `${m < 0 ? fmt(-m - 250) + " to " + fmt(-m) + " m deep" : fmt(m) + " to " + fmt(m + 250) + " m high"}: ${pc(v, 2)} of the Earth's surface`); });
+  el("line", { x1: X(0), x2: X(0), y1: T0, y2: B0, stroke: fg(), "stroke-width": 1 }, s);
+  [-10000, -8000, -6000, -4000, -2000, 0, 2000, 4000, 6000, 8000].forEach(m => lbl(s, X(m), B0 + 16, (m / 1000) + "k", "lab s m", "middle"));
+  lbl(s, (L0 + R0) / 2, H0 - 4, "metres below (left) and above (right) sea level", "lab s m", "middle");
+  const pd = R.earth.peak_deep, ph = R.earth.peak_high;
+  lbl(s, X(pd[0]) - 4, Y(pd[2]) - 8, sm ? "ocean floor" : "the ocean floor, 4 to 5 km down", "lab s b", "middle");
+  lbl(s, X(ph[0]) + 10, Y(ph[2]) + 4, sm ? "lowlands" : "lowland, just above the sea", "lab s b", "start");
+});
+
+/* oceans */
+hbars("oceanChart", R.oceans.map(o => ({ label: o.name, v: o.mean, c: rgb(deepRGB(o.mean)), stroke: "rgba(0,0,0,.2)",
+  text: sm2() ? `${fmt(o.mean)} m` : `${fmt(o.mean)} m · deepest: ${o.pub_name}, ${fmt(o.pub)} m`, tip: `${o.name} Ocean: ${fmt(o.area_m * 1e6)} km², mean ${fmt(o.mean)} m, median ${fmt(o.median)} m; ${pc(o.shelf, 1)} shelf; deepest known place ${o.pub_name} (${o.pub_trench}), ${fmt(o.pub)} m; deepest grid cell ${fmt(o.max)} m`,
+  go: () => goPlace(R.tr[{ Pacific: "mariana", Atlantic: "puertorico", Indian: "java", Southern: "factorian", Arctic: "molloy" }[o.name]].lat, R.tr[{ Pacific: "mariana", Atlantic: "puertorico", Indian: "java", Southern: "factorian", Arctic: "molloy" }[o.name]].lon, 7, o.pub_name) })), { max: 4300, rw: 260, rwSm: 70, lw: 90 });
+function sm2() { return document.getElementById("oceanChart").clientWidth < 560; }
+
+/* trenches: measured and grid */
+resp(document.getElementById("trenchChart"), (W, sm) => {
+  const T = R.trenches, lw = sm ? 150 : 290, rw = 16, rh = 26, H0 = T.length * rh + 40, s = el("svg", { viewBox: `0 0 ${W} ${H0}` }, document.getElementById("trenchChart"));
+  const X = d => lw + (W - lw - rw) * (d - 5000) / 6200;
+  [5000, 6000, 7000, 8000, 9000, 10000, 11000].forEach(d => { el("line", { x1: X(d), x2: X(d), y1: 2, y2: H0 - 30, stroke: ru(), "stroke-width": .7 }, s); lbl(s, X(d), H0 - 16, (d / 1000) + "k", "lab s m", "middle"); });
+  lbl(s, W - rw, H0 - 2, "metres below sea level", "lab s m", "end");
+  T.forEach((t, i) => { const y = 14 + i * rh, nm = t.deep === "deepest point" || t.name.startsWith(t.deep) ? t.name : `${t.deep}, ${t.name}`;
+    const g = el("g", {}, s); lbl(g, lw - 8, y + 4, sm ? (t.deep === "deepest point" ? t.name : t.deep).replace(" Trench", "").replace(", Fram Strait", "") : nm.replace(" Trench, south of 60° S", " (S of 60°)").replace(" Trench", "").replace(" Trough", " Trough"), "lab s", "end");
+    el("line", { x1: X(t.grid), x2: X(t.published), y1: y, y2: y, stroke: mu(), "stroke-width": 1.4 }, g);
+    el("circle", { cx: X(t.grid), cy: y, r: 5, fill: css("--card"), stroke: "#2B5F8A", "stroke-width": 2 }, g);
+    el("circle", { cx: X(t.published), cy: y, r: 5.5, fill: "#5A2D63", stroke: "#fff", "stroke-width": 1.5 }, g);
+    hover(g, `<b>${esc(nm)}</b><br>Measured ${fmt(t.published)} m${t.unc ? " ± " + t.unc : ""} (${esc(SRC[t.src].split(",")[0])})<br>Deepest 10 km cell ${fmt(t.grid)} m (${t.shortfall >= 0 ? fmt(t.shortfall) + " m shallower" : fmt(-t.shortfall) + " m deeper"})`);
+    g.addEventListener("click", () => goPlace(t.lat, t.lon, 7, nm)); });
+  const ly = H0 - 28; el("circle", { cx: lw + 4, cy: ly - 6, r: 4.5, fill: "#5A2D63" }, s); lbl(s, lw + 12, ly - 2, "measured", "lab s");
+  el("circle", { cx: lw + 92, cy: ly - 6, r: 4.5, fill: "none", stroke: "#2B5F8A", "stroke-width": 2 }, s); lbl(s, lw + 100, ly - 2, "10 km grid", "lab s");
+});
+
+/* Mariana profile with Everest */
+resp(document.getElementById("profChart"), (W, sm) => {
+  const P = R.mariana.prof, H0 = sm ? 300 : 360, L0 = 50, R0 = W - 10, T0 = 12, B0 = H0 - 36, s = el("svg", { viewBox: `0 0 ${W} ${H0}` }, document.getElementById("profChart"));
+  const n = P.h.length, X = i => L0 + (R0 - L0) * i / (n - 1), Y = m => T0 + (B0 - T0) * (1000 - m) / 12500;
+  const g = el("linearGradient", { id: "pg", x1: 0, x2: 0, y1: 0, y2: 1 }, s); [0, 2000, 4000, 6000, 8000, 11000].forEach(d => el("stop", { offset: (d + 1000) / 12500 * 1, "stop-color": rgb(deepRGB(d)) }, g));
+  el("rect", { x: L0, y: Y(0), width: R0 - L0, height: Y(-11500) - Y(0), fill: "url(#pg)", opacity: .9 }, s);
+  el("path", { d: `M${X(0)} ${Y(-11500)} ` + P.h.map((h, i) => `L${X(i)} ${Y(h)}`).join(" ") + ` L${X(n - 1)} ${Y(-11500)} Z`, fill: "#E9E3D4", stroke: fg(), "stroke-width": 1.3 }, s);
+  [0, -2000, -4000, -6000, -8000, -10000].forEach(m => { el("line", { x1: L0, x2: R0, y1: Y(m), y2: Y(m), stroke: m ? "rgba(255,255,255,.25)" : fg(), "stroke-width": m ? .6 : 1.2 }, s); lbl(s, L0 - 6, Y(m) + 4, m ? fmt(-m) : "0", "lab s m", "end"); });
+  const i0 = P.h.indexOf(Math.min(...P.h)), xd = X(i0), D = R.mariana.published, ev = R.mariana.everest, wE = (R0 - L0) * 70 / (n - 1);
+  el("line", { x1: L0, x2: R0, y1: Y(-D), y2: Y(-D), stroke: "#C0533A", "stroke-width": 1.2, "stroke-dasharray": "5 3" }, s);
+  el("path", { d: `M${xd - wE} ${Y(-D)} L${xd - wE * .35} ${Y(-D + ev * .62)} L${xd - wE * .12} ${Y(-D + ev * .78)} L${xd} ${Y(-D + ev)} L${xd + wE * .3} ${Y(-D + ev * .7)} L${xd + wE} ${Y(-D)} Z`, fill: "rgba(255,255,255,.88)", stroke: "#C0533A", "stroke-width": 1.4 }, s);
+  lbl(s, xd + 10, Y(-D + ev) - 4, `Everest's summit, ${fmt(D - ev)} m down`, "lab s b");
+  lbl(s, R0 - 4, Y(-D) - 6, `Challenger Deep, ${fmt(D)} m (measured)`, "lab s b", "end");
+  lbl(s, L0 + 6, Y(0) - 4, "sea level", "lab s m");
+  [0, 100, 200, 300, 400, 500, 600, 700].forEach(k => lbl(s, X(k), B0 + 16, k + " km", "lab s m", "middle"));
+  lbl(s, (L0 + R0) / 2, H0 - 4, "distance south from 14.5° N, along 142.6° E", "lab s m", "middle");
+});
+hbars("eezChart", R.eez.top.slice(0, 10).map(z => ({ label: z.name.replace(" EEZ", "").replace("United States", "US"), v: z.max, c: rgb(deepRGB(z.max)), stroke: "rgba(0,0,0,.2)", text: fmt(z.max) + " m",
+  tip: `${esc(z.name)}: deepest cell ${fmt(z.max)} m; mean ${fmt(z.mean)} m over ${fmt(z.area)} km² on the grid`, go: () => goPlace(z.lat, z.lon, 7, z.name) })), { max: 11000, lw: 220 });
+</script>
+/*FULLSCREEN*/
+</body>
+</html>

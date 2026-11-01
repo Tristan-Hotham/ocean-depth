@@ -1,0 +1,268 @@
+mrgid,zone,group,kind,area_km2_on_grid,mean_depth_m,median_depth_m,deepest_cell_m,deepest_lon,deepest_lat,share_shelf,share_hadal
+5670,Albanian Exclusive Economic Zone,Albanian,eez,12039,286,126,1263,19.204,40.078,0.5953,0.0
+8378,Algerian Exclusive Economic Zone,Algerian,eez,130095,2329,2741,3110,5.933,38.307,0.0524,0.0
+8478,Angolan Exclusive Economic Zone,Angolan,eez,502411,2661,3009,5128,8.394,-16.172,0.1094,0.0
+8414,Antiguan and Barbudan Exclusive Economic Zone,Antiguan and Barbudan,eez,113115,4825,5364,7116,-61.392,19.021,0.0315,0.1396
+8466,Argentinian Exclusive Economic Zone,Argentinian,eez,1071571,764,101,4687,-67.192,-57.445,0.7365,0.0
+8323,Australian Exclusive Economic Zone,Australian,eez,6898497,2234,1898,6380,122.827,-37.405,0.3075,0.0002
+8309,Australian Exclusive Economic Zone (Christmas Island),Australian,eez,332319,5143,5314,7134,106.216,-9.232,0.0012,0.0817
+8308,Australian Exclusive Economic Zone (Cocos Islands),Australian,eez,475059,5042,5157,6406,99.8,-13.795,0.0006,0.0244
+8388,Australian Exclusive Economic Zone (Heard and McDonald Islands),Australian,eez,418058,2254,2171,4666,67.28,-53.147,0.012,0.0
+8311,Australian Exclusive Economic Zone (Macquarie Island),Australian,eez,477671,3991,4087,6245,157.544,-58.055,0.0018,0.0015
+8310,Australian Exclusive Economic Zone (Norfolk Island),Australian,eez,435171,2779,3010,4561,170.024,-27.645,0.0088,0.0
+8404,Bahamian Exclusive Economic Zone,Bahamian,eez,624440,2804,2693,5750,-72.642,24.087,0.1867,0.0
+8358,Bahraini Exclusive Economic Zone,Bahraini,eez,7825,15,10,69,51.108,27.02,1.0,0.0
+8481,Bangladeshi Exclusive Economic Zone,Bangladeshi,eez,111008,654,97,2164,90.22,17.853,0.6015,0.0
+8418,Barbadian Exclusive Economic Zone,Barbadian,eez,187164,3637,3970,5673,-58.14,15.665,0.0018,0.0
+3293,Belgian Exclusive Economic Zone,Belgian,eez,3355,19,21,32,2.417,51.7,1.0,0.0
+8457,Belizean Exclusive Economic Zone,Belizean,eez,32632,1684,1353,4068,-86.792,17.853,0.2741,0.0
+8393,Beninese Exclusive Economic Zone,Beninese,eez,35483,3127,3641,4236,2.417,3.119,0.0805,0.0
+8471,Bissau-Guinean Exclusive Economic Zone,Bissau-Guinean,eez,108662,2010,1567,4746,-19.819,10.531,0.3446,0.0
+22491,Bosnian and Herzegovinian Exclusive Economic Zone,Bosnian and Herzegovinian,eez,13,0,0,0,17.622,42.908,1.0,0.0
+8464,Brazilian Exclusive Economic Zone,Brazilian,eez,3240381,2591,3139,5409,-31.245,-6.97,0.2309,0.0
+8381,Brazilian Exclusive Economic Zone (Trindade),Brazilian,eez,479686,5023,5148,6108,-25.796,-20.509,0.0,0.0014
+5696,British Exclusive Economic Zone,British,eez,726065,424,108,4417,-10.063,47.547,0.7182,0.0
+8412,British Exclusive Economic Zone (Anguilla),British,eez,90797,5186,5535,7758,-62.358,19.436,0.0185,0.2077
+8379,British Exclusive Economic Zone (Ascension),British,eez,454319,3403,3456,4665,-16.655,-10.358,0.0002,0.0
+8402,British Exclusive Economic Zone (Bermuda),British,eez,470328,4844,4907,5418,-62.71,29.497,0.0013,0.0
+8411,British Exclusive Economic Zone (British Virgin Islands),British,eez,82789,5096,5426,7986,-64.995,19.932,0.0321,0.1766
+8407,British Exclusive Economic Zone (Cayman Islands),British,eez,117978,3614,3556,8071,-79.849,19.187,0.0025,0.0434
+21788,British Exclusive Economic Zone (Guernsey),British,eez,3595,50,55,93,-2.329,49.866,1.0,0.0
+21789,British Exclusive Economic Zone (Jersey),British,eez,2321,24,21,52,-2.505,49.239,1.0,0.0
+8415,British Exclusive Economic Zone (Montserrat),British,eez,7097,1284,1298,2071,-62.886,16.088,0.0031,0.0
+8439,British Exclusive Economic Zone (Pitcairn),British,eez,851295,3629,3678,4563,-129.331,-21.084,0.0,0.0
+8380,British Exclusive Economic Zone (Saint Helena),British,eez,456828,4262,4259,5788,-3.823,-18.688,0.0009,0.0
+8382,British Exclusive Economic Zone (Tristan da Cunha),British,eez,765125,3404,3460,4475,-11.118,-42.326,0.0018,0.0
+8405,British Exclusive Economic Zone (Turks and Caicos Islands),British,eez,92132,4375,5378,5620,-70.884,22.147,0.0732,0.0
+26521,Bruneian Exclusive Economic Zone,Bruneian,eez,43153,1400,1575,2742,113.862,6.097,0.2064,0.0
+5672,Bulgarian Exclusive Economic Zone,Bulgarian,eez,34566,1050,1292,2158,30.454,42.779,0.31,0.0
+8331,Cambodian Exclusive Economic Zone,Cambodian,eez,48512,43,57,88,102.173,8.972,1.0,0.0
+8475,Cameroonian Exclusive Economic Zone,Cameroonian,eez,14630,161,21,1439,9.185,2.68,0.8177,0.0
+8493,Canadian Exclusive Economic Zone,Canadian,eez,5709173,874,221,5162,-57.612,41.013,0.4756,0.0
+8362,Cape Verdean Exclusive Economic Zone,Cape Verdean,eez,812960,4111,4302,5576,-27.817,13.283,0.0056,0.0
+8465,Chilean Exclusive Economic Zone,Chilean,eez,2502570,3435,3933,7802,-71.235,-22.309,0.0883,0.0155
+21787,Chilean Exclusive Economic Zone (Easter Island),Chilean,eez,739218,3162,3164,4111,-103.491,-27.567,0.0003,0.0
+22756,Chilean Exclusive Economic Zone (Islas San Félix and San Ambrosio),Chilean,eez,457768,3937,4000,5058,-82.573,-24.006,0.0003,0.0
+8486,Chinese Exclusive Economic Zone,Chinese,eez,969082,201,49,3616,113.774,17.518,0.8743,0.0
+8426,Colombian Exclusive Economic Zone,Colombian,eez,722041,2740,3106,4628,-79.937,3.119,0.0576,0.0
+48985,Colombian Exclusive Economic Zone (Bajo Nuevo Bank),Colombian,eez,1679,1163,1172,2060,-78.618,15.665,0.1053,0.0
+62598,Colombian Exclusive Economic Zone (Quitasueño Bank),Colombian,eez,3767,512,338,1673,-80.903,14.307,0.3096,0.0
+62596,Colombian Exclusive Economic Zone (Serrana Bank),Colombian,eez,2778,1065,1154,1936,-80.288,14.137,0.0645,0.0
+48984,Colombian Exclusive Economic Zone (Serranilla Bank),Colombian,eez,1504,447,294,1441,-79.849,15.581,0.4702,0.0
+8334,Comorian Exclusive Economic Zone,Comorian,eez,164863,3204,3382,3965,43.198,-8.19,0.0083,0.0
+8477,Congolese (Democratic Republic of) Exclusive Economic Zone,Congolese (Democratic Republic of),eez,13581,1974,1920,3988,9.185,-7.057,0.2226,0.0
+8394,Congolese (Republic of) Exclusive Economic Zone,Congolese (Republic of),eez,34530,1828,1973,3929,9.097,-6.708,0.2109,0.0
+8424,Costa Rican Exclusive Economic Zone,Costa Rican,eez,586737,2512,2785,4904,-87.056,10.704,0.0297,0.0
+5673,Croatian Exclusive Economic Zone,Croatian,eez,55956,196,82,1134,17.798,41.739,0.7947,0.0
+8406,Cuban Exclusive Economic Zone,Cuban,eez,353249,2456,2478,6969,-76.421,19.601,0.1546,0.007
+8376,Cypriote Exclusive Economic Zone,Cypriote,eez,98653,1813,2099,2973,30.015,33.907,0.0298,0.0
+5674,Danish Exclusive Economic Zone,Danish,eez,103895,36,31,477,9.888,58.194,0.9907,0.0
+8435,Danish Exclusive Economic Zone (Faeroe),Danish,eez,265149,1341,993,4087,-6.284,64.83,0.0975,0.0
+8438,Danish Exclusive Economic Zone (Greenland),Danish,eez,2244134,1481,1089,5192,-52.339,71.371,0.1721,0.0
+8352,Djiboutian Exclusive Economic Zone,Djiboutian,eez,7220,449,344,1180,43.726,11.996,0.2943,0.0
+8409,Dominican (Republic) Exclusive Economic Zone,Dominican (Republic),eez,353831,3972,4141,8505,-67.808,19.601,0.0328,0.0158
+8417,Dominican Exclusive Economic Zone,Dominican,eez,28424,3240,2730,5776,-58.755,16.257,0.0156,0.0
+5668,Dutch Exclusive Economic Zone,Dutch,eez,61316,30,30,53,3.384,55.752,1.0,0.0
+26519,Dutch Exclusive Economic Zone (Aruba),Dutch,eez,30482,3178,3981,5047,-69.302,13.625,0.0575,0.0
+26520,Dutch Exclusive Economic Zone (Bonaire),Dutch,eez,13385,2701,2605,5075,-68.511,13.625,0.0307,0.0
+26517,Dutch Exclusive Economic Zone (Curaçao),Dutch,eez,25830,2976,2620,5087,-68.774,13.625,0.0106,0.0
+26518,Dutch Exclusive Economic Zone (Saba),Dutch,eez,9222,796,878,1857,-63.94,16.762,0.2263,0.0
+26526,Dutch Exclusive Economic Zone (Sint-Eustatius),Dutch,eez,2089,686,658,1181,-63.501,16.847,0.0,0.0
+21803,Dutch Exclusive Economic Zone (Sint-Maarten),Dutch,eez,562,529,353,1120,-63.237,17.853,0.2306,0.0
+8431,Ecuadorian Exclusive Economic Zone,Ecuadorian,eez,236957,2178,2453,4778,-81.694,-3.206,0.108,0.0
+8403,Ecuadorian Exclusive Economic Zone (Galapagos),Ecuadorian,eez,853773,2763,2895,3952,-91.011,-4.522,0.0096,0.0
+8490,Egyptian Exclusive Economic Zone,Egyptian,eez,242714,1412,1144,3323,26.147,32.138,0.1861,0.0
+8360,Emirati Exclusive Economic Zone,Emirati,eez,51163,32,19,1104,57.085,25.125,0.9771,0.0
+8398,Equatorial Guinean Exclusive Economic Zone,Equatorial Guinean,eez,308850,3606,4064,5272,3.472,-3.908,0.0381,0.0
+8351,Eritrean Exclusive Economic Zone,Eritrean,eez,79031,157,47,1275,40.825,16.594,0.7811,0.0
+5675,Estonian Exclusive Economic Zone,Estonian,eez,35819,46,40,157,20.522,58.836,1.0,0.0
+8325,Fijian Exclusive Economic Zone,Fijian,eez,1304802,2701,2739,5595,173.628,-22.877,0.0291,0.0
+5676,Finnish Exclusive Economic Zone,Finnish,eez,83144,41,29,177,19.116,60.174,1.0,0.0
+5677,French Exclusive Economic Zone,French,eez,347984,1562,372,5146,-5.669,45.921,0.4684,0.0
+8386,French Exclusive Economic Zone (Amsterdam and Saint Paul Islands),French,eez,517583,3172,3225,4783,73.521,-36.774,0.0004,0.0
+8340,French Exclusive Economic Zone (Bassas da India),French,eez,120303,2868,2892,3616,39.067,-21.576,0.0014,0.0
+8401,French Exclusive Economic Zone (Clipperton Island),French,eez,443817,3641,3682,5629,-110.347,12.855,0.0,0.0
+8495,French Exclusive Economic Zone (Collectivity of Saint Martin),French,eez,907,860,962,1530,-63.589,17.937,0.2378,0.0
+8385,French Exclusive Economic Zone (Crozet Islands),French,eez,579517,3312,3565,4835,49.614,-49.696,0.0138,0.0
+8341,French Exclusive Economic Zone (Europa Island),French,eez,128528,3345,3298,4351,40.122,-25.681,0.0,0.0
+8462,French Exclusive Economic Zone (French Guiana),French,eez,132643,2181,2567,4988,-52.075,8.538,0.3266,0.0
+8440,French Exclusive Economic Zone (French Polynesia),French,eez,4805805,4022,4261,5688,-144.976,-22.715,0.0041,0.0
+33177,French Exclusive Economic Zone (Guadeloupe),French,eez,91346,4305,5129,6600,-59.897,17.686,0.0251,0.0428
+8339,French Exclusive Economic Zone (Juan de Nova Island),French,eez,62838,2126,2152,3236,42.583,-15.581,0.0208,0.0
+8387,French Exclusive Economic Zone (Kerguélen),French,eez,553774,1826,1877,4717,63.501,-50.373,0.0916,0.0
+33178,French Exclusive Economic Zone (Martinique),French,eez,47975,3222,2937,5681,-58.315,15.75,0.0284,0.0
+8312,French Exclusive Economic Zone (New Caledonia),French,eez,1184352,2604,2561,6877,168.53,-20.427,0.0401,0.0025
+8338,French Exclusive Economic Zone (Réunion),French,eez,317623,4381,4500,5616,52.515,-22.391,0.0024,0.0
+48952,French Exclusive Economic Zone (Saint-Barthélemy),French,eez,4280,909,314,4709,-62.271,18.188,0.4143,0.0
+8494,French Exclusive Economic Zone (Saint-Pierre and Miquelon),French,eez,10773,575,100,3661,-56.294,43.421,0.6751,0.0
+8454,French Exclusive Economic Zone (Wallis and Futuna),French,eez,253378,3025,3203,5794,-175.737,-13.966,0.0064,0.0
+8476,Gabonese Exclusive Economic Zone,Gabonese,eez,201117,2323,2657,4422,6.987,-4.609,0.1924,0.0
+8370,Gambian Exclusive Economic Zone,Gambian,eez,21659,2819,3727,4637,-20.171,13.112,0.2276,0.0
+5678,Georgian Exclusive Economic Zone,Georgian,eez,23004,901,833,2179,39.507,42.779,0.1715,0.0
+5669,German Exclusive Economic Zone,German,eez,55871,25,26,67,3.384,55.9,1.0,0.0
+8400,Ghanaian Exclusive Economic Zone,Ghanaian,eez,229512,3815,4552,5361,-1.362,2.68,0.1019,0.0
+5679,Greek Exclusive Economic Zone,Greek,eez,482985,1777,1865,4788,21.138,36.492,0.149,0.0
+8419,Grenadian Exclusive Economic Zone,Grenadian,eez,25312,1805,1845,3065,-62.974,12.769,0.0794,0.0
+8430,Guatemalan Exclusive Economic Zone,Guatemalan,eez,111709,3259,3774,6203,-92.769,13.539,0.1259,0.0073
+8472,Guinean Exclusive Economic Zone,Guinean,eez,103567,1611,406,4920,-17.622,8.711,0.48,0.0
+8460,Guyanese Exclusive Economic Zone,Guyanese,eez,136274,1634,1770,3912,-56.997,10.617,0.3628,0.0
+8408,Haitian Exclusive Economic Zone,Haitian,eez,103114,2764,2998,5179,-73.257,17.77,0.0434,0.0
+8427,Honduran Exclusive Economic Zone,Honduran,eez,209395,1935,1323,6075,-83.101,17.602,0.2852,0.0012
+5680,Icelandic Exclusive Economic Zone,Icelandic,eez,758786,1190,1265,3447,-5.669,66.0,0.1451,0.0
+8480,Indian Exclusive Economic Zone,Indian,eez,1675101,1979,2153,4679,69.565,8.798,0.2324,0.0
+8333,Indian Exclusive Economic Zone (Andaman and Nicobar Islands),Indian,eez,672207,2500,2832,4543,92.681,4.872,0.0426,0.0
+8492,Indonesian Exclusive Economic Zone,Indonesian,eez,6059375,2070,1562,9165,127.397,6.097,0.3244,0.0142
+8469,Iranian Exclusive Economic Zone,Iranian,eez,159072,525,62,3461,60.952,23.926,0.7005,0.0
+8470,Iraqi Exclusive Economic Zone,Iraqi,eez,1404,7,6,18,48.823,29.573,1.0,0.0
+5681,Irish Exclusive Economic Zone,Irish,eez,429768,1280,710,4890,-14.106,49.354,0.3383,0.0
+64446,Isle of Man (United Kingdom) Exclusive Economic Zone,British,eez,3769,40,38,112,-5.054,54.188,1.0,0.0
+8375,Israeli Exclusive Economic Zone,Israeli,eez,25925,1129,1350,1984,33.706,33.468,0.1226,0.0
+5682,Italian Exclusive Economic Zone,Italian,eez,536905,1601,1442,4113,18.149,35.996,0.2042,0.0
+8473,Ivorian Exclusive Economic Zone,Ivorian,eez,172817,3684,4350,5362,-7.251,1.011,0.0746,0.0
+8459,Jamaican Exclusive Economic Zone,Jamaican,eez,258301,2335,2097,6626,-78.882,19.187,0.0484,0.0026
+8487,Japanese Exclusive Economic Zone,Japanese,eez,4089565,3684,4239,9580,142.954,28.883,0.0758,0.0617
+21798,Joint regime area Torres Strait Treaty: Papua New Guinea / Australia,Joint regime area Torres Strait Treaty: Papua New Guinea / Australia,joint,2415,5,5,7,142.339,-9.319,1.0,0.0
+48972,Joint regime area: Honduras / United Kingdom (Cayman Islands),Joint regime area: Honduras / United Kingdom (Cayman Islands),joint,1800,801,867,1715,-83.804,18.688,0.0952,0.0
+48975,Joint regime area: Iceland / Norway (Jan Mayen),Joint regime area: Iceland / Norway (Jan Mayen),joint,12,1182,1182,1182,-8.921,68.927,0.0,0.0
+21792,Joint regime area: Jamaica / Colombia,Joint regime area: Jamaica / Colombia,joint,15619,1879,2138,2458,-78.618,14.817,0.0282,0.0
+64459,Joint regime area: Norway - Russia,Joint regime area: Norway - Russia,joint,3593,245,236,321,39.683,72.302,0.0,0.0
+48962,Joint regime area: Peru / Ecuador,Joint regime area: Peru / Ecuador,joint,95,3286,3286,3286,-84.507,-3.294,0.0,0.0
+21796,Joint regime area: South Korea / Japan,Joint regime area: South Korea / Japan,joint,82405,324,142,1129,127.661,28.652,0.6235,0.0
+48977,Joint regime area: Sweden / Norway,Joint regime area: Sweden / Norway,joint,128,145,154,159,10.591,58.836,1.0,0.0
+21797,Joint regime area: São Tomé and Principe / Nigeria,Joint regime area: São Tomé and Principe / Nigeria,joint,34433,3286,3497,4112,3.735,1.801,0.0,0.0
+48978,Joint regime area: United States / Russia,Joint regime area: United States / Russia,joint,8555,3028,3343,3783,179.077,58.973,0.0835,0.0
+8491,Jordanian Exclusive Economic Zone,Jordanian,eez,72,161,161,161,34.937,29.42,1.0,0.0
+8349,Kenyan Exclusive Economic Zone,Kenyan,eez,127963,2530,2950,4338,44.165,-3.82,0.0493,0.0
+8488,Kiribati Exclusive Economic Zone (Gilbert Islands),Kiribati,eez,1061560,4529,4522,6710,175.737,5.31,0.0031,0.0029
+8441,Kiribati Exclusive Economic Zone (Line Group),Kiribati,eez,1659117,4670,4839,5915,-151.479,-11.394,0.0004,0.0
+8450,Kiribati Exclusive Economic Zone (Phoenix Group),Kiribati,eez,756434,5382,5484,7312,-168.442,-1.186,0.0004,0.0251
+8413,Kittitian and Nevisian Exclusive Economic Zone,Kittitian and Nevisian,eez,9610,923,1059,1674,-62.798,16.594,0.0725,0.0
+8357,Kuwaiti Exclusive Economic Zone,Kuwaiti,eez,11047,17,16,41,49.438,28.96,1.0,0.0
+5683,Latvian Exclusive Economic Zone,Latvian,eez,27777,67,44,240,20.083,57.303,0.9718,0.0
+8374,Lebanese Exclusive Economic Zone,Lebanese,eez,18685,1518,1749,2093,34.146,33.834,0.0793,0.0
+8391,Liberian Exclusive Economic Zone,Liberian,eez,256598,3703,4322,5527,-8.218,1.099,0.067,0.0
+8372,Libyan Exclusive Economic Zone,Libyan,eez,355354,1477,1468,4027,18.589,35.282,0.1732,0.0
+5684,Lithuanian Exclusive Economic Zone,Lithuanian,eez,6543,46,48,121,19.116,56.048,1.0,0.0
+8348,Madagascan Exclusive Economic Zone,Madagascan,eez,1199865,3086,3437,5574,50.933,-23.039,0.0976,0.0
+8483,Malaysian Exclusive Economic Zone,Malaysian,eez,516956,440,65,4151,119.751,3.382,0.7487,0.0
+8345,Maldivian Exclusive Economic Zone,Maldivian,eez,932366,3249,3558,5411,75.542,-2.943,0.0297,0.0
+5685,Maltese Exclusive Economic Zone,Maltese,eez,52555,784,440,3792,16.831,35.353,0.1537,0.0
+8318,Marshallese Exclusive Economic Zone,Marshallese,eez,2022377,4655,4919,6403,175.386,6.184,0.0071,0.0013
+8369,Mauritanian Exclusive Economic Zone,Mauritanian,eez,173287,2072,2577,3511,-19.38,16.426,0.1873,0.0
+8343,Mauritian Exclusive Economic Zone,Mauritian,eez,1288343,3431,3775,5214,58.843,-22.796,0.0314,0.0
+62589,Mauritian Exclusive Economic Zone (Chagos Archipelago),Mauritian,eez,656356,3564,3715,5669,73.521,-7.319,0.0278,0.0
+8429,Mexican Exclusive Economic Zone,Mexican,eez,3203305,2725,3348,6355,-93.735,14.051,0.1263,0.0009
+8316,Micronesian Exclusive Economic Zone,Micronesian,eez,3033614,3952,4092,10264,142.251,11.308,0.0057,0.0129
+5691,Montenegrin Exclusive Economic Zone,Montenegrin,eez,6277,295,145,1070,18.062,41.607,0.6269,0.0
+21790,Monégasque Exclusive Economic Zone,Monégasque,eez,151,2049,2244,2530,7.69,43.165,0.0,0.0
+8367,Moroccan Exclusive Economic Zone,Moroccan,eez,277810,2196,2112,4698,-11.733,34.705,0.1932,0.0
+8347,Mozambican Exclusive Economic Zone,Mozambican,eez,570910,1814,1955,4806,37.837,-26.863,0.1268,0.0
+8482,Myanma Exclusive Economic Zone,Myanma,eez,501502,1045,362,3145,92.593,14.477,0.4543,0.0
+8395,Namibian Exclusive Economic Zone,Namibian,eez,565142,1989,1911,5254,8.394,-17.853,0.1722,0.0
+8317,Nauruan Exclusive Economic Zone,Nauruan,eez,314837,4177,4286,4734,165.103,-2.065,0.0002,0.0
+8455,New Zealand Exclusive Economic Zone,New Zealand,eez,4120964,2467,2208,9604,-177.231,-31.84,0.0633,0.0224
+8446,New Zealand Exclusive Economic Zone (Cook Islands),New Zealand,eez,1986783,4669,4859,6429,-156.841,-9.752,0.0003,0.0011
+8447,New Zealand Exclusive Economic Zone (Niue),New Zealand,eez,319645,5198,5349,6037,-167.651,-18.937,0.0011,0.0003
+8449,New Zealand Exclusive Economic Zone (Tokelau),New Zealand,eez,323167,4597,4616,5852,-175.034,-7.755,0.0003,0.0
+8425,Nicaraguan Exclusive Economic Zone,Nicaraguan,eez,215796,1323,901,5495,-88.374,11.652,0.3885,0.0
+8474,Nigerian Exclusive Economic Zone,Nigerian,eez,179165,1796,1599,4308,2.944,2.592,0.253,0.0
+8328,North Korean Exclusive Economic Zone,North Korean,eez,114559,1611,1803,3606,132.056,40.413,0.3138,0.0
+5686,Norwegian Exclusive Economic Zone,Norwegian,eez,928204,837,344,3290,4.438,69.178,0.2254,0.0
+8437,Norwegian Exclusive Economic Zone (Jan Mayen),Norwegian,eez,290833,2450,2560,3828,-3.472,69.084,0.0053,0.0
+33181,Norwegian Exclusive Economic Zone (Svalbard),Norwegian,eez,788583,1300,526,5657,2.856,79.147,0.3116,0.0
+8354,Omani Exclusive Economic Zone,Omani,eez,560148,2760,3193,4277,58.931,15.411,0.0927,0.0
+48947,"Overlapping claim Abu musa, Greater and Lesser Tunb: United Arab Emirates / Iran","Overlapping claim Abu musa, Greater and Lesser Tunb: United Arab Emirates / Iran",claim,6000,57,61,87,54.888,26.155,1.0,0.0
+49001,Overlapping claim Alhucemas Islands: Spain / Morocco,Overlapping claim Alhucemas Islands: Spain / Morocco,claim,16,0,0,0,-3.911,35.21,1.0,0.0
+64431,Overlapping claim Belize / Honduras,Overlapping claim Belize / Honduras,claim,1410,536,235,1791,-88.022,16.172,0.4999,0.0
+49002,Overlapping claim Ceuta: Spain / Morocco,Overlapping claim Ceuta: Spain / Morocco,claim,47,51,51,51,-5.317,35.853,1.0,0.0
+48956,Overlapping claim Doumeira Islands: Eritrea / Djibouti,Overlapping claim Doumeira Islands: Eritrea / Djibouti,claim,273,89,89,95,43.198,12.769,1.0,0.0
+64430,Overlapping claim Egypt / Libya,Overlapping claim Egypt / Libya,claim,7759,2486,2481,3171,25.62,32.287,0.0,0.0
+8389,Overlapping claim Falkland / Malvinas Islands: United Kingdom / Argentina,Overlapping claim Falkland / Malvinas Islands: United Kingdom / Argentina,claim,551171,966,470,4621,-59.634,-55.304,0.303,0.0
+8365,Overlapping claim Gibraltar: United Kingdom / Spain,Overlapping claim Gibraltar: United Kingdom / Spain,claim,296,582,671,820,-5.054,36.067,0.1577,0.0
+48945,Overlapping claim Glorioso Islands: France / Madagascar,Overlapping claim Glorioso Islands: France / Madagascar,claim,43339,3203,3545,4449,47.065,-10.704,0.0379,0.0
+26582,Overlapping claim Halaib Triangle: Sudan / Egypt,Overlapping claim Halaib Triangle: Sudan / Egypt,claim,20007,692,709,1990,37.837,22.065,0.1981,0.0
+48946,Overlapping claim Ile Tromelin: France / Madagascar / Republic of Mauritius,Overlapping claim Ile Tromelin: France / Madagascar / Republic of Mauritius,claim,274760,4515,4546,5154,53.833,-17.602,0.0,0.0
+48950,Overlapping claim Kuril Islands: Japan / Russia,Overlapping claim Kuril Islands: Japan / Russia,claim,213944,3692,3383,8896,149.019,43.421,0.111,0.1158
+48955,Overlapping claim Liancourt Rocks: Japan / South Korea,Overlapping claim Liancourt Rocks: Japan / South Korea,claim,1574,1241,1245,2094,131.792,37.405,0.0,0.0
+48948,Overlapping claim Matthew and Hunter Islands: France / Vanuatu,Overlapping claim Matthew and Hunter Islands: France / Vanuatu,claim,188899,3743,3956,6810,172.222,-23.039,0.0,0.0163
+48944,Overlapping claim Mayotte: France / Comoros,Overlapping claim Mayotte: France / Comoros,claim,67647,3149,3448,3758,43.989,-14.392,0.0265,0.0
+49000,Overlapping claim Melilla: Spain / Morocco,Overlapping claim Melilla: Spain / Morocco,claim,16,0,0,0,-2.944,35.282,1.0,0.0
+48951,Overlapping claim Navassa Island: United States / Haiti / Jamaica,Overlapping claim Navassa Island: United States / Haiti / Jamaica,claim,14114,1713,1717,2791,-75.278,18.937,0.0,0.0
+48953,Overlapping claim Palestinian Exclusive Economic Zone,Overlapping claim Palestinian Exclusive Economic Zone,eez,1040,114,61,343,34.146,31.691,0.7339,0.0
+48954,Overlapping claim Senkaku Islands: Taiwan / Japan / China,Overlapping claim Senkaku Islands: Taiwan / Japan / China,claim,74158,524,135,2168,123.97,25.205,0.6773,0.0
+8383,Overlapping claim South Georgia and the South Sandwich Islands: United Kingdom / Argentina,Overlapping claim South Georgia and the South Sandwich Islands: United Kingdom / Argentina,claim,1239364,3524,3484,8095,-26.323,-55.254,0.0204,0.0378
+8321,Overlapping claim Taiwan: Taiwan / China,Overlapping claim Taiwan: Taiwan / China,claim,357037,1958,1908,5982,123.179,22.634,0.2186,0.0
+5695,Overlapping claim Ukraine: Ukraine / Russia,Overlapping claim Ukraine: Ukraine / Russia,claim,135163,775,60,2403,32.827,44.245,0.5592,0.0
+8319,Overlapping claim Wake Island / Enenkio: United States / Marshall Islands,Overlapping claim Wake Island / Enenkio: United States / Marshall Islands,claim,413777,5156,5355,6174,165.63,17.435,0.0,0.0043
+8368,Overlapping claim Western Sahara: Western Sahara / Morocco,Overlapping claim Western Sahara: Western Sahara / Morocco,claim,285133,2154,2646,4205,-20.522,21.902,0.1968,0.0
+48943,Overlapping claim: Canada / United States,Overlapping claim: Canada / United States,claim,24543,2518,2730,3467,-140.845,73.391,0.0484,0.0
+48971,Overlapping claim: Colombia / Dominican Republic / Venezuela,Overlapping claim: Colombia / Dominican Republic / Venezuela,claim,891,4065,4071,4253,-70.796,15.072,0.0,0.0
+33185,Overlapping claim: Guyana / Trinidad and Tobago / Venezuela,Overlapping claim: Guyana / Trinidad and Tobago / Venezuela,claim,3415,3172,3341,4035,-57.173,10.876,0.0,0.0
+64440,Overlapping claim: Malaysia / Singapore,Overlapping claim: Malaysia / Singapore,claim,286,32,33,34,104.546,1.45,1.0,0.0
+50170,Overlapping claim: Qatar / Saudi Arabia / United Arab Emirates,Overlapping claim: Qatar / Saudi Arabia / United Arab Emirates,claim,79,10,10,10,51.548,24.647,1.0,0.0
+49003,Overlapping claim: South China Sea,Overlapping claim: South China Sea,claim,339862,3216,3691,4596,114.741,15.242,0.022,0.0
+48982,Overlapping claim: United States (Puerto Rico) / Dominican Republic,Overlapping claim: United States (Puerto Rico) / Dominican Republic,claim,17675,5584,5397,8346,-67.368,19.684,0.0,0.1005
+48965,Overlapping claim: Venezuela / Netherlands (Aruba) / Dominican Republic,Overlapping claim: Venezuela / Netherlands (Aruba) / Dominican Republic,claim,1066,3860,3860,4068,-69.038,15.242,0.0,0.0
+8359,Pakistani Exclusive Economic Zone,Pakistani,eez,224279,1734,1965,4264,62.798,22.391,0.2188,0.0
+8315,Palauan Exclusive Economic Zone,Palauan,eez,623026,4456,4555,8202,134.956,7.755,0.0038,0.0202
+8423,Panamanian Exclusive Economic Zone,Panamanian,eez,331731,2249,2778,4273,-79.497,5.66,0.1527,0.0
+8324,Papua New Guinean Exclusive Economic Zone,Papua New Guinean,eez,2416288,2690,2411,8605,153.94,-6.446,0.0767,0.018
+8432,Peruvian Exclusive Economic Zone,Peruvian,eez,863158,3529,4157,7172,-74.136,-17.015,0.0849,0.0203
+8322,Philippine Exclusive Economic Zone,Philippine,eez,1977520,3144,3561,9499,126.87,9.666,0.1367,0.0358
+5687,Polish Exclusive Economic Zone,Polish,eez,29835,53,51,113,18.589,55.801,1.0,0.0
+5688,Portuguese Exclusive Economic Zone,Portuguese,eez,316417,3545,4072,5597,-13.843,39.876,0.0641,0.0
+8361,Portuguese Exclusive Economic Zone (Azores),Portuguese,eez,968286,3065,3098,5904,-24.917,34.053,0.002,0.0
+8363,Portuguese Exclusive Economic Zone (Madeira),Portuguese,eez,457659,4133,4293,5777,-18.413,36.067,0.0014,0.0
+8468,Qatari Exclusive Economic Zone,Qatari,eez,31073,27,25,73,51.636,26.942,1.0,0.0
+5689,Romanian Exclusive Economic Zone,Romanian,eez,29958,287,73,1766,31.333,43.739,0.7502,0.0
+5690,Russian Exclusive Economic Zone,Russian,eez,7548002,1044,170,9245,152.71,45.244,0.5323,0.0136
+8416,Saint Lucian Exclusive Economic Zone,Saint Lucian,eez,15710,1990,1891,2989,-62.183,13.966,0.0401,0.0
+8421,Saint Vincentian Exclusive Economic Zone,Saint Vincentian,eez,36430,2130,2428,3222,-62.446,13.539,0.0449,0.0
+8428,Salvadoran Exclusive Economic Zone,Salvadoran,eez,96130,2834,3610,5792,-90.132,12.34,0.1914,0.0
+8445,Samoan Exclusive Economic Zone,Samoan,eez,130466,4293,4649,7851,-172.31,-15.411,0.0173,0.0533
+8356,Saudi Arabian Exclusive Economic Zone,Saudi Arabian,eez,223084,419,209,2135,36.167,25.364,0.4978,0.0
+8371,Senegalese Exclusive Economic Zone,Senegalese,eez,158457,2959,3416,4899,-20.171,11.91,0.1359,0.0
+8337,Seychellois Exclusive Economic Zone,Seychellois,eez,1359053,3710,4094,5534,53.13,-2.153,0.0357,0.0
+8390,Sierra Leonean Exclusive Economic Zone,Sierra Leonean,eez,162490,3530,4482,4989,-15.864,5.922,0.1613,0.0
+8485,Singaporean Exclusive Economic Zone,Singaporean,eez,811,2,0,7,103.667,1.186,1.0,0.0
+5692,Slovenian Exclusive Economic Zone,Slovenian,eez,141,8,8,15,13.579,45.553,1.0,0.0
+8314,Solomon Islands Exclusive Economic Zone,Solomon Islands,eez,1615405,3111,3260,8273,165.63,-11.652,0.0197,0.0079
+8350,Somali Exclusive Economic Zone,Somali,eez,828283,3174,3562,5424,52.954,8.364,0.0521,0.0
+8396,South African Exclusive Economic Zone,South African,eez,1080537,2608,2923,5540,23.159,-37.405,0.1361,0.0
+8384,South African Exclusive Economic Zone (Prince Edward Islands),South African,eez,478718,3333,3499,5596,33.53,-46.83,0.0034,0.0
+8327,South Korean Exclusive Economic Zone,South Korean,eez,348358,688,87,3275,131.089,38.788,0.6637,0.0
+5693,Spanish Exclusive Economic Zone,Spanish,eez,563556,2586,2569,5419,-12.964,42.65,0.1147,0.0
+8364,Spanish Exclusive Economic Zone (Canary Islands),Spanish,eez,448660,3566,3684,4964,-21.577,30.031,0.0122,0.0
+8346,Sri Lankan Exclusive Economic Zone,Sri Lankan,eez,539554,3494,3848,4450,80.728,2.592,0.0544,0.0
+8355,Sudanese Exclusive Economic Zone,Sudanese,eez,63391,655,537,2506,38.716,19.601,0.2553,0.0
+8461,Surinamese Exclusive Economic Zone,Surinamese,eez,134944,1213,886,4833,-52.866,8.798,0.4019,0.0
+5694,Swedish Exclusive Economic Zone,Swedish,eez,157406,65,54,511,10.151,58.425,0.9808,0.0
+8373,Syrian Exclusive Economic Zone,Syrian,eez,10144,955,1087,1766,35.464,34.778,0.1351,0.0
+8397,São Toméan Exclusive Economic Zone,São Toméan,eez,132015,2972,2979,4372,3.208,0.923,0.0121,0.0
+8479,Tanzanian Exclusive Economic Zone,Tanzanian,eez,242426,2443,2757,4088,43.198,-4.784,0.0748,0.0
+8332,Thailand Exclusive Economic Zone,Thailand,eez,299815,174,50,2533,95.669,9.579,0.78,0.0
+8758,Timorese Exclusive Economic Zone,Timorese,eez,75390,885,548,3425,125.728,-8.277,0.4208,0.0
+21791,Timorese Exclusive Economic Zone (Oecusse),Timorese,eez,1816,1893,2091,3738,124.321,-8.885,0.2306,0.0
+8392,Togolese Exclusive Economic Zone,Togolese,eez,15677,3259,3781,4362,2.153,2.943,0.0617,0.0
+8448,Tongan Exclusive Economic Zone,Tongan,eez,669531,3431,2429,10467,-174.683,-23.12,0.0109,0.1321
+8420,Trinidadian and Tobagonian Exclusive Economic Zone,Trinidadian and Tobagonian,eez,77193,1122,1308,3997,-57.261,10.963,0.3078,0.0
+8366,Tunisian Exclusive Economic Zone,Tunisian,eez,99193,246,85,2733,7.954,37.962,0.6667,0.0
+5697,Turkish Exclusive Economic Zone,Turkish,eez,259553,1436,1883,4465,28.784,35.925,0.1944,0.0
+8326,Tuvaluan Exclusive Economic Zone,Tuvaluan,eez,759380,4724,5093,6489,-178.726,-5.31,0.0035,0.0027
+8456,United States Exclusive Economic Zone,United States,eez,2459694,1810,1432,5305,-72.642,32.88,0.3138,0.0
+8463,United States Exclusive Economic Zone (Alaska),United States,eez,3672984,2327,2547,7484,176.704,50.764,0.3705,0.0252
+8444,United States Exclusive Economic Zone (American Samoa),United States,eez,407394,4963,5103,6068,-167.651,-15.919,0.0008,0.0006
+48957,United States Exclusive Economic Zone (Guam),United States,eez,210671,4615,4138,9990,144.536,11.996,0.0018,0.205
+8453,United States Exclusive Economic Zone (Hawaii),United States,eez,2501056,4570,4803,5984,-174.771,29.344,0.007,0.0
+8451,United States Exclusive Economic Zone (Howland and Baker Islands),United States,eez,442404,5294,5368,6283,-177.407,-2.943,0.0,0.0006
+8442,United States Exclusive Economic Zone (Jarvis Islands),United States,eez,327786,5099,5177,5588,-160.62,0.571,0.0,0.0
+8452,United States Exclusive Economic Zone (Johnston Atoll),United States,eez,450411,4783,5096,6357,-171.079,14.392,0.0004,0.0077
+48980,United States Exclusive Economic Zone (Northern Mariana Islands),United States,eez,771362,4215,3998,9510,146.558,13.283,0.0013,0.1208
+8443,United States Exclusive Economic Zone (Palmyra Atoll),United States,eez,360608,4266,4564,5410,-164.927,4.083,0.0,0.0
+33179,United States Exclusive Economic Zone (Puerto Rico),United States,eez,155603,4385,4666,8459,-66.313,19.767,0.0294,0.1629
+33180,United States Exclusive Economic Zone (United States Virgin Islands),United States,eez,38496,3242,3869,6938,-65.259,19.27,0.056,0.0111
+8467,Uruguayan Exclusive Economic Zone,Uruguayan,eez,143502,1342,150,4362,-50.669,-36.633,0.5118,0.0
+8313,Vanuatuan Exclusive Economic Zone,Vanuatuan,eez,628155,2935,3035,8253,165.894,-12.426,0.0144,0.0115
+8433,Venezuelan Exclusive Economic Zone,Venezuelan,eez,471311,2373,2107,5114,-67.983,14.307,0.2252,0.0
+8484,Vietnamese Exclusive Economic Zone,Vietnamese,eez,756644,939,127,4361,111.753,12.254,0.5307,0.0
+8353,Yemeni Exclusive Economic Zone,Yemeni,eez,531526,2363,2361,5537,56.206,10.617,0.1032,0.0
